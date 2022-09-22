@@ -1,0 +1,35 @@
+.container {
+  width: 100%;
+  padding: 20px 5%;
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 80px;
+  z-index: 5000;
+  max-width: 1900px;
+  background: #fff;
+  top: 0;
+}
+
+.menuIcon {
+  display: none;
+}
+
+.auth {
+  display: inline-block;
+}
+
+@media (max-width: 768px) {
+  .menuIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    /* color: rgb(87, 172, 116); */
+    color: rgba(67, 53, 144, 1);
+  }
+  .auth {
+    display: none;
+  }
+}

@@ -1,0 +1,242 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+@import "presets.css";
+@import "fonts.css";
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  width: 100%;
+  word-wrap: break-word;
+  word-break: normal;
+  position: relative;
+}
+
+/* ::selection {
+  text-decoration: none;
+} */
+
+a {
+  color: var(--primary-regular);
+  cursor: pointer;
+}
+
+.container_full_width {
+  width: 100%;
+}
+
+.backdrop {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: visible;
+}
+
+.hidden {
+  display: none;
+}
+
+.whiteButton,
+.grayButton,
+.transparentButton,
+.buttonPrimary {
+  display: flex;
+  padding: 8px 30px;
+  border-radius: 60px;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  word-break: keep-all;
+  word-wrap: normal;
+  white-space: nowrap;
+  gap: 20px;
+}
+
+.whiteButton {
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0px 0px 1px 1px rgba(235, 242, 239, 0.99);
+  color: #000;
+}
+.whiteButton:hover {
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0px 0px 1px 1px rgba(235, 242, 239, 0.99);
+}
+
+.grayButton {
+  background: #eaf2ee;
+  box-shadow: 0px 0px 1px 1px rgba(255, 255, 255, 0.8);
+  color: #000;
+}
+.grayButton:hover {
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0px 0px 1px 1px rgba(255, 255, 255, 0.8);
+}
+
+.transparentButton {
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0px 0px 1px 1px rgba(255, 255, 255, 1);
+  color: #fff;
+}
+.transparentButton:hover {
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: inset 0px 0px 1px 1px rgba(255, 255, 255, 1);
+}
+
+.buttonPrimary {
+  background-color: var(--primary-regular);
+  color: #fff;
+  box-shadow: inset 0px 0px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.buttonPrimary:hover {
+  background-color: var(--primary-regular-900);
+  box-shadow: inset 0px 0px 1px 1px rgba(0, 0, 0, 0.1);
+}
+button {
+  box-shadow: inset 0px 0px 1px 1px rgba(0, 0, 0, 0.2);
+}
+button:hover {
+  box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.2);
+}
+.inputText {
+  border-radius: 8px;
+  box-shadow: inset 0px 0px 1px 1px rgba(0, 0, 0, 0.1);
+  outline: none;
+  padding: 10px;
+  height: 50px;
+}
+.short {
+  display: none;
+}
+
+.long {
+  display: inline;
+}
+
+.smallMobile {
+  display: none;
+}
+
+.p-sm {
+  padding: 7px 15px;
+}
+.p-7-10 {
+  padding: 7px 10px;
+}
+
+.stretched {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+.radius-8 {
+  border-radius: 8px;
+}
+
+.dashboard-body {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding-right: 5%;
+  min-height: 80vh;
+  max-width: 1900px;
+  margin-bottom: 50px;
+  margin-top: 100px;
+}
+
+.office_button {
+  padding: 10px 50px;
+  background: #fff;
+  border: 0;
+  outline: 0;
+  font-weight: 600;
+}
+
+@media screen and (max-width: 768px) {
+  .dashboard-body {
+    padding-left: 5%;
+  }
+}
+
+@media screen and (max-width: 440px) {
+  .long {
+    display: none;
+  }
+  .short {
+    display: inline;
+  }
+}
+
+@media (max-width: 400px) {
+  .smallMobile {
+    display: inline-block;
+  }
+  .bigMobile {
+    display: none;
+  }
+}
+
+@media (max-width: 375px) {
+  .full-mobile-375 {
+    width: 100%;
+  }
+}
+
+@media (max-width: 320px) {
+  button,
+  .buttonPrimary .whiteButton {
+    word-wrap: normal;
+    word-break: keep-all;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .transparentButton {
+    font-size: 5vw;
+  }
+}
+
+@media (max-width: 275px) {
+  button,
+  .buttonPrimary .whiteButton,
+  .transparentButton {
+    padding: 5px;
+    font-size: 4vw;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .card,
+  .footer {
+    border-color: #222;
+  }
+  .code {
+    background: #111;
+  }
+  .logo {
+    filter: invert(1);
+  }
+}

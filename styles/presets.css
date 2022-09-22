@@ -1,0 +1,33 @@
+:root {
+  --black: rgba(0, 0, 0, 1);
+  --darkmain-dark: rgba(8, 8, 8, 1);
+  /* --primary-regular: rgb(48, 16, 140); */
+  --primary-regular: rgb(11, 80, 143);
+  --primary-regular-900: rgb(11, 80, 143, 0.9);
+  --dark800: rgba(94, 94, 100, 1);
+  --dark700: rgba(126, 126, 134, 1);
+  --dark600: rgba(160, 160, 166, 1);
+  --dark400: rgba(232, 232, 232, 1);
+  --dark300: rgba(232, 232, 232, 0.5);
+  --light700: rgba(255, 255, 255, 0.7);
+  /* --dark300: rgba(229, 229, 230, 1); */
+  --darkwhite: rgba(255, 255, 255, 1);
+
+  --gutter: 14px;
+  --soft-color: #fafafa;
+  --dark-color: #080808;
+
+  --font-size-s: 12px;
+  --font-size-m: 14px;
+  --font-size-l: 16px;
+  --font-size-xl: 18px;
+  --font-size-xl2: 18px;
+  --font-size-xxl: 20px;
+  --font-size-xxxl: 28px;
+  --font-size-xxxxl: 40px;
+  --font-size-xxxxl2: 40px;
+  --font-size-xxxl2: 36px;
+  --font-size-xxxxxl: 50px;
+}
+
+/* Classes */

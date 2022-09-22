@@ -1,0 +1,36 @@
+@font-face {
+  font-family: "Axiforma-Medium";
+  font-style: normal;
+  font-weight: 500;
+  src: url("../fonts/Axiforma-Medium.woff") format("woff");
+}
+@font-face {
+  font-family: "Axiforma-Bold";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../fonts/Axiforma-Bold.woff") format("woff");
+}
+@font-face {
+  font-family: "Axiforma-Regular";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/Axiforma-Regular.woff") format("woff");
+}
+@font-face {
+  font-family: "Axiforma-Light";
+  font-style: normal;
+  font-weight: 300;
+  src: url("../fonts/Axiforma-Light.woff") format("woff");
+}
+@font-face {
+  font-family: "Campton";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/Campton-LightDEMO.otf") format("otf");
+}
+@font-face {
+  font-family: "Campton";
+  font-style: normal;
+  font-weight: 600;
+  src: url("../fonts/Campton-BoldDEMO.otf") format("otf");
+}
