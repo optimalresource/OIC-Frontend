@@ -173,6 +173,15 @@ button:hover {
   font-weight: 600;
 }
 
+.px-12 {
+  padding-left: 60px;
+  padding-right: 60px;
+}
+.py-5 {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
 @media screen and (max-width: 768px) {
   .dashboard-body {
     padding-left: 5%;

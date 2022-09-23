@@ -22,15 +22,24 @@ export function Header() {
           height={60}
           alt="logo"
         />
+        <div className={styles.menus}>
+          <ul>
+            <li>Home</li>
+            <li>Register</li>
+            <li>Ministers</li>
+          </ul>
+          {!isMobile && (
+            <button className={`buttonPrimary`}>
+              <Icon icon="bi:person" /> Login
+            </button>
+          )}
+        </div>
         <div
           className={styles.menuIcon}
           onClick={() => setMenuToggled((previous) => !previous)}
         >
-          <Icon icon="healthicons:ui-menu-negative" />
+          <Icon icon="ant-design:menu-outlined" />
         </div>
-        <button className={`buttonPrimary`}>
-          <Icon icon="bi:person" /> Login
-        </button>
       </div>
       {menuToggled && isMobile && (
         <MobileMenu menuToggled={menuToggled} setMenuToggled={setMenuToggled} />

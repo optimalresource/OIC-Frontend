@@ -1,22 +1,22 @@
 export const menu = [
   {
+    url: "/login",
+    title: "Login",
+    icon: "bi:person",
+  },
+  {
     url: "/",
-    title: "Office of the GO",
-    icon: "bx:church",
+    title: "Home",
+    icon: "ant-design:home-outlined",
   },
   {
-    url: "national-headquaters",
-    title: "National Headquarters",
-    icon: "mdi:church",
+    url: "/register",
+    title: "Register",
+    icon: "bi:person-plus",
   },
   {
-    url: "international-headquarters",
-    title: "International Headquarters",
-    icon: "icon-park-twotone:church-one",
-  },
-  {
-    url: "international-office",
-    title: "International Office",
-    icon: "healthicons:church",
+    url: "/ministers",
+    title: "Ministers",
+    icon: "akar-icons:people-group",
   },
 ];

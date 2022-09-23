@@ -20,16 +20,37 @@
   display: inline-block;
 }
 
+.menus {
+  display: flex;
+  gap: 50px;
+  align-items: center;
+  cursor: pointer;
+}
+
+.menus ul {
+  display: flex;
+  gap: 50px;
+  align-items: center;
+  font-weight: 600;
+}
+
+@media (max-width: 1040px) {
+  .menus,
+  .menus ul {
+    gap: 30px;
+  }
+}
+
 @media (max-width: 768px) {
   .menuIcon {
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 24px;
-    /* color: rgb(87, 172, 116); */
-    color: rgba(67, 53, 144, 1);
+    color: var(--primary-regular);
   }
-  .auth {
+  .auth,
+  .menus {
     display: none;
   }
 }

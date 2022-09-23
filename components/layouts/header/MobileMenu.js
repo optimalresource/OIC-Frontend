@@ -18,16 +18,13 @@ const MobileMenu = ({ menuToggled, setMenuToggled }) => {
             onClick={() => setMenuToggled(!menuToggled)}
           >
             <Image
-              src="/assets/images/full_logo.png"
-              width={150}
-              height={30}
+              src="/assets/images/logo.png"
+              width={210}
+              height={60}
               alt="logo"
             />
             <Icon icon="fontisto:close-a" />
             {/* close */}
-          </div>
-          <div className={styles.memberLinks}>
-            <div className={`${styles.menuList} buttonPrimary`}>Login</div>
           </div>
           <div className={styles.linkGroup}>
             <ul className={styles.links}>
