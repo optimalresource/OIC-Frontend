@@ -17,7 +17,7 @@ export function Header() {
     <>
       <div className={styles.container}>
         <Image
-          src="/assets/images/svgs/logo.svg"
+          src="/assets/images/svgs/new_logo.svg"
           width={210}
           height={60}
           alt="logo"
