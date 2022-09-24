@@ -18,8 +18,8 @@ const MobileMenu = ({ menuToggled, setMenuToggled }) => {
             onClick={() => setMenuToggled(!menuToggled)}
           >
             <Image
-              src="/assets/images/svgs/new_logo.svg"
-              width={210}
+              src="/assets/images/new_logo.png"
+              width={215}
               height={60}
               alt="logo"
             />
