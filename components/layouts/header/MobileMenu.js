@@ -17,12 +17,12 @@ const MobileMenu = ({ menuToggled, setMenuToggled }) => {
             className={styles.closePanel}
             onClick={() => setMenuToggled(!menuToggled)}
           >
-            <Image
+            {/* <Image
               src="/assets/images/new_logo.png"
               width={215}
               height={60}
               alt="logo"
-            />
+            /> */}
             <Icon icon="fontisto:close-a" />
             {/* close */}
           </div>
