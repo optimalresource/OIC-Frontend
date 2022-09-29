@@ -24,7 +24,9 @@ function HeroSection({}) {
             height={216}
             layout="intrinsic"
           />
-          <div className={styles.buttonPad}>
+          <div
+            className={`${styles.buttonPad}ml-[100px] max400:absolute max400:ml-[unset]`}
+          >
             <button className={`buttonPrimary px-12 py-5`}>
               Click to Serve
             </button>

@@ -6,12 +6,12 @@ export default function Home() {
   return (
     <Fragment>
       <Head>
-        <title>RCCG Office Info</title>
+        <title>Oasis International Conference</title>
         <meta
           name="description"
           content="A portal for checking the RCCG hierarchy and personnels, vision and mission statement"
         />
-        <link rel="icon" href="/fav.png" />
+        <link rel="icon" href="/logo.png" />
       </Head>
       <Volunteers />
     </Fragment>

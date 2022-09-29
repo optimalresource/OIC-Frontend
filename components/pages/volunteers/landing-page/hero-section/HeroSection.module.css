@@ -45,7 +45,7 @@
 }
 
 .buttonPad {
-  margin-left: -100px;
+  /* margin-left: -100px; */
   z-index: 2;
 }
 
@@ -87,5 +87,11 @@
   .leftSection h1 {
     font-size: 12vw;
     line-height: 60px;
+  }
+}
+
+@media (max-width: 400px) {
+  .rightSection {
+    justify-content: center;
   }
 }
