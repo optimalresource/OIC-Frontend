@@ -8,6 +8,11 @@ module.exports = {
   theme: {
     extend: {},
     screens: {
+      min1728: { min: "1728px" },
+      max1727: { max: "1727px" },
+      max1555: { max: "1555px" },
+      min1201: { min: "1201px" },
+      max1200: { max: "1200px" },
       max1140: { max: "1140px" },
       min1140: { min: "1140px" },
       min1041: { min: "1041px" },

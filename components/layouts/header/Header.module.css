@@ -1,12 +1,10 @@
 .container {
-  width: 100%;
   position: fixed;
   display: flex;
   justify-content: space-between;
   align-items: center;
   min-height: 80px;
   z-index: 5000;
-  max-width: 1900px;
   background: #fff;
 }
 

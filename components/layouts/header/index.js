@@ -21,12 +21,12 @@ export function Header() {
   return (
     <>
       <div
-        className={`${styles.container} top-[50px] px-[5%] py-[20px] min641:pt-[10px] max640:top-[0]`}
+        className={`${styles.container} top-[50px] py-[20px] min641:pt-[10px] max640:top-[0] w-[90%] max-w-[1555px] max1555:px-[5%] max1555:w-[100%] min1728:px-[0]`}
       >
         <Image
           src="/assets/images/svgs/logo3.svg"
-          width={215}
-          height={60}
+          width={161}
+          height={45}
           alt="logo"
           layout="intrinsic"
         />
@@ -40,7 +40,7 @@ export function Header() {
           </ul>
         </div>
         {!isMobile && (
-          <div className="buttonWrapper max1040:hidden">
+          <div className="buttonWrapper max1200:hidden">
             <button className={`buttonPrimary text-sm`}>
               Register for Conference
             </button>
@@ -48,7 +48,7 @@ export function Header() {
           </div>
         )}
         <motion.div
-          className={`${styles.menuIcon} flex justify-end items-center text-[24px] w-[100px] text-right min1041:hidden`}
+          className={`${styles.menuIcon} flex justify-end items-center text-[24px] w-[100px] text-right min1201:hidden`}
           onClick={() => setMenuToggled((previous) => !previous)}
           animate={menuToggled ? "closed" : "open"}
           variants={variants}

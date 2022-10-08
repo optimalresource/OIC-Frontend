@@ -5,11 +5,10 @@
   align-items: center;
   justify-content: center;
   padding: 100px 5%;
-  /* background: var(--off-primary-regular); */
   background: #000;
   min-height: 200px;
   gap: 30px;
-  /* border-top: 1px solid #c4c4c4; */
+  margin-top: 100px;
 }
 
 .container h2 {

@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { Fragment } from "react";
-import Volunteers from "components/pages/volunteers";
+import LandingPage from "components/pages/landing-page";
 
 export default function Home() {
   return (
@@ -9,11 +9,11 @@ export default function Home() {
         <title>Oasis International Conference</title>
         <meta
           name="description"
-          content="A portal for checking the RCCG hierarchy and personnels, vision and mission statement"
+          content="The Oasis International Conference..."
         />
         <link rel="icon" href="/logo.png" />
       </Head>
-      <Volunteers />
+      <LandingPage />
     </Fragment>
   );
 }

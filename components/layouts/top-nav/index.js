@@ -3,7 +3,7 @@ import React from "react";
 
 const TopNav = () => {
   return (
-    <div className="fixed flex px-[5%] py-[10px] top-0 h-[50px] justify-between items-center w-[100%] text-[#1f4477] z-10 bg-[#ffffff] max-w-[1900px] max640:hidden">
+    <div className="fixed flex  py-[10px] top-0 h-[50px] justify-between items-center w-[90%] text-[#1f4477] z-10 max-w-[1555px] max1555:px-[5%] max1555:w-[100%] max640:hidden min1728:px-[0] bg-[#ffffff]">
       <div className="flex items-center gap-5">
         <div className="flex gap-2 items-center">
           <Icon icon="akar-icons:phone" />
