@@ -4,13 +4,14 @@
   top: 0;
   right: 0;
   z-index: 10000;
-  height: 70%;
+  min-height: 40%;
   overflow: auto;
   color: #000;
   display: flex;
   flex-direction: column;
   padding: 50px;
   gap: 40px;
+  background: rgb(255, 255, 255);
 }
 
 .linkGroup,
@@ -53,13 +54,10 @@
 
 .menuList {
   font-weight: 600;
+  display: flex;
+  justify-content: flex-start;
+  gap: 20px;
 }
-
-/* @media (min-width: 400px) {
-  .memberLinks .menuList {
-    max-width: 300px;
-  }
-} */
 
 @media (max-width: 350px) {
   .mobileMenuItemsWrapper {

@@ -3,15 +3,14 @@ import Header from "components/layouts/header";
 import { OneColumnLayout } from "components/layouts/OneColumnLayout";
 import Sidebar from "./sidebar";
 import Footer from "./footer";
+import TopNav from "./top-nav";
 
 const MainLayout = ({ children }) => {
   return (
     <OneColumnLayout>
+      <TopNav />
       <Header />
-      {/* <div className="dashboard-body"> */}
-      {/* <Sidebar /> */}
       {children}
-      {/* </div> */}
       <Footer />
     </OneColumnLayout>
   );

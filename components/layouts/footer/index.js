@@ -40,9 +40,10 @@ const Footer = () => {
       <div className="flex justify-between w-[100%] items-center text-white max400:flex-col max400:gap-5">
         <p>&copy; 2022 OIC, All rights reserved.</p>
         <div className="flex gap-4">
-          <Icon icon="akar-icons:twitter-fill" />
-          <Icon icon="akar-icons:linkedin-box-fill" />
+          <Icon icon="akar-icons:instagram-fill" />
+          <Icon icon="akar-icons:youtube-fill" />
           <Icon icon="akar-icons:facebook-fill" />
+          <Icon icon="akar-icons:twitter-fill" />
         </div>
       </div>
     </div>

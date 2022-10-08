@@ -53,9 +53,14 @@ a {
   display: none;
 }
 
+.buttonWrapper {
+  display: flex;
+  gap: 20px;
+}
+
 .whiteButton,
 .grayButton,
-.transparentButton,
+.buttonTransparent,
 .buttonPrimary {
   display: flex;
   padding: 8px 30px;
@@ -89,14 +94,14 @@ a {
   box-shadow: 0px 0px 1px 1px rgba(255, 255, 255, 0.8);
 }
 
-.transparentButton {
+.buttonTransparent {
   background: rgba(255, 255, 255, 0.1);
-  box-shadow: inset 0px 0px 1px 1px rgba(255, 255, 255, 1);
-  color: #fff;
+  box-shadow: inset 0px 0px 1px 1px var(--primary-regular);
+  color: var(--primary-regular);
 }
-.transparentButton:hover {
+.buttonTransparent:hover {
   background: rgba(255, 255, 255, 0.2);
-  box-shadow: inset 0px 0px 1px 1px rgba(255, 255, 255, 1);
+  box-shadow: inset 0px 0px 1px 1px var(--primary-regular-900);
 }
 
 .buttonPrimary {

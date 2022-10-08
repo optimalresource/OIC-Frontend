@@ -7,6 +7,7 @@ export const screenSizes = {
   dashboardMobile: 890,
   tablet: 1140,
   desktop: 1366,
+  ipad: 1040,
 };
 
 export const mediaQueries = {

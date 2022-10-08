@@ -1,6 +1,5 @@
 .container {
   width: 100%;
-  padding: 20px 5%;
   position: fixed;
   display: flex;
   justify-content: space-between;
@@ -9,12 +8,11 @@
   z-index: 5000;
   max-width: 1900px;
   background: #fff;
-  top: 0;
 }
 
-.menuIcon {
+/* .menuIcon {
   display: none;
-}
+} */
 
 .auth {
   display: inline-block;
@@ -39,16 +37,16 @@
   .menus ul {
     gap: 30px;
   }
-}
-
-@media (max-width: 768px) {
   .menuIcon {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: end;
     font-size: 24px;
     color: var(--primary-regular);
   }
+}
+
+@media (max-width: 768px) {
   .auth,
   .menus {
     display: none;
