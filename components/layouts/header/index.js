@@ -9,6 +9,11 @@ import { useMediaQuery } from "react-responsive";
 import { mediaQueries } from "components/utils/Responsive";
 import MobileMenu from "./MobileMenu";
 
+const variants = {
+  open: { opacity: 1, x: 0 },
+  closed: { opacity: 0, x: "-100%" },
+};
+
 export function Header() {
   const [menuToggled, setMenuToggled] = useState(false);
   const isMobile = useMediaQuery({ query: "(max-width: 1040px)" });
@@ -42,15 +47,25 @@ export function Header() {
             <button className={`buttonTransparent text-sm`}>Login</button>
           </div>
         )}
-        <div
+        <motion.div
           className={`${styles.menuIcon} flex justify-end items-center text-[24px] w-[100px] text-right min1041:hidden`}
           onClick={() => setMenuToggled((previous) => !previous)}
+          animate={menuToggled ? "closed" : "open"}
+          variants={variants}
         >
           <Icon icon="ant-design:menu-outlined" />
-        </div>
+        </motion.div>
       </div>
       {menuToggled && isMobile && (
-        <MobileMenu menuToggled={menuToggled} setMenuToggled={setMenuToggled} />
+        <motion.div
+          animate={menuToggled ? "open" : "closed"}
+          variants={variants}
+        >
+          <MobileMenu
+            menuToggled={menuToggled}
+            setMenuToggled={setMenuToggled}
+          />
+        </motion.div>
       )}
     </>
   );

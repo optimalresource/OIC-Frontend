@@ -1,5 +1,5 @@
 .mobileMenuItemsWrapper {
-  width: 100%;
+  min-width: 200px;
   position: fixed;
   top: 0;
   right: 0;
