@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const Hero = () => {
   return (
-    <div className="flex justify-center items-center w-[85%] mt-[150px] relative">
+    <div className="flex justify-center items-center w-[85%] mt-[150px] bmd:mt-[100px] relative">
       <div className="w-[100%] relative my-5">
         <Image
           src="/assets/images/hero/property3.png"
