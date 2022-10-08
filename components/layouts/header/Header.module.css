@@ -38,10 +38,10 @@
     gap: 30px;
   }
   .menuIcon {
-    display: flex;
+    /* display: flex;
     align-items: center;
     justify-content: end;
-    font-size: 24px;
+    font-size: 24px; */
     color: var(--primary-regular);
   }
 }

@@ -43,7 +43,7 @@ export function Header() {
           </div>
         )}
         <div
-          className={`${styles.menuIcon} w-[100px] text-right min1041:hidden`}
+          className={`${styles.menuIcon} flex justify-end items-center text-[24px] w-[100px] text-right min1041:hidden`}
           onClick={() => setMenuToggled((previous) => !previous)}
         >
           <Icon icon="ant-design:menu-outlined" />
