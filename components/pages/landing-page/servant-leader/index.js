@@ -3,8 +3,8 @@ import React from "react";
 
 const ServantLeader = () => {
   return (
-    <div className="flex items-center justify-between bmd:flex-col gap-10 w-[100%] min-h-[850px] bg-[#F6FCFF] px-[5%] py-[100px] mt-[150px]">
-      <div className="flex flex-col flex-1 gap-8 bmd:order-2">
+    <div className="flex items-start bmd:items-center justify-between bmd:flex-col gap-10 w-[100%] min-h-[850px] bg-[#F6FCFF] px-[5%] py-[100px] mt-[150px]">
+      <div className="flex flex-col flex-1 gap-8 bmd:order-2 md:max-w-[500px]">
         <div className="w-[100%] flex gap-5 items-center">
           <hr className="w-[100px] max320:w-[50px] border-[2px] border-[#010101]" />
           <div className="uppercase">Call to Serve</div>
@@ -28,7 +28,7 @@ const ServantLeader = () => {
           </button>
         </div>
       </div>
-      <div className="flex-1">
+      <div className="flex-1 text-right">
         <Image
           src="/assets/images/right-volunteer.png"
           width={590}
