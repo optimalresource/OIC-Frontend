@@ -2,7 +2,7 @@ import React from "react";
 
 const Welcome = () => {
   return (
-    <div className="flex flex-col gap-2 max1040:w-[90%] w-[750px] mt-[150px] shadow-[0_26px_44px_rgba(189,189,189,0.25)] rounded-[30px] p-10 mx-[auto]">
+    <div className="flex flex-col gap-2 max1040:w-[90%] w-[750px] max1040:mt-[100px] mt-[150px] shadow-[0_26px_44px_rgba(189,189,189,0.25)] rounded-[30px] p-10 mx-[auto]">
       <h1 className="uppercase text-4xl text-center font-semibold text-[#1f4477]">
         Welcome
       </h1>
