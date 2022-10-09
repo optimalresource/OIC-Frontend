@@ -30,7 +30,7 @@ const ServantLeader = () => {
       </div>
       <div className="flex-1">
         <Image
-          src="/assets/images/svgs/right-volunteer.svg"
+          src="/assets/images/right-volunteer.png"
           width={590}
           height={546}
           alt="logo"
