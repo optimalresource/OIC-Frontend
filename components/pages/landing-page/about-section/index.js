@@ -4,7 +4,7 @@ import React from "react";
 const AboutSection = () => {
   return (
     <div className="flex items-start bmd:items-center justify-between bmd:flex-col gap-10 w-[100%] bg-[#ffffff] px-[5%] py-[150px]">
-      <div className="flex-1 text-left">
+      <div className="flex-1 text-left bmd:text-center">
         <Image
           src="/assets/images/about-us.png"
           width={609}
