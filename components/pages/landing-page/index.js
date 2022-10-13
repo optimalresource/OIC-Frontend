@@ -1,5 +1,6 @@
 import React from "react";
 import AboutSection from "./about-section";
+import AltarCall from "./altar-call-section";
 import Hero from "./hero";
 import MerchSection from "./merch-section";
 import ServantLeader from "./servant-leader";
@@ -12,6 +13,7 @@ function LandingPage({}) {
       <ServantLeader />
       <AboutSection />
       <MerchSection />
+      <AltarCall />
     </>
   );
 }
