@@ -10,13 +10,13 @@ const increasePage = () => setPage(page < 3? page + 1: page);
 const decreasePage = () => setPage(page > 0? page - 1: page);
 
   return (
-    <div className="flex items-start bmd:items-center justify-between bmd:flex-col gap-10 w-[100%] min-h-[950px] bg-[#F6FCFF] px-[0%] py-[0px] mt-[150px]">
+    <div className="flex items-start bmd:items-center justify-between bmd:flex-col gap-10 w-[100%] min-h-[980px] bg-[#F6FCFF] px-[0%] py-[0px] mt-[150px]">
       
-      <div className="flex-col w-[50%] h-[870px] bg-[#000000]">
+      <div className="flex-col w-[50%] h-[900px] bg-[#000000]">
         <Image
           src="/assets/images/register_frame.png"
           width={840}
-          height={1065}
+          height={1100}
           alt="logo"
           layout="intrinsic"
         />
@@ -74,8 +74,7 @@ const BiodataForm = ({increasePage}) => {
           <label className="flex mb-[5px] mt-[30px]">Select Gender<span className="text-[red]">*</span></label>          
             <label className="items-right mt-1">
               <input type="radio" name="gender" id="gender"/> Male   
-            </label>
-            <br/>        
+            </label>  
             <label className="items-right mt-1">
               <input type="radio" name="gender" id="gender"/> Female
             </label>
