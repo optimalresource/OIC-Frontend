@@ -73,10 +73,10 @@ const BiodataForm = ({increasePage}) => {
 
           <label className="flex mb-[5px] mt-[30px]">Select Gender<span className="text-[red]">*</span></label>          
             <label className="items-right mt-1">
-              <input type="radio" name="gender" id="gender"/>     Male   
+              <input type="radio" name="gender" id="gender"/> Male   
             </label>
             <br/>        
-            <label className="items-right mt-2">
+            <label className="items-right mt-1">
               <input type="radio" name="gender" id="gender"/> Female
             </label>
 
@@ -142,8 +142,8 @@ const BiodataForm = ({increasePage}) => {
             type="text"
             className={styles.input}
           />
-          <label>Same as contact number
-            <input type="checkbox"/>        
+          <label>
+            <input type="checkbox"/> Same as contact number    
           </label>
 
           <label className="flex mb-[5px] mt-[30px]">Age range<span className="text-[red]">*</span></label>
@@ -219,27 +219,27 @@ const BiodataForm = ({increasePage}) => {
                 <input  type="checkbox"/> All
               </label> 
               <label className={"flex gap-2"}>
-                <input type="checkbox"/>        Monday
+                <input type="checkbox"/> Monday, November 21st
               </label>
               <label className={"flex gap-2"}>
-                <input  type="checkbox"/> Tuesday
+                <input  type="checkbox"/> Tuesday, November 22nd
               </label>
               <label className={"flex gap-2"}>
-                <input  type="checkbox"/> Wednesday
+                <input  type="checkbox"/> Wednesday, November 23rd
               </label>
             </div>            
             <div>  
               <label className={"flex gap-2"}>
-                <input  type="checkbox"/> Thursday
+                <input  type="checkbox"/> Thursday, November 24th
               </label>
               <label className={"flex gap-2"}>
-                <input  type="checkbox"/> Friday
+                <input  type="checkbox"/> Friday, November 25th
               </label>
               <label className={"flex gap-2"}>
-                <input  type="checkbox"/> Saturday
+                <input  type="checkbox"/> Saturday, November 26th
               </label>
               <label className={"flex gap-2"}>
-                <input  type="checkbox"/> Sunday
+                <input  type="checkbox"/> Sunday, November 27th
               </label>
             </div>  
 
