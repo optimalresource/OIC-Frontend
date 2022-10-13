@@ -4,7 +4,7 @@ import React from "react";
 const MerchSection = () => {
   return (
     <div className="flex flex-col items-center justify-center w-[90%] amd:h-[628px] my-[0] m-[auto] relative">
-      <div className="w-[100%] h-[628px] bmd:hidden text-center text-base">
+      <div className="w-[100%] h-[628px] bmd:hidden text-center">
         <Image
           src="/assets/images/merchant-section.png"
           alt="merch image"
