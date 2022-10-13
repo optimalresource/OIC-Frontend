@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React from "react";
+import Link from "next/link";
 
 const ServantLeader = () => {
   return (
@@ -23,9 +24,11 @@ const ServantLeader = () => {
         </p>
 
         <div className="mt-[50px]">
-          <button className={`buttonPrimary text-sm`}>
-            Become a Servant Leader
-          </button>
+          <Link href="/register" className="flex text-[#fff]">
+            <button className={`buttonPrimary text-sm`}>
+              Become a Servant Leader
+            </button>
+          </Link>
         </div>
       </div>
       <div className="flex-1 text-right">

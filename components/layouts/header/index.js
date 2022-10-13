@@ -8,6 +8,7 @@ import ClickAwayListener from "components/utils/ClickAwayListener";
 import { useMediaQuery } from "react-responsive";
 import { mediaQueries } from "components/utils/Responsive";
 import MobileMenu from "./MobileMenu";
+import Link from 'next/link'
 
 const variants = {
   open: { opacity: 1, x: 0 },
