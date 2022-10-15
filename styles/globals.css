@@ -186,6 +186,9 @@ button:hover {
   padding-top: 20px;
   padding-bottom: 20px;
 }
+.no-radius {
+  border-radius: unset;
+}
 
 @media screen and (max-width: 768px) {
   .dashboard-body {
