@@ -1,39 +1,42 @@
+import { Icon } from "@iconify/react";
 import Image from "next/image";
 import React from "react";
 
 const MinisteringSection = () => {
   return (
-    <div className="flex flex-col justify-center items-center gap-10 w-[880px] bg-[#F6FCFF] px-[5%] py-[100px] mt-[150px]">
-      <h2 className="text-3xl font-semibold text-center amd:mt-[-200px] min1041:mt-[unset]">
+    <div className="flex flex-col justify-center items-center gap-10 w-[880px] max1040:w-[90%] px-[5%] py-[50px] mt-[100px] mb-[50px]">
+      <h2 className="text-3xl font-semibold text-center min1041:mt-[unset]">
         Ministering at
         <span className="text-[#1f4477]"> OIC 2022</span>
       </h2>
 
-      <div className="flex flex-col items-center justify-center w-[100%] amd:h-[654px] relative">
-        <div className="w-[100%] h-[654px] bmd:hidden">
+      <div className="flex flex-col items-center justify-center w-[100%] amd:h-[458px] relative">
+        <div className="h-[458px] bmd:min-h-[458px] bmd:h-[unset] w-[90%] shadow-xl bg-[#ffffff] flex flex-col items-center justify-center gap-5 p-5 bmd:px-2 bmd:w-[95%] rounded-xl z-[100] relative">
           <Image
-            src="/assets/images/ministering-bg.png"
-            alt="merch image"
+            src="/assets/images/ministers/thumbnails/1.png"
+            width={109}
+            height={108}
             layout="intrinsic"
-            width={1003}
-            height={654}
+            alt="minister"
           />
-        </div>
-        {/* <div className="px-5 md:px-10 bmd:relative bmd:rounded-2xl amd:absolute top-0 left-0 amd:h-[100%] w-[100%] flex flex-col gap-5 items-center justify-center max400:px-2 bmd:bg-[#f6fcfe] bmd:py-[100px]">
-          <h2 className="text-3xl font-semibold text-center amd:mt-[-200px] min1041:mt-[unset]">
-            Purchase Conference <br />
-            <span className="text-[#1f4477]">Merchandise</span>
-          </h2>
-          <p className="text-base text-gray-700 text-center max-w-[400px]">
-            Join us in making conference as colourful as possible and in
-            spreading the message of Christ!
+          <h2 className="text-2xl text-center">Bishop Wale Oke</h2>
+          <p className="text-center px-5">
+            Bishop Francis Wale Oke is the President and founder of The Sword of
+            The Spirit Ministries International with the Headquarters located in
+            Ibadan City, Oyo State, Nigeria.
           </p>
-          <div className="mt-[50px] amd:mt-[20px] min1041:mt-[50px]">
-            <button className={`buttonPrimary text-sm w-[200px]`}>
-              Get Now
-            </button>
-          </div>
-        </div> */}
+        </div>
+        <div className="h-[458px] w-[80%] shadow-xl bg-[#ffffff] flex flex-col items-center justify-center gap-5 p-5 bmd:p-2 bmd:w-[85%] rounded-xl mt-[-400px] bmd:mt-[-430px] z-[99] relative"></div>
+
+        <div className="h-[458px] w-[70%] shadow-xl bg-[#ffffff] flex flex-col items-center justify-center gap-5 p-5 bmd:p-2 bmd:w-[75%] rounded-xl mt-[-400px] bmd:mt-[-430px] z-[98] relative"></div>
+      </div>
+      <div className="p-3 flex gap-6">
+        <button className="p-4 rounded-[5px]">
+          <Icon icon="akar-icons:arrow-left" />
+        </button>
+        <button className="p-4 rounded-[5px]">
+          <Icon icon="akar-icons:arrow-right" />
+        </button>
       </div>
     </div>
   );

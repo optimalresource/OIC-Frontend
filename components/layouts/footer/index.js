@@ -5,7 +5,7 @@ import styles from "./Footer.module.css";
 
 const Footer = () => {
   return (
-    <div className={`${styles.container} mt-[150px]`}>
+    <div className={`${styles.container}`}>
       <div className="flex w-[100%] justify-between text-white bmd:flex-col bmd:justify-center bmd:gap-5">
         <div className="flex flex-col gap-3 bmd:text-center">
           <h2>RCCG THE OASIS</h2>
