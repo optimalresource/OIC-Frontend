@@ -10,7 +10,9 @@ const Subscription = () => {
           type="text"
           className="h-[40px] bg-[transparent] border-[1px] border-[#ffffff] border-r-0 outline-none w-[200px] amd:w-[300px] px-3 max400:border-r-[1px] max320:max-w-[200px]"
         />
-        <button className="buttonPrimary no-radius">Subscribe</button>
+        <button className="buttonPrimary no-radius ml-[-1px] max400:ml-[unset]">
+          Subscribe
+        </button>
       </div>
     </div>
   );
