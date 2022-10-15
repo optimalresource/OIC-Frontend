@@ -2,12 +2,12 @@ import Image from "next/image";
 import React from "react";
 import { motion } from "framer-motion";
 
-const Hero = () => {
+const Hero = ({header}) => {
   return (
     <div className="flex justify-center items-center w-[90%] mt-[150px] max640:mt-[100px] relative">
       <div className="w-[100%] relative my-5">
         <Image
-          src="/assets/images/hero/property3.png"
+          src={header}
           alt="hero image"
           layout="responsive"
           width={1308}
