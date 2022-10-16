@@ -1,15 +1,16 @@
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 
 const Hero = ({ header }) => {
-  const classNa =
+  const [heroBgClass, setHeroBgClass] = useState(
     "w-[100%] relative my-5 bg-[url('" +
-    header +
-    "')] bg-cover md:rounded-[50px]";
+      header +
+      "')] bg-cover md:rounded-[50px]"
+  );
   return (
     <div className="flex justify-center items-center w-[90%] bmd:w-[100%] mt-[150px] max640:mt-[100px] relative">
-      <div className={classNa}>
+      <div className={heroBgClass}>
         <div className="px-5 md:px-10 text-[#fff] top-0 left-0 h-[100%] w-[100%] flex flex-col items-center justify-center max400:px-2">
           <div className="flex-1 pl-2 md:pl-7 lg:pl-12 pr-2 lg:pr-5 max400:pr-1 max400:pl-1 max320:px-0 text-center py-10 pt-20">
             <h3 className="text-base md:text-lg lg:text-xl amd:font-semibold pt-2 max400:py-1 max400:text-xs max400:font-normal max320:py-0">
