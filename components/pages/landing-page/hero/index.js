@@ -1,13 +1,10 @@
 import Image from "next/image";
-import React, { useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 
 const Hero = ({ header }) => {
-  const [heroBgClass, setHeroBgClass] = useState(
-    "w-[100%] relative my-5 bg-[url('" +
-      header +
-      "')] bg-cover md:rounded-[50px]"
-  );
+  const heroBgClass =
+    "w-[100%] relative my-5 bg-[url('/assets/images/hero/squared/1.png')] bg-cover md:rounded-[50px]";
   return (
     <div className="flex justify-center items-center w-[90%] bmd:w-[100%] mt-[150px] max640:mt-[100px] relative">
       <div className={heroBgClass}>
@@ -19,7 +16,7 @@ const Hero = ({ header }) => {
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-20 max400:text-2xl max400:leading-10">
               Now is the appointed time
             </h1>
-            <p className="text-sm md:text-base lg:text-lg amd:font-semibold py-5 w-[100%] max400:py-1 max400:text-xs max400:font-normal">
+            <p className="text-base md:text-base lg:text-lg amd:font-semibold py-5 w-[100%] max400:py-1 max400:text-base max400:font-normal">
               Kairos Moment
             </p>
           </div>
