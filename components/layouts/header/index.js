@@ -8,7 +8,7 @@ import ClickAwayListener from "components/utils/ClickAwayListener";
 import { useMediaQuery } from "react-responsive";
 import { mediaQueries } from "components/utils/Responsive";
 import MobileMenu from "./MobileMenu";
-
+import Link from 'next/link';
 const variants = {
   open: { opacity: 1, x: 0 },
   closed: { opacity: 0, x: "-100%" },
@@ -32,8 +32,12 @@ export function Header() {
         />
         <div className={styles.menus}>
           <ul className="text-sm">
-            <li>About</li>
-            <li>Ministers</li>
+        <li><Link href="/about">
+        <a>About</a>
+        </Link></li>
+            <li><Link href="/ministers">
+        <a>Ministers</a>
+        </Link></li>
             <li>Stream</li>
             <li>Store</li>
             <li>FAQ</li>
