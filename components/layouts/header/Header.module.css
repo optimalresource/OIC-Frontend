@@ -4,7 +4,6 @@
   justify-content: space-between;
   align-items: center;
   min-height: 80px;
-  z-index: 5000;
   background: #fff;
 }
 
@@ -23,16 +22,15 @@
   cursor: pointer;
 }
 
-.menus ul {
+/* .menus ul {
   display: flex;
   gap: 50px;
   align-items: center;
   font-weight: 600;
-}
+} */
 
 @media (max-width: 1040px) {
-  .menus,
-  .menus ul {
+  .menus {
     gap: 30px;
   }
   .menuIcon {

@@ -2,6 +2,7 @@ import React from "react";
 import Header from "components/layouts/header";
 import Footer from "./footer";
 import TopNav from "./top-nav";
+import Subscription from "./subscription";
 
 const MainLayout = ({ children }) => {
   return (
@@ -11,7 +12,10 @@ const MainLayout = ({ children }) => {
         <Header />
         {children}
       </div>
-      <Footer />
+      <div className="flex flex-col w-[100%]">
+        <Subscription />
+        <Footer />
+      </div>
     </div>
   );
 };

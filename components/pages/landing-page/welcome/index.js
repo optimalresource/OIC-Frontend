@@ -26,7 +26,7 @@ const Welcome = () => {
       <p className="text-right">
         Love,
         <br />
-        The OIC Team.
+        The Oasis.
       </p>
     </div>
   );
