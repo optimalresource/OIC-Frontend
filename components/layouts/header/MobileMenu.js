@@ -27,7 +27,10 @@ const MobileMenu = ({ menuToggled, setMenuToggled }) => {
                 return (
                   <li key={index}>
                     <Link href={value?.url}>
-                      <div className={`${styles.menuList} gap-[20px]`}>
+                      <div
+                        className={`${styles.menuList} gap-[20px]`}
+                        onClick={() => setMenuToggled(!menuToggled)}
+                      >
                         <Icon icon={value?.icon} className={styles.icon} />
                         <span>{value?.title}</span>
                       </div>
@@ -65,6 +68,7 @@ const MobileMenu = ({ menuToggled, setMenuToggled }) => {
                               <Link href={item?.url} key={i}>
                                 <div
                                   className={`${styles.menuList} pl-4 flex gap-[10px]`}
+                                  onClick={() => setMenuToggled(!menuToggled)}
                                 >
                                   <Icon
                                     icon={item?.icon}
@@ -79,7 +83,10 @@ const MobileMenu = ({ menuToggled, setMenuToggled }) => {
                     )}
                     {!value?.hasDropdown && (
                       <Link href={value?.url} key={index}>
-                        <div className={`${styles.menuList} gap-[20px]`}>
+                        <div
+                          className={`${styles.menuList} gap-[20px]`}
+                          onClick={() => setMenuToggled(!menuToggled)}
+                        >
                           <Icon
                             icon={value?.icon}
                             className={`${styles.icon} text-[24px]`}
