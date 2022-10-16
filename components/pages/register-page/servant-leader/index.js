@@ -9,8 +9,8 @@ const ServantLeader = () => {
   const decreasePage = () => setPage(page > 0 ? page - 1 : page);
 
   return (
-    <div className="flex items-start bmd:items-center justify-between max1040:flex-col min1140:flex-row gap-10 w-[100%] bg-[#F6FCFF] px-[0%] py-[0px] mt-[150px]">
-      <div className="flex flex-col flex-1 bg-[#000000]  bg-[url('/assets/images/register_frame.png')] bg-cover min-h-[500px] gap-5 items-center justify-center bg-no-repeat max1040:w-[100%]">
+    <div className="flex items-start bmd:items-center justify-between max1040:flex-col min1140:flex-row  w-[100%] px-[0%] py-[0px] mt-[150px] mb-[150px] max1040:mb-[unset]">
+      <div className="flex flex-col flex-1 bg-[#000000]  bg-[url('/assets/images/register_frame.png')] bg-cover min-h-[500px] gap-5 items-center justify-center bg-no-repeat max1040:w-[100%] min1141:h-[972px]">
         <div className="w-[700px] min1041:w-[600px] bg-[#000] text-[#ffffff] p-[100px] text-center bg-opacity-70 flex flex-col gap-3 bmd:w-[90%] bmd:px-[50px]">
           <h2 className="text-4xl bmd:text-3xl pb-5 font-semibold">
             Volunteer to be a Servant Leader
@@ -24,7 +24,7 @@ const ServantLeader = () => {
         </div>
       </div>
 
-      <div className="flex flex-col flex-1 items-center py-10 max1040:w-[100%]">
+      <div className="flex flex-col flex-1 items-center py-12 max1040:w-[100%] bg-[#F6FCFF] max1040:pb-[150px]">
         <div className="flex flex-col items-center mt-[20px]">
           <Image
             src="/assets/images/register_icon.png"

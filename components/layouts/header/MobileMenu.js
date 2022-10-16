@@ -25,7 +25,7 @@ const MobileMenu = ({ menuToggled, setMenuToggled }) => {
               {authMenu.map((value, index) => {
                 return (
                   <li key={index}>
-                    <div className={`${styles.menuList}`}>
+                    <div className={`${styles.menuList} gap-[20px]`}>
                       <Icon icon={value?.icon} className={styles.icon} />
                       <span>{value?.title}</span>
                     </div>
@@ -119,11 +119,6 @@ export const authMenu = [
     url: "/login",
     title: "Login",
     icon: "bi:person",
-  },
-  {
-    url: "/register",
-    title: "Register",
-    icon: "bi:person-plus",
   },
 ];
 

@@ -6,12 +6,6 @@ export const menu = [
     icon: "bi:person",
   },
   {
-    hasDropdown: false,
-    url: "/register",
-    title: "Register",
-    icon: "bi:person-plus",
-  },
-  {
     hasDropdown: true,
     title: "Conference",
     icon: "fluent:conference-room-20-regular",
