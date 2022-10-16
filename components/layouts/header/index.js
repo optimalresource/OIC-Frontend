@@ -113,9 +113,7 @@ export function Header() {
         </div>
         {!isMobile && (
           <div className="buttonWrapper max1200:hidden">
-            <button className={`buttonPrimary text-sm`}>
-              Register for Conference
-            </button>
+            <button className={`buttonPrimary text-sm`}>Login</button>
             {/* <button className={`buttonTransparent text-sm`}>Login</button> */}
           </div>
         )}
