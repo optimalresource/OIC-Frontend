@@ -6,9 +6,8 @@ import MerchSection from "./merch-section";
 import MinisteringSection from "./ministering-section";
 import ServantLeader from "./servant-leader";
 import Welcome from "./welcome";
-// import header from "../../../public/assets/images/hero/property3.png";
 function LandingPage({}) {
-  const header = "/assets/images/hero/property3.png";
+  const header = "/assets/images/hero/squared/1.png";
   return (
     <>
       <Hero header={header} />
