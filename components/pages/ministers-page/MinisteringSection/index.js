@@ -12,27 +12,21 @@ const MinistersSection = () => {
       guest ministers and our home pastors, men and women of valour handpicked by God to pour into us.
       </p>
     </div>
-    <div class="grid grid-cols-3 gap-6 mt-14"> 
-    <div class="box-content h-70 w-45 p-4 border border-solid border-slate-200 bg-white m4 flex rounded-md">  
-    <div class="object-cover h-20 w-65"><img src="/assets/images/Ministers/Pastor_Ben.png" /></div>
-    </div> 
-    <div class="box-content h-70 w-45 p-4 border border-slate-200 border-solid bg-white-500 m4 flex rounded-md">  
-<img src="/assets/images/Ministers/Pastor_Ben.png" />
-    </div> 
-    <div class="box-content h-70 w-45 p-4 border border-slate-200 border-solid bg-white-500 m4 flex rounded-md">  
-<img src="/assets/images/Ministers/Pastor_Ben.png" /> 
-    </div> 
-    <div class="box-content h-70 w-45 p-4 border border-slate-200 border-solid border-slate-200 bg-white-500 m4 flex rounded-md">  
-<img src="/assets/images/Ministers/Pastor_Ben.png" />  
-    </div> 
-    <div class="box-content h-70 w-45 p-4 border border-solid border-slate-200 bg-white-500 m4 flex rounded-md">  
-<img src="/assets/images/Ministers/Pastor_Ben.png" /> 
-    </div> 
-    <div class="box-content h-70 w-45 p-4 border border-solid border-slate-200 bg-white-500 m4 flex rounded-md ">  
-<div class="h-50 w-35"><img src="/assets/images/Ministers/Pastor_Ben.png" /></div> 
-    </div> 
+    <div class="grid grid-cols-3 gap-6 mt-20 mb-20"> 
+    <div><img src="/assets/images/Ministers/Card_1.png" /></div>
+    <div><img src="/assets/images/Ministers/Card_2.png" /></div>
+    <div><img src="/assets/images/Ministers/Card_2.png" /></div>
+    <div><img src="/assets/images/Ministers/Card_4.png" /></div>
+    <div><img src="/assets/images/Ministers/Card_5.png" /></div>
+    <div><img src="/assets/images/Ministers/Card_6.png" /></div>
+    <div><img src="/assets/images/Ministers/Card_7.png" /></div>
+    <div><img src="/assets/images/Ministers/Card_8.png" /></div>
+    <div><img src="/assets/images/Ministers/Card_8.png" /></div>
+    <div><img src="/assets/images/Ministers/Card_8.png" /></div>
+    <div><img src="/assets/images/Ministers/Card_10.png" /></div>
+    <div><img src="/assets/images/Ministers/Card_11.png" /></div>
     </div>
-   </div>
+    </div> 
   );
 };
 export default MinistersSection;
