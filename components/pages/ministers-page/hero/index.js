@@ -16,11 +16,11 @@ const Hero = () => {
         />
         <div className="px-5 md:px-10 text-[#ffffff] absolute top-0 left-0 h-[100%] w-[100%] flex items-center justify-between max400:px-2">
           <div className="flex-1 pl-2 md:pl-7 lg:pl-12 pr-2 lg:pr-5 max400:pr-1 max400:pl-1 max320:px-0 items-center">
-            <div class="mb-30"> 
+            <div className="mb-30"> 
             <h5 className="text-sm text-center font-semibold lg:text-lg amd:font-semibold py-10 w-[100%] max400:py-1 max400:text-xs max400:font-normal max320:py-0">
               OIC 2022
             </h5>
-            <div class="flex flex-col space-y-4"> 
+            <div className="flex flex-col space-y-4"> 
               <h1 className="text-5xl text-center font-bold">
               Now is the
             </h1>
@@ -32,7 +32,7 @@ const Hero = () => {
               Kairos Moment
             </p>
             </div>
-            <div class="flex flex-col space-y-4 mt-16">
+            <div className="flex flex-col space-y-4 mt-16">
             <h5 className="text-sm text-center  w-[100%] max400:py-1 max400:font-normal max320:py-0">
               DAY 7
             </h5>
