@@ -6,6 +6,7 @@ import MerchSection from "./merch-section";
 import ServantLeader from "./servant-leader";
 import Welcome from "./welcome";
 import header from "../../../public/assets/images/hero/property3.png";
+
 function LandingPage({}) {
   return (
     <>
