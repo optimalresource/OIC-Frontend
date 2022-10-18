@@ -20,7 +20,8 @@
     "react-toastify": "^9.0.8",
     "reactstrap": "^9.1.4",
     "redux-persist": "^6.0.0",
-    "url-exist": "^3.0.1"
+    "url-exist": "^3.0.1",
+    "yarn": "^1.22.19"
   },
   "devDependencies": {
     "@iconify/react": "^3.2.2",

@@ -11,7 +11,7 @@ export default function Home() {
           name="description"
           content="The Oasis International Conference..."
         />
-        <link rel="icon" href="/logo.png" />
+        <link rel="icon" href="/fav.png" />
       </Head>
       <LandingPage />
     </Fragment>

@@ -24,7 +24,7 @@ const ServantLeader = () => {
         </p>
 
         <div className="mt-[50px]">
-          <Link href="/register" className="flex text-[#fff]">
+          <Link href="/volunteer" className="flex text-[#fff]">
             <button className={`buttonPrimary text-sm`}>
               Become a Servant Leader
             </button>

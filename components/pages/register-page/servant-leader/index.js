@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { Router } from "next/router";
-import { comment } from "postcss";
-import React, {useState} from "react";
+import React, { useState } from "react";
 import styles from "../../../utils/input-component/InputComponent.module.css";
 import CustomModal from "../../../layouts/custom-modal"
 
@@ -291,39 +290,45 @@ function validateBioData(primary = false, increasePage){
 }
 
 const ServantLeader = () => {
-  
-const [page, setPage] = useState(0);
-const increasePage = () => {setPage(page < 3? page + 1: page);}
-const decreasePage = () => setPage(page > 0? page - 1: page);
+  const [page, setPage] = useState(0);
+  const increasePage = () => setPage(page < 3 ? page + 1 : page);
+  const decreasePage = () => setPage(page > 0 ? page - 1 : page);
 
 const [stateUsed, setStateUsed] = useState(false);
 const toggleShowDepartment = (value) => {stateUsed=value;setStateUsed(stateUsed); console.log("from her:"+stateUsed);}
 
   return (
-    <div className="flex items-start bmd:items-center justify-between bmd:flex-col gap-10 w-[100%] min-h-[1050px] bg-[#F6FCFF] px-[0%] py-[0px] mt-[150px]">
-      
-      <div className="flex-col w-[50%] h-[900px] bg-[#000000]">
-        <Image
-          src="/assets/images/register_frame.png"
-          width={840}
-          height={1150}
-          alt="logo"
-          layout="intrinsic"
-        />
+    <div className="flex items-start bmd:items-center justify-between max1040:flex-col min1140:flex-row  w-[100%] px-[0%] py-[0px] mt-[150px] mb-[150px] max1040:mb-[unset]">
+      <div className="flex flex-col flex-1 bg-[#000000]  bg-[url('/assets/images/register_frame.png')] bg-cover min-h-[500px] gap-5 items-center justify-center bg-no-repeat max1040:w-[100%] min1141:h-[972px]">
+        <div className="w-[700px] min1041:w-[600px] bg-[#000] text-[#ffffff] p-[100px] text-center bg-opacity-70 flex flex-col gap-3 bmd:w-[90%] bmd:px-[50px]">
+          <h2 className="text-4xl bmd:text-3xl pb-5 font-semibold">
+            Volunteer to be a Servant Leader
+          </h2>
+          <p className="text-lg bmd:text-lg">Why serve?</p>
+          <p className="text-lg bmd:text-lg">
+            Therefore, my beloved brethren, be ye steadfast, unmovable, always
+            abounding in the work of the Lord, forasmuch as ye know that your
+            labour is not in vain in the Lord. - 1 Corinthians 15:58 KJV
+          </p>
+        </div>
       </div>
 
-      <div className="flex flex-col w-[50%] h-[870px] items-center">
-        <div className="flex flex-col items-center mt-[20px]">  
-        <Image
-          src="/assets/images/register_icon.png"
-          width={52.6}
-          height={50.56}
-          alt="logo"
-        />
-        <h2 className="text-[#1f4477] mt-2">Register</h2>
+      <div className="flex flex-col flex-1 items-center py-12 max1040:w-[100%] bg-[#F6FCFF] max1040:pb-[150px]">
+        <div className="flex flex-col items-center mt-[20px]">
+          <Image
+            src="/assets/images/register_icon.png"
+            width={52.6}
+            height={50.56}
+            alt="logo"
+          />
+          <h2 className="text-[#1f4477] mt-2">Register</h2>
         </div>
         
-        <RoutePage page={page} decreasePage={decreasePage} increasePage={increasePage} 
+        <RoutePage
+          page={page}
+          decreasePage={decreasePage}
+          increasePage={increasePage}
+         
         stateUsed={stateUsed} toggleShowDepartment={toggleShowDepartment}/>
       </div>
     </div>
@@ -341,49 +346,47 @@ const RoutePage = ({page, decreasePage, increasePage, stateUsed, toggleShowDepar
   } else if(page == 2){
     return <SkillForm decreasePage={decreasePage} increasePage={increasePage}/>          
   } else {
-    return <FormComplete/>
+    return <FormComplete />;
   }  
-}
+};
 
 const BiodataForm = ({increasePage, stateUsed, toggleShowDepartment}) => {
   let {firstname, lastname, email, gender, member, yearJoin, serve, department} = stateValue;
   return (
-      <div className="flex flex-col w-[50%] h-[900px] items-left">
-          <label className="flex mb-[5px] mt-[30px]">First Name<span className="text-[red]">*</span></label>
-          <input
-            type="text"
+    <div className="flex flex-col flex-1 max1040:w-[80%] h-[900px] items-left">
+      <label className="flex mb-[5px] mt-[30px]">
+        First Name<span className="text-[red]">*</span>
+      </label>
+      <input type="text" className={`${styles.input}`} 
             onChange={handleInput}
-            className={styles.input}
             name="firstname"
             id="firstname"
-            defaultValue={firstname}
-          />
-          <label className="flex mb-[5px] mt-[30px]">Last Name<span className="text-[red]">*</span></label>
-          <input
-            type="text"
-            className={styles.input}
-            onChange={handleInput}
+            defaultValue={firstname}/>
+      <label className="flex mb-[5px] mt-[30px]">
+        Last Name<span className="text-[red]">*</span>
+      </label>
+      <input type="text" className={styles.input} onChange={handleInput}
             name="lastname"
             id="lastname"            
-            defaultValue={lastname}
-          />
-          <label className="flex mb-[5px] mt-[30px]">Email<span className="text-[red]">*</span></label>          
-          <input
-            type="text"
+            defaultValue={lastname}/>
+      <label className="flex mb-[5px] mt-[30px]">
+        Email<span className="text-[red]">*</span>
+      </label>
+      <input type="text" className={styles.input} 
             onChange={handleInput}
-            className={styles.input}
             name="email"
             id="email"
-            defaultValue={email}
-          />
+            defaultValue={email}/>
 
-          <label className="flex mb-[5px] mt-[30px]">Select Gender<span className="text-[red]">*</span></label>          
-            <label className="items-right mt-1">
-              <input type="radio" name="gender" id="gender" value="male" defaultChecked={gender == "male"} onChange={handleInput}/> Male   
-            </label>  
-            <label className="items-right mt-1">
-              <input type="radio" name="gender" id="gender" value="female" defaultChecked={gender == "female"} onChange={handleInput}/> Female
-            </label>
+      <label className="flex mb-[5px] mt-[30px]">
+        Select Gender<span className="text-[red]">*</span>
+      </label>
+      <label className="items-right mt-1">
+        <input type="radio" name="gender" id="gender" value="male" defaultChecked={gender == "male"} onChange={handleInput}/> Male
+      </label>
+      <label className="items-right mt-1">
+        <input type="radio" name="gender" id="gender" value="female" defaultChecked={gender == "female"} onChange={handleInput}/> Female
+      </label>
 
             <label className="flex mb-[5px] mt-[30px]">Are you a member of Oasis? <span className="text-[red]">*</span></label>  
             <div className="flex gap-20">   
@@ -512,27 +515,30 @@ const BiodataForm = ({increasePage, stateUsed, toggleShowDepartment}) => {
           <option>35 +</option>
           </select>
 
-          <label className="flex mb-[5px] mt-[30px]">Do you have any medical condition that requires special accomodation? <span className="text-[red]">*</span></label>  
-            <div className="flex gap-20">   
-              <label>
-                <input type="radio" name="accomodation" value="yes" id="accomodation" defaultChecked={accomodation == "yes"}/>   Yes     
-              </label>
-              <label >
-                <input  type="radio" name="accomodation" value="no" id="accomodation" defaultChecked={accomodation == "no"}/> No
-              </label>
-            </div>   
+      <label className="flex mb-[5px] mt-[30px]">
+        Do you have any medical condition that requires special accomodation?{" "}
+        <span className="text-[red]">*</span>
+      </label>
+      <div className="flex gap-20">
+        <label>
+          <input type="radio" name="accomodation" value="yes" id="accomodation" defaultChecked={accomodation == "yes"} /> Yes
+        </label>
+        <label>
+          <input type="radio" name="accomodation" value="no" id="accomodation" defaultChecked={accomodation == "no"} /> No
+        </label>
+      </div>
 
-            <div className="flex gap-5 flex-row mt-[50px]">
-              <button  onClick={()=>previousPage("contactPage", decreasePage)} className={`buttonPrimary text-sm`}>
-                Back
-              </button>
-              <button  onClick={()=>validateContact(true, increasePage)} className={`buttonPrimary text-sm`}>
-                Next
-              </button>
-            </div>
-        </div>
-    );
-    }
+      <div className="flex gap-5 flex-row mt-[50px]">
+        <button onClick={()=>previousPage("contactPage", decreasePage)} className={`buttonPrimary text-sm`}>
+          Back
+        </button>
+        <button onClick={()=>validateContact(true, increasePage)} className={`buttonPrimary text-sm`}>
+          Next
+        </button>
+      </div>
+    </div>
+  );
+};
 
     const SkillForm = ({decreasePage, increasePage}) => {
       let {practitioner, liftobject, weekoffwork, days, team, media} = stateValue;
@@ -549,17 +555,20 @@ const BiodataForm = ({increasePage, stateUsed, toggleShowDepartment}) => {
               </label>
             </div>   
 
-            <label className="flex mb-[5px] mt-[30px]">Are you willing to exert energy in lifting heavy objects? <span className="text-[red]">*</span></label>  
-            <div className="flex gap-20">   
-              <label>
-                <input type="radio" name="liftobject" id="liftobject" value="yes" defaultChecked={liftobject == "yes"}/> Yes   
-              </label>
-              <label >
-                <input type="radio" name="liftobject" id="liftobject" value="no" defaultChecked={liftobject == "no"}/> No
-              </label>
-            </div>  
+      <label className="flex mb-[5px] mt-[30px]">
+        Are you willing to exert energy in lifting heavy objects?{" "}
+        <span className="text-[red]">*</span>
+      </label>
+      <div className="flex gap-20">
+        <label>
+          <input type="radio" name="liftobject" id="liftobject" value="yes" defaultChecked={liftobject == "yes"}/> Yes
+        </label>
+        <label>
+          <input type="radio" name="liftobject" id="liftobject" value="yes" defaultChecked={liftobject == "no"}/> No
+        </label>
+      </div>
 
-            <label className="flex mb-[5px] mt-[30px]">Are you willing to take the week off work? <span className="text-[red]">*</span></label>  
+            <label className="flex mb-[5px] mt-[30px]">Are you willing to take the week off work? {" "}<span className="text-[red]">*</span></label>  
             <div className="flex gap-20">   
               <label>
                 <input type="radio" name="weekoffwork" id="weekoffwork" value="yes" defaultChecked={weekoffwork == "yes"}/> Yes    
@@ -643,14 +652,13 @@ const BiodataForm = ({increasePage, stateUsed, toggleShowDepartment}) => {
             </div>
         </div>
   );
-  }  
+};
 
-  
-  const FormComplete = () => {
-    return (
-      <div className="flex text-[50px] mt-[50px] text-[green] flex-col w-[50%] h-[900px] items-center">
-        Thank you!
-      </div>
-    );
-  }
+const FormComplete = () => {
+  return (
+    <div className="flex text-[50px] mt-[50px] text-[green] flex-col w-[50%] h-[900px] items-center">
+      Thank you!
+    </div>
+  );
+};
 export default ServantLeader;
