@@ -12,19 +12,19 @@ const MinistersSection = () => {
       guest ministers and our home pastors, men and women of valour handpicked by God to pour into us.
       </p>
     </div>
-    <div class="grid grid-cols-3 gap-6 mt-20 mb-20"> 
+    <div class="grid grid-cols-3 gap-5 mt-20 mb-20"> 
     <div><img src="/assets/images/Ministers/Card_1.png" /></div>
     <div><img src="/assets/images/Ministers/Card_2.png" /></div>
-    <div><img src="/assets/images/Ministers/Card_2.png" /></div>
+    <div><img src="/assets/images/Ministers/Card_3.png" /></div>
     <div><img src="/assets/images/Ministers/Card_4.png" /></div>
     <div><img src="/assets/images/Ministers/Card_5.png" /></div>
     <div><img src="/assets/images/Ministers/Card_6.png" /></div>
     <div><img src="/assets/images/Ministers/Card_7.png" /></div>
     <div><img src="/assets/images/Ministers/Card_8.png" /></div>
-    <div><img src="/assets/images/Ministers/Card_8.png" /></div>
-    <div><img src="/assets/images/Ministers/Card_8.png" /></div>
+    <div><img src="/assets/images/Ministers/Card_9.png" /></div>
     <div><img src="/assets/images/Ministers/Card_10.png" /></div>
     <div><img src="/assets/images/Ministers/Card_11.png" /></div>
+    <div><img src="/assets/images/Ministers/Card_12.png" /></div>
     </div>
     </div> 
   );
