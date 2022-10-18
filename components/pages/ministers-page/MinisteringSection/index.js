@@ -52,6 +52,9 @@ const MinistersSection = () => {
         <div>
           <img src="/assets/images/Ministers/Card_11.png" alt="minister" />
         </div>
+        <div>
+          <img src="/assets/images/Ministers/Card_12.png" alt="minister" />
+        </div>
       </div>
     </div>
   );
