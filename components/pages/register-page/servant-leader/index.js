@@ -42,7 +42,6 @@ let modalOpen = false;
 let setModalOpen = null;
 
 function handleInput(event, stateUsed, toggleShowDepartment){
-  stateValue["firstname"] = "Ade";
   if(event.target.name == "serve"){    
     let serve = document.getElementsByName("serve");
     const showDepartment = serve[0].checked;
