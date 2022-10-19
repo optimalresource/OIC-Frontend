@@ -16,9 +16,9 @@ const Hero = ({ header }) => {
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-20 max400:text-2xl max400:leading-10">
               Now is the appointed time
             </h1>
-            <p className="text-base md:text-base lg:text-lg amd:font-semibold py-5 w-[100%] max400:py-1 max400:text-base max400:font-normal">
+            {/* <p className="text-base md:text-base lg:text-lg amd:font-semibold py-5 w-[100%] max400:py-1 max400:text-base max400:font-normal">
               Kairos Moment
-            </p>
+            </p> */}
           </div>
           <div className="flex flex-col items-center bg-[#000] bg-opacity-60 p-5 mb-10 md:mt-10 bmd:mt-5 md:min-w-[500px] bmd:min-w-[300px] max320:min-w-[200px]">
             <h3 className="text-base md:text-lg lg:text-xl amd:font-semibold py-5 max400:py-1 max400:text-xs max400:font-normal">
