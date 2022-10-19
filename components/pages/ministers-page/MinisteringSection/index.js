@@ -3,19 +3,18 @@ import React from "react";
 
 const MinistersSection = () => {
   return (
-    <div>
+    <div className="w-[90%] bmd:w-[100%] bmd:px-5 flex flex-col items-center justify-center">
       <div>
-        <h1 className="text-4xl mt-8 mb-8 text-center font-semibold text-[#1f4477]">
+        <h1 className="text-4xl mt-[100px] mb-8 text-center font-semibold text-[#1f4477] leading-[54px]">
           Ministering at OIC 2022
         </h1>
-        <p className="text-center">
+        <p className="text-center max-w-[600px]">
           This year, Oasis International Conference is proud to welcome our
-          <br></br>
           guest ministers and our home pastors, men and women of valour
           handpicked by God to pour into us.
         </p>
       </div>
-      <div className="grid grid-cols-3 gap-6 mt-20 mb-20">
+      <div className="grid grid-cols-3 bmd:grid-cols-2 gap-6 mt-20 mb-20">
         <div>
           <img src="/assets/images/Ministers/Card_1.png" alt="minister" />
         </div>
@@ -23,9 +22,9 @@ const MinistersSection = () => {
           <img src="/assets/images/Ministers/Card_2.png" alt="minister" />
         </div>
         <div>
-          <img src="/assets/images/Ministers/Card_2.png" alt="minister" />
+          <img src="/assets/images/Ministers/Card_3.png" alt="minister" />
         </div>
-        
+
         <div>
           <img src="/assets/images/Ministers/Card_4.png" alt="minister" />
         </div>
@@ -42,10 +41,7 @@ const MinistersSection = () => {
           <img src="/assets/images/Ministers/Card_8.png" alt="minister" />
         </div>
         <div>
-          <img src="/assets/images/Ministers/Card_8.png" alt="minister" />
-        </div>
-        <div>
-          <img src="/assets/images/Ministers/Card_8.png" alt="minister" />
+          <img src="/assets/images/Ministers/Card_9.png" alt="minister" />
         </div>
         <div>
           <img src="/assets/images/Ministers/Card_10.png" alt="minister" />
