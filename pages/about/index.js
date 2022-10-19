@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { Fragment } from "react";
-import LandingPage from "components/pages/landing-page";
+import AboutComponent from "components/pages/about-page";
 
 export default function About() {
   return (
@@ -13,9 +13,7 @@ export default function About() {
         />
         <link rel="icon" href="/fav.png" />
       </Head>
-      <div className="textlg font-bold h-[500px] mt-[200px] relative">
-        This is the about page
-      </div>
+      <AboutComponent />
     </Fragment>
   );
 }
