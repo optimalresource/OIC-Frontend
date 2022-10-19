@@ -67,8 +67,8 @@ const AboutComponent = () => {
         />
       </div>
       <div className="flex flex-col w-[90%] my-[150px]">
-        <p className="text-[100px] font-bold font-serif leading-10">&#8220;</p>
-        <p className="px-[50px] mt-2 leading-7">
+        <p className="text-[100px] font-bold font-serif leading-10 ">&#8220;</p>
+        <p className="px-[50px] mt-2 leading-7 max400:px-[20px]">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum
           dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit
           amet, consectetur adipiscing elit.consectetur adipiscing elit.Lorem
@@ -80,7 +80,7 @@ const AboutComponent = () => {
           ipsum dolor sit amet, consectetur adipiscing elit.consectetur
           adipiscing elit.
         </p>
-        <p className="px-[50px] mt-5 leading-7">
+        <p className="px-[50px] mt-5 leading-7 max400:px-[20px]">
           Lorem Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem
           ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor
           sit amet, consectetur adipiscing elit.consectetur adipiscing
@@ -98,7 +98,7 @@ const AboutComponent = () => {
           dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit
           amet, consectetur adipiscing elit.consectetur adipiscing elit.
         </p>
-        <p className="px-[50px] mt-5 leading-7">
+        <p className="px-[50px] mt-5 leading-7 max400:px-[20px]">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit.amet,
           consectetur dolor sit amet, consectetur adipiscing ur consectetur
           dolor sit amet, consectetur adipiscing ur consectetur dolor sit amet,
