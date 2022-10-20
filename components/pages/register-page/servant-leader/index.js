@@ -330,7 +330,6 @@ const ServantLeader = () => {
           />
           <h2 className="text-[#1f4477] mt-2">Register</h2>
         </div>
-        
         <RoutePage
           page={page}
           decreasePage={decreasePage}
@@ -355,97 +354,84 @@ const RoutePage = ({page, decreasePage, increasePage, stateUsed, toggleShowDepar
     showMedia={showMedia} toggleShowMedia={toggleShowMedia}/>          
   } else {
     return <FormComplete />;
-  }  
+  }
 };
 
-const BiodataForm = ({increasePage, stateUsed, toggleShowDepartment}) => {
-  let {firstname, lastname, email, gender, member, yearJoin, serve, department} = stateValue;
+const BiodataForm = ({ increasePage }) => {
   return (
     <div className="flex flex-col flex-1 max1040:w-[80%] h-[900px] items-left">
       <label className="flex mb-[5px] mt-[30px]">
         First Name<span className="text-[red]">*</span>
       </label>
-      <input type="text" className={`${styles.input}`} 
-            onChange={handleInput}
-            name="firstname"
-            id="firstname"
-            defaultValue={firstname}/>
+      <input type="text" className={`${styles.input}`} />
       <label className="flex mb-[5px] mt-[30px]">
         Last Name<span className="text-[red]">*</span>
       </label>
-      <input type="text" className={styles.input} onChange={handleInput}
-            name="lastname"
-            id="lastname"            
-            defaultValue={lastname}/>
+      <input type="text" className={styles.input} />
       <label className="flex mb-[5px] mt-[30px]">
         Email<span className="text-[red]">*</span>
       </label>
-      <input type="text" className={styles.input} 
-            onChange={handleInput}
-            name="email"
-            id="email"
-            defaultValue={email}/>
+      <input type="text" className={styles.input} />
 
       <label className="flex mb-[5px] mt-[30px]">
         Select Gender<span className="text-[red]">*</span>
       </label>
       <label className="items-right mt-1">
-        <input type="radio" name="gender" id="gender" value="male" defaultChecked={gender == "male"} onChange={handleInput}/> Male
+        <input type="radio" name="gender" id="gender" /> Male
       </label>
       <label className="items-right mt-1">
-        <input type="radio" name="gender" id="gender" value="female" defaultChecked={gender == "female"} onChange={handleInput}/> Female
+        <input type="radio" name="gender" id="gender" /> Female
       </label>
 
-            <label className="flex mb-[5px] mt-[30px]">Are you a member of Oasis? <span className="text-[red]">*</span></label>  
-            <div className="flex gap-20">   
-              <label>
-                <input type="radio" name="member" value="yes" id="member" defaultChecked={member == "yes"} onChange={handleInput}/>    Yes    
-              </label>
-              <label >
-                <input  type="radio" name="member" value="no" id="member" defaultChecked={member == "no"} onChange={handleInput}/> No
-              </label>
-            </div>     
-            
-          <label className="flex mb-[5px] mt-[30px]">What year did you join Oasis?<span className="text-[red]">*</span></label>          
-          <select
-            type="select"
-            className={styles.select}
-            defaultValue={yearJoin}
-            id="yearjoin"
-            name="yearjoin"
-          >
-          <option></option>
-          <option>2014</option>
-          <option>2015</option>
-          <option>2016</option>
-          <option>2017</option>
-          <option>2018</option>
-          <option>2019</option>
-          <option>2020</option>
-          <option>2021</option>
-          <option>2022</option>
-          </select>
-
-            <label className="flex mb-[5px] mt-[30px]">Do you currently serve in the Oasis? <span className="text-[red]">*</span></label>  
-            <div className="flex gap-20">   
-              <label>
-                <input type="radio" name="serve" value="yes" id="serve" defaultChecked={serve == "yes"} onClick={(evt)=>handleInput(evt, stateUsed,toggleShowDepartment)}/> Yes  
-              </label>
-              <label >
-                <input  type="radio" name="serve" value="no" id="serve" defaultChecked={serve == "no"} onClick={(evt)=>handleInput(evt, stateUsed, toggleShowDepartment)}/> No
-              </label>
-            </div>                       
-            {stateUsed && (
-              <Department department={department}/>
-            )}   
-          <div className="flex gap-5 flex-row mt-[50px]">
-            <button onClick={() => validateBioData(true, increasePage)} className={`buttonPrimary text-sm`}>
-              Next
-            </button>
-          </div>
+      <label className="flex mb-[5px] mt-[30px]">
+        Are you a member of Oasis? <span className="text-[red]">*</span>
+      </label>
+      <div className="flex gap-20">
+        <label>
+          <input type="radio" name="member" id="member" /> Yes
+        </label>
+        <label>
+          <input type="radio" name="member" id="member" /> No
+        </label>
       </div>
-    );
-  }
+
+      <label className="flex mb-[5px] mt-[30px]">
+        What year did you join Oasis?<span className="text-[red]">*</span>
+      </label>
+      <select type="select" className={styles.select}>
+        <option></option>
+        <option>2014</option>
+        <option>2015</option>
+        <option>2016</option>
+        <option>2017</option>
+        <option>2018</option>
+        <option>2019</option>
+        <option>2020</option>
+        <option>2021</option>
+        <option>2022</option>
+      </select>
+
+      <label className="flex mb-[5px] mt-[30px]">
+        Do you currently serve in the Oasis?{" "}
+        <span className="text-[red]">*</span>
+      </label>
+      <div className="flex gap-20">
+        <label>
+          <input type="radio" name="serve" id="serve" /> Yes
+        </label>
+        <label>
+          <input type="radio" name="serve" id="serve" /> No
+        </label>
+      </div>
+
+      <div className="flex gap-5 flex-row mt-[50px]">
+        <button onClick={increasePage} className={`buttonPrimary text-sm`}>
+          Next
+        </button>
+      </div>
+    </div>
+  );
+};
 
   const Department = ({department}) => {
     return(
@@ -509,19 +495,15 @@ const BiodataForm = ({increasePage, stateUsed, toggleShowDepartment}) => {
             onClick={handleInput}/> Same as contact number    
           </label>
 
-          <label className="flex mb-[5px] mt-[30px]">Age range<span className="text-[red]">*</span></label>
-          <select
-            type="select"
-            className={styles.select}
-            id="age"
-            name="age"
-            defaultValue={age}
-          >
-          <option></option>
-          <option>18 - 24</option>
-          <option>25 - 34</option>
-          <option>35 +</option>
-          </select>
+      <label className="flex mb-[5px] mt-[30px]">
+        Age range<span className="text-[red]">*</span>
+      </label>
+      <select type="select" className={styles.select}>
+        <option></option>
+        <option>18 - 24</option>
+        <option>25 - 34</option>
+        <option>35 +</option>
+      </select>
 
       <label className="flex mb-[5px] mt-[30px]">
         Do you have any medical condition that requires special accomodation?{" "}
@@ -529,18 +511,18 @@ const BiodataForm = ({increasePage, stateUsed, toggleShowDepartment}) => {
       </label>
       <div className="flex gap-20">
         <label>
-          <input type="radio" name="accomodation" value="yes" id="accomodation" defaultChecked={accomodation == "yes"} /> Yes
+          <input type="radio" name="accomodation" id="accomodation" /> Yes
         </label>
         <label>
-          <input type="radio" name="accomodation" value="no" id="accomodation" defaultChecked={accomodation == "no"} /> No
+          <input type="radio" name="accomodation" id="accomodation" /> No
         </label>
       </div>
 
       <div className="flex gap-5 flex-row mt-[50px]">
-        <button onClick={()=>previousPage("contactPage", decreasePage)} className={`buttonPrimary text-sm`}>
+        <button onClick={decreasePage} className={`buttonPrimary text-sm`}>
           Back
         </button>
-        <button onClick={()=>validateContact(true, increasePage)} className={`buttonPrimary text-sm`}>
+        <button onClick={increasePage} className={`buttonPrimary text-sm`}>
           Next
         </button>
       </div>
@@ -569,52 +551,58 @@ const BiodataForm = ({increasePage, stateUsed, toggleShowDepartment}) => {
       </label>
       <div className="flex gap-20">
         <label>
-          <input type="radio" name="liftobject" id="liftobject" value="yes" defaultChecked={liftobject == "yes"}/> Yes
+          <input type="radio" name="liftobject" id="liftobject" /> Yes
         </label>
         <label>
-          <input type="radio" name="liftobject" id="liftobject" value="yes" defaultChecked={liftobject == "no"}/> No
+          <input type="radio" name="liftobject" id="liftobject" /> No
         </label>
       </div>
 
-            <label className="flex mb-[5px] mt-[30px]">Are you willing to take the week off work? {" "}<span className="text-[red]">*</span></label>  
-            <div className="flex gap-20">   
-              <label>
-                <input type="radio" name="weekoffwork" id="weekoffwork" value="yes" defaultChecked={weekoffwork == "yes"}/> Yes    
-              </label>
-              <label >
-                <input  type="radio" name="weekoffwork" id="weekoffwork" value="no" defaultChecked={weekoffwork == "no"}/> No
-              </label>
-            </div>                 
-            
-          <label className="flex mb-[5px] mt-[30px]">What day of the week will you be available?<span className="text-[red]">*</span></label>          
-          <div>  
-              <label className={"flex gap-2"}>
-                <input type="checkbox" name="days" id="days" value="All" onClick={checkAllDays} defaultChecked={days["all"]}/> All
-              </label> 
-              <label className={"flex gap-2"}>
-                <input type="checkbox" name="days" id="days" value="Monday" defaultChecked={days["Monday"]}/> Monday, November 21st
-              </label>
-              <label className={"flex gap-2"}>
-                <input  type="checkbox" name="days" id="days" value="Tuesday" defaultChecked={days["Tuesday"]}/> Tuesday, November 22nd
-              </label>
-              <label className={"flex gap-2"}>
-                <input  type="checkbox" name="days" id="days" value="Wednesday" defaultChecked={days["Wednesday"]}/> Wednesday, November 23rd
-              </label>
-            </div>            
-            <div>  
-              <label className={"flex gap-2"}>
-                <input  type="checkbox" name="days" id="days" value="Thursday" defaultChecked={days["Thursday"]}/> Thursday, November 24th
-              </label>
-              <label className={"flex gap-2"}>
-                <input  type="checkbox" name="days" id="days" value="Friday" defaultChecked={days["Friday"]}/> Friday, November 25th
-              </label>
-              <label className={"flex gap-2"}>
-                <input  type="checkbox" name="days" id="days" value="Saturday" defaultChecked={days["Saturday"]}/> Saturday, November 26th
-              </label>
-              <label className={"flex gap-2"}>
-                <input  type="checkbox" name="days" id="days" value="Sunday" defaultChecked={days["Sunday"]}/> Sunday, November 27th
-              </label>
-            </div>  
+      <label className="flex mb-[5px] mt-[30px]">
+        Are you willing to take the week off work?{" "}
+        <span className="text-[red]">*</span>
+      </label>
+      <div className="flex gap-20">
+        <label>
+          <input type="radio" name="weekoffwork" id="weekoffwork" /> Yes
+        </label>
+        <label>
+          <input type="radio" name="weekoffwork" id="weekoffwork" /> No
+        </label>
+      </div>
+
+      <label className="flex mb-[5px] mt-[30px]">
+        What day of the week will you be available?
+        <span className="text-[red]">*</span>
+      </label>
+      <div>
+        <label className={"flex gap-2"}>
+          <input type="checkbox" /> All
+        </label>
+        <label className={"flex gap-2"}>
+          <input type="checkbox" /> Monday, November 21st
+        </label>
+        <label className={"flex gap-2"}>
+          <input type="checkbox" /> Tuesday, November 22nd
+        </label>
+        <label className={"flex gap-2"}>
+          <input type="checkbox" /> Wednesday, November 23rd
+        </label>
+      </div>
+      <div>
+        <label className={"flex gap-2"}>
+          <input type="checkbox" /> Thursday, November 24th
+        </label>
+        <label className={"flex gap-2"}>
+          <input type="checkbox" /> Friday, November 25th
+        </label>
+        <label className={"flex gap-2"}>
+          <input type="checkbox" /> Saturday, November 26th
+        </label>
+        <label className={"flex gap-2"}>
+          <input type="checkbox" /> Sunday, November 27th
+        </label>
+      </div>
 
           <label className="flex mb-[5px] mt-[30px]">Preferred team for OIC<span className="text-[red]">*</span></label>
           <select

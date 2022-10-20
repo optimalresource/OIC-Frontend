@@ -2,7 +2,7 @@ import Head from "next/head";
 import { Fragment } from "react";
 import RegisterPage from "components/pages/register-page";
 
-export default function Register() {
+export default function Home() {
   return (
     <Fragment>
       <Head>

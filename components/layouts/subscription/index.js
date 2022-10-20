@@ -6,10 +6,12 @@ const Subscription = () => {
       <h1 className="text-4xl font-semibold">Subscribe</h1>
       <p className="px-5 text-center">Keep up to date with RCCG The Oasis.</p>
       <div className="flex items-center justify-center relative max400:flex-col max400:gap-5">
-        <input
-          type="text"
-          className="h-[40px] bg-[transparent] border-[1px] border-[#ffffff] border-r-0 outline-none w-[200px] amd:w-[300px] px-3 max400:border-r-[1px] max320:max-w-[200px]"
-        />
+        <div className="shadow-[inset_0px_0px_1px_1px_rgba(255,255,255,1)] h-[40px] w-[200px] amd:w-[300px] px-3 max320:max-w-[200px]">
+          <input
+            type="text"
+            className="h-[40px] bg-[transparent] border-0 outline-none w-[100%] rounded-0"
+          />
+        </div>
         <button className="buttonPrimary no-radius ml-[-1px] max400:ml-[unset]">
           Subscribe
         </button>
