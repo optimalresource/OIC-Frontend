@@ -192,7 +192,7 @@ button:hover {
 
 input.white-border {
   box-shadow: inset 0px 0px 1px 1px rgba(255, 255, 255, 1);
-  -webkit-appearance: none;
+  /* -webkit-appearance: none; */
 }
 
 @media screen and (max-width: 768px) {
