@@ -41,18 +41,24 @@ let title, message = "";
 let modalOpen = false;
 let setModalOpen = null;
 
-function handleInput(event, stateUsed, toggleShowDepartment){
+function handleInput(event, stateUsed, toggleShow){
   if(event.target.name == "serve"){    
     let serve = document.getElementsByName("serve");
     const showDepartment = serve[0].checked;
-    console.log("show department: "+showDepartment)
-    toggleShowDepartment(showDepartment);
-    console.log("show : "+stateUsed.showDepartment)
+    toggleShow(showDepartment);
   } else if(event.target.name == "sameascontact"){    
     stateValue.sameasContact = document.getElementById("sameascontact").checked;
     let whatsapp = document.getElementById("whatsapp");
     whatsapp.disabled = stateValue.sameasContact;
     whatsapp.value = stateValue.sameasContact ? document.getElementById("phone").value : "";
+  } else if(event.target.name == "team"){    
+    stateValue.team = document.getElementById("team");
+    if(event.target.value == "Media"){
+      toggleShow(true);
+    } else {
+      toggleShow(false);
+      stateValue.media="";
+    }
   }
 }
 
@@ -293,8 +299,10 @@ const ServantLeader = () => {
   const increasePage = () => setPage(page < 3 ? page + 1 : page);
   const decreasePage = () => setPage(page > 0 ? page - 1 : page);
 
-const [stateUsed, setStateUsed] = useState(false);
-const toggleShowDepartment = (value) => {stateUsed=value;setStateUsed(stateUsed); console.log("from her:"+stateUsed);}
+  const [stateUsed, setStateUsed] = useState(false);
+  const toggleShowDepartment = (value) => {stateUsed=value;setStateUsed(stateUsed);}
+  const [showMedia, setShowMedia] = useState(false);
+  const toggleShowMedia = (value) => {showMedia=value;setShowMedia(showMedia);}
 
   return (
     <div className="flex items-start bmd:items-center justify-between max1040:flex-col min1140:flex-row  w-[100%] px-[0%] py-[0px] mt-[150px] mb-[150px] max1040:mb-[unset]">
@@ -326,15 +334,15 @@ const toggleShowDepartment = (value) => {stateUsed=value;setStateUsed(stateUsed)
         <RoutePage
           page={page}
           decreasePage={decreasePage}
-          increasePage={increasePage}
-         
-        stateUsed={stateUsed} toggleShowDepartment={toggleShowDepartment}/>
+          increasePage={increasePage}         
+          stateUsed={stateUsed} toggleShowDepartment={toggleShowDepartment}
+          showMedia={showMedia} toggleShowMedia={toggleShowMedia}/>
       </div>
     </div>
   );
 };
 
-const RoutePage = ({page, decreasePage, increasePage, stateUsed, toggleShowDepartment}) => {
+const RoutePage = ({page, decreasePage, increasePage, stateUsed, toggleShowDepartment, showMedia, toggleShowMedia}) => {
 
   if(page == 0)
   {
@@ -343,7 +351,8 @@ const RoutePage = ({page, decreasePage, increasePage, stateUsed, toggleShowDepar
   } else if(page == 1){
     return <ContactForm decreasePage={decreasePage} increasePage={increasePage}/>          
   } else if(page == 2){
-    return <SkillForm decreasePage={decreasePage} increasePage={increasePage}/>          
+    return <SkillForm decreasePage={decreasePage} increasePage={increasePage}
+    showMedia={showMedia} toggleShowMedia={toggleShowMedia}/>          
   } else {
     return <FormComplete />;
   }  
@@ -539,7 +548,7 @@ const BiodataForm = ({increasePage, stateUsed, toggleShowDepartment}) => {
   );
 };
 
-    const SkillForm = ({decreasePage, increasePage}) => {
+    const SkillForm = ({decreasePage, increasePage,showMedia, toggleShowMedia}) => {
       let {practitioner, liftobject, weekoffwork, days, team, media} = stateValue;
       return (
         <div className="flex flex-col w-[50%] h-[900px] items-left">
@@ -614,6 +623,7 @@ const BiodataForm = ({increasePage, stateUsed, toggleShowDepartment}) => {
             id="team"
             name="team"
             defaultValue={team}
+            onClick={(evt)=>handleInput(evt, showMedia, toggleShowMedia)}
           >
           <option></option>
             <option>Ushering</option>
@@ -625,9 +635,30 @@ const BiodataForm = ({increasePage, stateUsed, toggleShowDepartment}) => {
             <option>Medical</option>
             <option>Logistics</option>
             <option>Prayer</option>
+            <option>Media</option>
           </select>
+                            
+          {showMedia && (
+              <Media media={media}/>
+            )}   
+            <div className="flex gap-5 flex-row mt-[50px]">
+              <button  onClick={()=>previousPage("skillPage", decreasePage)} className={`buttonPrimary text-sm`}>
+                Back
+              </button>
+              <button  onClick={()=>validateSkill(true, increasePage)} className={`buttonPrimary text-sm`}>
+                Submit
+              </button>
+            </div>
+        </div>
+  );
+};
 
-          <label className="flex mb-[5px] mt-[30px]">For media professionals only. Please select applicable media skill?</label>  
+const Media = (media) => {
+  return(
+<>
+          <label className="flex mb-[5px] mt-[30px]">
+            For media professionals only. Please select applicable media skill?
+          </label>  
           <select
             type="select"
             className={styles.select}
@@ -640,18 +671,9 @@ const BiodataForm = ({increasePage, stateUsed, toggleShowDepartment}) => {
             <option>Photography</option>
             <option>Videography</option>
             <option>Photo editing</option>
-          </select>
-            <div className="flex gap-5 flex-row mt-[50px]">
-              <button  onClick={()=>previousPage("skillPage", decreasePage)} className={`buttonPrimary text-sm`}>
-                Back
-              </button>
-              <button  onClick={()=>validateSkill(true, increasePage)} className={`buttonPrimary text-sm`}>
-                Submit
-              </button>
-            </div>
-        </div>
+          </select></>
   );
-};
+}
 
 const FormComplete = () => {
   return (
