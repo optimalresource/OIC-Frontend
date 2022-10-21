@@ -1,6 +1,7 @@
 import { Icon } from "@iconify/react";
 import React, { useState } from "react";
 import { faqs } from "data/faq";
+import Link from "next/link";
 
 const FAQComponent = () => {
   const [faqSelected, setFaqSelected] = useState({ index: 0, toggled: true });
@@ -11,9 +12,44 @@ const FAQComponent = () => {
       setFaqSelected({ index, toggled: true });
     }
   };
+  const formatLinkedTexts = (text, links) => {
+    let memText = "";
+    let memLink = "";
+    let a = "",
+      b = "",
+      count = 0;
+    for (let i = 0; i < text.length; i++) {
+      if (text[i] === "@") {
+        if (a === "@") a = "@@";
+        else if (a === "") a = "@";
+      }
+
+      if (text[i] === "$") {
+        if (b === "$") b = "$$";
+        else if (b === "") b = "$";
+      }
+
+      if (a === "@@" && b === "" && text[i] !== "@") {
+        memLink += text[i];
+      }
+
+      if (a.length < 1 && b.length < 1) {
+        memText += text[i];
+      }
+
+      if (b === "$$") {
+        a = "";
+        b = "";
+        memText += "<a href='" + links[count] + "'>" + memLink + "</a>";
+        count = count + 1;
+        memLink = "";
+      }
+    }
+    return memText;
+  };
   return (
     <div className="w-[100%] px-[5%] mt-[150px] max640:mt-[120px] relative flex flex-col items-center justify-center mb-[150px]">
-      <h1 className="text-4xl bmd:3xl mb-10 font-semibold text-center amd:mt-[50px] amd:mb-[70px] text-[#0b508f]">
+      <h1 className="text-4xl bmd:3xl mb-10 font-semibold text-center amd:mt-[50px] amd:mb-[70px] text-[#0b508f] leading-[44px]">
         Frequently Asked Questions
       </h1>
 
@@ -35,12 +71,28 @@ const FAQComponent = () => {
             {index === faqSelected.index && faqSelected.toggled && (
               <div>
                 {faq.answer.length > 0 && (
-                  <p className="text-base text-gray-600">{faq.answer}</p>
+                  <p
+                    className="text-base text-gray-600"
+                    dangerouslySetInnerHTML={{
+                      __html: faq.hasLink
+                        ? formatLinkedTexts(faq.answer, faq.links)
+                        : faq.answer,
+                    }}
+                  ></p>
                 )}
                 {faq.hasList ? (
                   <ul className="list-disc p-5 max400:p-4 text-base text-gray-600">
                     {faq.lists.map((list, i) => {
-                      return <li key={i}>{list}</li>;
+                      return (
+                        <li
+                          key={i}
+                          dangerouslySetInnerHTML={{
+                            __html: faq.hasLink
+                              ? formatLinkedTexts(list, faq.links)
+                              : list,
+                          }}
+                        ></li>
+                      );
                     })}
                   </ul>
                 ) : (

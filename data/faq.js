@@ -42,14 +42,13 @@ export const faqs = [
   },
   {
     question: "Can I bring my child?",
-    answer:
-      "Yes, you can absolutely bring your child./ Yes, children are welcome.",
+    answer: "Yes, you can absolutely bring your child.",
     hasList: false,
     hasLink: false,
   },
   {
     question:
-      "I live outside of Lagos State. Would accommodation be made for participants like myself? / Is accommodation provided?",
+      "I live outside of Lagos State. Would accommodation be made for participants like myself??",
     answer:
       "Unfortunately because of the high turnout of participants from around Nigeria, accommodation will not be provided. But here is a list of neighbouring hotels, air BnB and guest houses nearby.",
     hasList: false,
