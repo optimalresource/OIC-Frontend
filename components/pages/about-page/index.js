@@ -112,7 +112,7 @@ export const pillars = [
   "Order and Excellence within the context of the liberty of the Holy Spirit",
   "A buring passion for the lost",
   "The great commission",
-  "LOVE, FRIENDSHIP, FAMILY AND COMMUNITY",
+  "Love, friendship, family and community",
 ];
 
 export default AboutComponent;
