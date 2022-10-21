@@ -7,28 +7,29 @@ const Welcome = () => {
         A new beginning...
       </h1>
       <p className="py-1">
-        To be made whole, or to be saved, is to submit to God and His plan and
-        purpose for our lives. It is a turning from our old ways and turning to
-        Jesus, to ask Him for forgiveness from our sins and to give us new life
-        in Him. Romans 10:9 says: “If you declare with your mouth that Jesus is
+        To be made whole or saved is to submit to God and His plan and purpose
+        for our lives. It is a turning from our old ways and turning to Jesus,
+        to ask Him for the forgiveness of our sins and to give us new life in
+        Him. Romans 10:9 says: “If you declare with your mouth that Jesus is
         Lord, and believe in your heart that God raised him from the dead, you
         will be saved.”
       </p>
       <p className="py-1">
         Salvation is God’s free gift to us and we become His children. It is an
-        irrevocable acceptance into the family of God and it is an empowerment
-        to live life wholly and fully with the purpose of reflecting God to the
-        rest of His creation. If you are not sure whether you are right with God
-        or you know in fact that you need Jesus in your life, you can choose to
-        follow Him right now by praying a prayer of surrender to Jesus.
+        irrevocable acceptance into the family of God and empowerment to live a
+        life wholly and fully with the purpose of reflecting God to the rest of
+        His creation. If you are not sure whether you are right with God or you
+        know in fact that you need Jesus in your life, you can choose to follow
+        Him right now by praying a prayer of surrender to Jesus. The Bible says
+        in Romans 10:13 “For whosoever shall call upon the name of the Lord
+        shall be saved.”
       </p>
       <p className="py-1">
-        Dear Jesus, I’m praying this prayer because I know that I have done
-        wrong by living without You. I am sorry and I trust that You will
-        forgive me. I accept Your love and grace for me and ask that You would
-        be my Lord. Help me believe in You and love You every day, and help me
-        to show the world what You are like and how great Your love is. In
-        Jesus’ name, amen.
+        Dear Jesus, I’m praying because I know I have done wrong by living
+        without You. I am sorry and I trust that You will forgive me. I accept
+        Your love and grace for me and ask that You would be my Lord. Help me
+        believe in You and love You every day, and help me to show the world
+        what You are like and how great Your love is. In Jesus’ name, Amen.
       </p>
     </div>
   );

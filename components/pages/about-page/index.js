@@ -27,7 +27,7 @@ const AboutComponent = () => {
               height={295}
               alt="about"
             />
-            <h3 className="text-2xl font-semibold text-[#1f4477] mt-7">
+            {/* <h3 className="text-2xl font-semibold text-[#1f4477] mt-7">
               About the OASIS International Conference
             </h3>
             <p className="text-base mt-3">
@@ -36,14 +36,14 @@ const AboutComponent = () => {
               dolor sit amet, consectetur adipiscing elit.consectetur Lorem
               ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum
               dolor sit
-            </p>
+            </p> */}
           </div>
         </div>
         <div className="flex flex-col flex-1">
-          <h2 className="text-3xl font-semibold text-[#1f4477] mb-5">
+          <h2 className="text-3xl font-semibold text-[#1f4477] mb-5 uppercase">
             Seven Pillars of the Oasis
           </h2>
-          <ul className="flex flex-col gap-5 uppercase">
+          <ul className="flex flex-col gap-5">
             {pillars.map((pillar, index) => {
               return (
                 <li key={index} className="flex gap-3">
@@ -57,7 +57,9 @@ const AboutComponent = () => {
       </div>
 
       <div className="flex flex-col w-[100%] bg-[#000] text-white gap-10 py-[100px] px-[5%] mt-[150px] items-center justify-center text-center">
-        <h2 className="text-3xl font-semibold">A brief history of the OIC</h2>
+        <h2 className="text-3xl font-semibold uppercase">
+          A brief history of the OIC
+        </h2>
         <Image
           src="/assets/images/gallery.png"
           layout="intrinsic"
@@ -69,46 +71,32 @@ const AboutComponent = () => {
       <div className="flex flex-col w-[90%] my-[150px]">
         <p className="text-[100px] font-bold font-serif leading-10 ">&#8220;</p>
         <p className="px-[50px] mt-2 leading-7 max400:px-[20px]">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum
-          dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit
-          amet, consectetur adipiscing elit.consectetur adipiscing elit.Lorem
-          ipsum dolor sit amet, consectetur adipiscing elit.amet, consectetur
-          dolor sit amet, consectetur adipiscing ur consectetur dolor sit amet,
-          consectetur adipiscing ur consectetur dolor sit amet, consectetur
-          adipiscing ur Lorem ipsum dolor sit amet, consectetur adipiscing
-          elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem
-          ipsum dolor sit amet, consectetur adipiscing elit.consectetur
-          adipiscing elit.
+          The Oasis International Conference, hosted by RCCG The Oasis; a youth
+          expression of RCCG The Kings Court, began in 2014 out of a burning
+          desire to see the body of Christ grow in grace and in the knowledge of
+          God. We live in a time where the truth seems to be fading off among
+          believers and people are now giving their strength to motivations
+          sponsored by selfish ambitions and personal interests.
         </p>
         <p className="px-[50px] mt-5 leading-7 max400:px-[20px]">
-          Lorem Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem
-          ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor
-          sit amet, consectetur adipiscing elit.consectetur adipiscing
-          elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.amet,
-          consectetur dolor sit amet, consectetur adipiscing ur consectetur
-          dolor sit amet, consectetur adipiscing ur consectetur dolor sit amet,
-          consectetur adipiscing ur Lorem ipsum dolor sit amet, consectetur
-          adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing
-          elit.Lorem ipsum dolor sit amet, consectetur adipiscing
-          elit.consectetur adipiscing elit.Lorem ipsum dolor sit amet,
-          consectetur adipiscing elit.amet, consectetur dolor sit amet,
-          consectetur adipiscing ur consectetur dolor sit amet, consectetur
-          adipiscing ur consectetur dolor sit amet, consectetur adipiscing ur
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum
-          dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit
-          amet, consectetur adipiscing elit.consectetur adipiscing elit.
+          In order to see believers grounded in truth and established in the
+          faith, OIC was established. Ever since the first edition, it has
+          become a yearly meeting characterised by graceful teachings, deep
+          worship, prophetic utterances, miracles and testimonies.
         </p>
         <p className="px-[50px] mt-5 leading-7 max400:px-[20px]">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.amet,
-          consectetur dolor sit amet, consectetur adipiscing ur consectetur
-          dolor sit amet, consectetur adipiscing ur consectetur dolor sit amet,
-          consectetur adipiscing ur Lorem ipsum dolor sit amet, consectetur
-          adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing
-          elit.Lorem ipsum dolor sit amet, consectetur adipiscing
-          elit.consectetur adipiscing elit.Lorem ipsum dolor sit amet,
-          consectetur adipiscing elit.amet, consectetur dolor sit amet,
-          consectetur adipiscing ur consectetur dolor sit amet, consectetur
-          adipiscing ur consectetur dolor sit amet, consectetur adipiscing ur
+          During this period, we are always spiritually alert and sensitive to
+          the speakings of the Holy Spirit through His choice vessels. The
+          conference has witnessed the presence of seasoned ministers of God
+          from within and outside Nigeria. Some of them are Bishop Wale Oke,
+          Apostle Joshua Selman, Apostle Michael Orokpo, Prophet Gideon Danso,
+          and Minister Chris Delvan, amongst others.
+        </p>
+        <p className="px-[50px] mt-5 leading-7 max400:px-[20px]">
+          While we have continued to see our expectations exceeded at these
+          conferences every year, we are grateful to God for what He has done in
+          times past and we are excited about what He is set to do again this
+          year.
         </p>
       </div>
     </div>
