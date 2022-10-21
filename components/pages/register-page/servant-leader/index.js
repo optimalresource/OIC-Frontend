@@ -2,7 +2,7 @@ import Image from "next/image";
 import { Router } from "next/router";
 import React, { useState } from "react";
 import styles from "../../../utils/input-component/InputComponent.module.css";
-import CustomModal from "../../../layouts/custom-modal"
+//import CustomModal from "../../../layouts/custom-modal"
 
 
 let stateValue = {
@@ -157,7 +157,8 @@ function validateSkill(primary=false, increasePage){
     alert("Please select preferred team");
     status = false;
   } else {
-    increasePage();
+    postFormData(increasePage);
+    //increasePage();
   }
 }
 
@@ -330,6 +331,7 @@ const ServantLeader = () => {
           />
           <h2 className="text-[#1f4477] mt-2">Register</h2>
         </div>
+        
         <RoutePage
           page={page}
           decreasePage={decreasePage}
@@ -354,84 +356,97 @@ const RoutePage = ({page, decreasePage, increasePage, stateUsed, toggleShowDepar
     showMedia={showMedia} toggleShowMedia={toggleShowMedia}/>          
   } else {
     return <FormComplete />;
-  }
+  }  
 };
 
-const BiodataForm = ({ increasePage }) => {
+const BiodataForm = ({increasePage, stateUsed, toggleShowDepartment}) => {
+  let {firstname, lastname, email, gender, member, yearJoin, serve, department} = stateValue;
   return (
     <div className="flex flex-col flex-1 max1040:w-[80%] h-[900px] items-left">
       <label className="flex mb-[5px] mt-[30px]">
         First Name<span className="text-[red]">*</span>
       </label>
-      <input type="text" className={`${styles.input}`} />
+      <input type="text" className={`${styles.input}`} 
+            onChange={handleInput}
+            name="firstname"
+            id="firstname"
+            defaultValue={firstname}/>
       <label className="flex mb-[5px] mt-[30px]">
         Last Name<span className="text-[red]">*</span>
       </label>
-      <input type="text" className={styles.input} />
+      <input type="text" className={styles.input} onChange={handleInput}
+            name="lastname"
+            id="lastname"            
+            defaultValue={lastname}/>
       <label className="flex mb-[5px] mt-[30px]">
         Email<span className="text-[red]">*</span>
       </label>
-      <input type="text" className={styles.input} />
+      <input type="text" className={styles.input} 
+            onChange={handleInput}
+            name="email"
+            id="email"
+            defaultValue={email}/>
 
       <label className="flex mb-[5px] mt-[30px]">
         Select Gender<span className="text-[red]">*</span>
       </label>
       <label className="items-right mt-1">
-        <input type="radio" name="gender" id="gender" /> Male
+        <input type="radio" name="gender" id="gender" value="male" defaultChecked={gender == "male"} onChange={handleInput}/> Male
       </label>
       <label className="items-right mt-1">
-        <input type="radio" name="gender" id="gender" /> Female
+        <input type="radio" name="gender" id="gender" value="female" defaultChecked={gender == "female"} onChange={handleInput}/> Female
       </label>
 
-      <label className="flex mb-[5px] mt-[30px]">
-        Are you a member of Oasis? <span className="text-[red]">*</span>
-      </label>
-      <div className="flex gap-20">
-        <label>
-          <input type="radio" name="member" id="member" /> Yes
-        </label>
-        <label>
-          <input type="radio" name="member" id="member" /> No
-        </label>
+            <label className="flex mb-[5px] mt-[30px]">Are you a member of Oasis? <span className="text-[red]">*</span></label>  
+            <div className="flex gap-20">   
+              <label>
+                <input type="radio" name="member" value="yes" id="member" defaultChecked={member == "yes"} onChange={handleInput}/>    Yes    
+              </label>
+              <label >
+                <input  type="radio" name="member" value="no" id="member" defaultChecked={member == "no"} onChange={handleInput}/> No
+              </label>
+            </div>     
+            
+          <label className="flex mb-[5px] mt-[30px]">What year did you join Oasis?<span className="text-[red]">*</span></label>          
+          <select
+            type="select"
+            className={styles.select}
+            defaultValue={yearJoin}
+            id="yearjoin"
+            name="yearjoin"
+          >
+          <option></option>
+          <option>2014</option>
+          <option>2015</option>
+          <option>2016</option>
+          <option>2017</option>
+          <option>2018</option>
+          <option>2019</option>
+          <option>2020</option>
+          <option>2021</option>
+          <option>2022</option>
+          </select>
+
+            <label className="flex mb-[5px] mt-[30px]">Do you currently serve in the Oasis? <span className="text-[red]">*</span></label>  
+            <div className="flex gap-20">   
+              <label>
+                <input type="radio" name="serve" value="yes" id="serve" defaultChecked={serve == "yes"} onClick={(evt)=>handleInput(evt, stateUsed,toggleShowDepartment)}/> Yes  
+              </label>
+              <label >
+                <input  type="radio" name="serve" value="no" id="serve" defaultChecked={serve == "no"} onClick={(evt)=>handleInput(evt, stateUsed, toggleShowDepartment)}/> No
+              </label>
+            </div>                       
+            {stateUsed && (
+              <Department department={department}/>
+            )}   
+          <div className="flex gap-5 flex-row mt-[50px]">
+            <button onClick={() => validateBioData(true, increasePage)} className={`buttonPrimary text-sm`}>
+              Next
+            </button>
+          </div>
       </div>
-
-      <label className="flex mb-[5px] mt-[30px]">
-        What year did you join Oasis?<span className="text-[red]">*</span>
-      </label>
-      <select type="select" className={styles.select}>
-        <option></option>
-        <option>2014</option>
-        <option>2015</option>
-        <option>2016</option>
-        <option>2017</option>
-        <option>2018</option>
-        <option>2019</option>
-        <option>2020</option>
-        <option>2021</option>
-        <option>2022</option>
-      </select>
-
-      <label className="flex mb-[5px] mt-[30px]">
-        Do you currently serve in the Oasis?{" "}
-        <span className="text-[red]">*</span>
-      </label>
-      <div className="flex gap-20">
-        <label>
-          <input type="radio" name="serve" id="serve" /> Yes
-        </label>
-        <label>
-          <input type="radio" name="serve" id="serve" /> No
-        </label>
-      </div>
-
-      <div className="flex gap-5 flex-row mt-[50px]">
-        <button onClick={increasePage} className={`buttonPrimary text-sm`}>
-          Next
-        </button>
-      </div>
-    </div>
-  );
-};
+    );
+  }
 
   const Department = ({department}) => {
     return(
@@ -495,15 +510,19 @@ const BiodataForm = ({ increasePage }) => {
             onClick={handleInput}/> Same as contact number    
           </label>
 
-      <label className="flex mb-[5px] mt-[30px]">
-        Age range<span className="text-[red]">*</span>
-      </label>
-      <select type="select" className={styles.select}>
-        <option></option>
-        <option>18 - 24</option>
-        <option>25 - 34</option>
-        <option>35 +</option>
-      </select>
+          <label className="flex mb-[5px] mt-[30px]">Age range<span className="text-[red]">*</span></label>
+          <select
+            type="select"
+            className={styles.select}
+            id="age"
+            name="age"
+            defaultValue={age}
+          >
+          <option></option>
+          <option>18 - 24</option>
+          <option>25 - 34</option>
+          <option>35 +</option>
+          </select>
 
       <label className="flex mb-[5px] mt-[30px]">
         Do you have any medical condition that requires special accomodation?{" "}
@@ -511,18 +530,18 @@ const BiodataForm = ({ increasePage }) => {
       </label>
       <div className="flex gap-20">
         <label>
-          <input type="radio" name="accomodation" id="accomodation" /> Yes
+          <input type="radio" name="accomodation" value="yes" id="accomodation" defaultChecked={accomodation == "yes"} /> Yes
         </label>
         <label>
-          <input type="radio" name="accomodation" id="accomodation" /> No
+          <input type="radio" name="accomodation" value="no" id="accomodation" defaultChecked={accomodation == "no"} /> No
         </label>
       </div>
 
       <div className="flex gap-5 flex-row mt-[50px]">
-        <button onClick={decreasePage} className={`buttonPrimary text-sm`}>
+        <button onClick={()=>previousPage("contactPage", decreasePage)} className={`buttonPrimary text-sm`}>
           Back
         </button>
-        <button onClick={increasePage} className={`buttonPrimary text-sm`}>
+        <button onClick={()=>validateContact(true, increasePage)} className={`buttonPrimary text-sm`}>
           Next
         </button>
       </div>
@@ -551,58 +570,52 @@ const BiodataForm = ({ increasePage }) => {
       </label>
       <div className="flex gap-20">
         <label>
-          <input type="radio" name="liftobject" id="liftobject" /> Yes
+          <input type="radio" name="liftobject" id="liftobject" value="yes" defaultChecked={liftobject == "yes"}/> Yes
         </label>
         <label>
-          <input type="radio" name="liftobject" id="liftobject" /> No
+          <input type="radio" name="liftobject" id="liftobject" value="yes" defaultChecked={liftobject == "no"}/> No
         </label>
       </div>
 
-      <label className="flex mb-[5px] mt-[30px]">
-        Are you willing to take the week off work?{" "}
-        <span className="text-[red]">*</span>
-      </label>
-      <div className="flex gap-20">
-        <label>
-          <input type="radio" name="weekoffwork" id="weekoffwork" /> Yes
-        </label>
-        <label>
-          <input type="radio" name="weekoffwork" id="weekoffwork" /> No
-        </label>
-      </div>
-
-      <label className="flex mb-[5px] mt-[30px]">
-        What day of the week will you be available?
-        <span className="text-[red]">*</span>
-      </label>
-      <div>
-        <label className={"flex gap-2"}>
-          <input type="checkbox" /> All
-        </label>
-        <label className={"flex gap-2"}>
-          <input type="checkbox" /> Monday, November 21st
-        </label>
-        <label className={"flex gap-2"}>
-          <input type="checkbox" /> Tuesday, November 22nd
-        </label>
-        <label className={"flex gap-2"}>
-          <input type="checkbox" /> Wednesday, November 23rd
-        </label>
-      </div>
-      <div>
-        <label className={"flex gap-2"}>
-          <input type="checkbox" /> Thursday, November 24th
-        </label>
-        <label className={"flex gap-2"}>
-          <input type="checkbox" /> Friday, November 25th
-        </label>
-        <label className={"flex gap-2"}>
-          <input type="checkbox" /> Saturday, November 26th
-        </label>
-        <label className={"flex gap-2"}>
-          <input type="checkbox" /> Sunday, November 27th
-        </label>
-      </div>
+            <label className="flex mb-[5px] mt-[30px]">Are you willing to take the week off work? {" "}<span className="text-[red]">*</span></label>  
+            <div className="flex gap-20">   
+              <label>
+                <input type="radio" name="weekoffwork" id="weekoffwork" value="yes" defaultChecked={weekoffwork == "yes"}/> Yes    
+              </label>
+              <label >
+                <input  type="radio" name="weekoffwork" id="weekoffwork" value="no" defaultChecked={weekoffwork == "no"}/> No
+              </label>
+            </div>                 
+            
+          <label className="flex mb-[5px] mt-[30px]">What day of the week will you be available?<span className="text-[red]">*</span></label>          
+          <div>  
+              <label className={"flex gap-2"}>
+                <input type="checkbox" name="days" id="days" value="All" onClick={checkAllDays} defaultChecked={days["all"]}/> All
+              </label> 
+              <label className={"flex gap-2"}>
+                <input type="checkbox" name="days" id="days" value="Monday" defaultChecked={days["Monday"]}/> Monday, November 21st
+              </label>
+              <label className={"flex gap-2"}>
+                <input  type="checkbox" name="days" id="days" value="Tuesday" defaultChecked={days["Tuesday"]}/> Tuesday, November 22nd
+              </label>
+              <label className={"flex gap-2"}>
+                <input  type="checkbox" name="days" id="days" value="Wednesday" defaultChecked={days["Wednesday"]}/> Wednesday, November 23rd
+              </label>
+            </div>            
+            <div>  
+              <label className={"flex gap-2"}>
+                <input  type="checkbox" name="days" id="days" value="Thursday" defaultChecked={days["Thursday"]}/> Thursday, November 24th
+              </label>
+              <label className={"flex gap-2"}>
+                <input  type="checkbox" name="days" id="days" value="Friday" defaultChecked={days["Friday"]}/> Friday, November 25th
+              </label>
+              <label className={"flex gap-2"}>
+                <input  type="checkbox" name="days" id="days" value="Saturday" defaultChecked={days["Saturday"]}/> Saturday, November 26th
+              </label>
+              <label className={"flex gap-2"}>
+                <input  type="checkbox" name="days" id="days" value="Sunday" defaultChecked={days["Sunday"]}/> Sunday, November 27th
+              </label>
+            </div>  
 
           <label className="flex mb-[5px] mt-[30px]">Preferred team for OIC<span className="text-[red]">*</span></label>
           <select
@@ -633,7 +646,7 @@ const BiodataForm = ({ increasePage }) => {
               <button  onClick={()=>previousPage("skillPage", decreasePage)} className={`buttonPrimary text-sm`}>
                 Back
               </button>
-              <button  onClick={()=>validateSkill(true, increasePage)} className={`buttonPrimary text-sm`}>
+              <button id="submitButton" onClick={()=>validateSkill(true, increasePage)} className={`buttonPrimary text-sm`}>
                 Submit
               </button>
             </div>
@@ -643,7 +656,7 @@ const BiodataForm = ({ increasePage }) => {
 
 const Media = (media) => {
   return(
-<>
+        <>
           <label className="flex mb-[5px] mt-[30px]">
             For media professionals only. Please select applicable media skill?
           </label>  
@@ -659,7 +672,8 @@ const Media = (media) => {
             <option>Photography</option>
             <option>Videography</option>
             <option>Photo editing</option>
-          </select></>
+          </select>
+        </>
   );
 }
 
@@ -670,4 +684,64 @@ const FormComplete = () => {
     </div>
   );
 };
+
+
+function postFormData(increasePage){
+  var submitButton = document.getElementById("submitButton");
+  submitButton.disabled = true;
+  submitButton.className = "whiteButton text-sm";
+  var myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/json");
+  const extractKeys = Object.keys(Object.fromEntries(Object.entries(stateValue.days).filter(([key,value]) => value?.trim().length > 0))).join(',');
+ 
+  var raw = JSON.stringify(
+    {
+      "firstName": stateValue.firstname,
+      "lastName": stateValue.lastname,
+      "email": stateValue.email,
+      "gender": stateValue.gender,
+      "isMember": stateValue.member,
+      "yearJoinOasis": stateValue.yearJoin,
+      "isWorker": stateValue.serve,
+      "department": stateValue.department,
+      "phoneNumber": stateValue.phone,
+      "whatsappNumber": stateValue.whatsapp,
+      "ageRange": stateValue.age,
+      "hasMedicalCondition": stateValue.accomodation,
+      "isMedicalPractitioner": stateValue.practitioner,
+      "canLiftHeavyObject": stateValue.liftobject,
+      "isWorkOffWork": stateValue.weekoffwork,
+      "daysToBeAvailable": extractKeys,
+      "preferredTeam": stateValue.team,
+      "mediaSkill": stateValue.media
+    }
+  );
+
+  var requestOptions = {
+    method: 'POST',
+    headers: myHeaders,
+    body: stateValue,
+    redirect: 'follow'
+  };
+
+  fetch("https://rccgoic.herokuapp.com/api/user", requestOptions)
+    .then(response => response.text())
+    .then((result) => {
+      if(result.contains("success")){
+        increasePage();
+      }else{
+        alert("Unable to submit form. Please try again later.");
+      }
+      console.log(result);
+      submitButton.disabled = false;
+      submitButton.className = "buttonPrimary text-sm";
+    })
+    .catch(error => {      
+      alert("Unable to submit form. Please try again later.");
+      console.log('error', error);
+      submitButton.disabled = false;
+      submitButton.className = "buttonPrimary text-sm";
+    });
+}
+
 export default ServantLeader;
