@@ -690,8 +690,15 @@ function postFormData(increasePage){
   var submitButton = document.getElementById("submitButton");
   submitButton.disabled = true;
   submitButton.className = "whiteButton text-sm";
+
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
+  myHeaders.append("Access-Control-Allow-Origin", "*");
+  myHeaders.append("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+  myHeaders.append("access-control-allow-methods", "GET,HEAD,OPTIONS,POST,PUT");
+  myHeaders.append("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization,Access-Control-Allow-Origin,access-control-allow-headers");
+  myHeaders.append("access-control-allow-headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization,Access-Control-Allow-Origin,access-control-allow-headers,access-control-allow-methods");
+
   const extractKeys = Object.keys(Object.fromEntries(Object.entries(stateValue.days).filter(([key,value]) => value?.trim().length > 0))).join(',');
  
   var raw = JSON.stringify(
@@ -720,14 +727,14 @@ function postFormData(increasePage){
   var requestOptions = {
     method: 'POST',
     headers: myHeaders,
-    body: stateValue,
+    body: raw,
     redirect: 'follow'
   };
 
   fetch("https://rccgoic.herokuapp.com/api/user", requestOptions)
     .then(response => response.text())
     .then((result) => {
-      if(result.contains("success")){
+      if(result.includes("success")){
         increasePage();
       }else{
         alert("Unable to submit form. Please try again later.");
