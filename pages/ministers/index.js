@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { Fragment } from "react";
-
+import MinistersPage from "components/pages/ministers-page";
 export default function Ministers() {
   return (
     <Fragment>
@@ -10,11 +10,9 @@ export default function Ministers() {
           name="description"
           content="The Oasis International Conference..."
         />
-        <link rel="icon" href="/fav.png" />
+        <link rel="icon" href="/logo.png" />
       </Head>
-      <div className="textlg font-bold h-[500px] mt-[200px] relative">
-        This is the Ministers page
-      </div>
+     <MinistersPage />
     </Fragment>
   );
 }
