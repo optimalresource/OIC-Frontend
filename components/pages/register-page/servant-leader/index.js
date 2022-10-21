@@ -37,6 +37,38 @@ let stateValue = {
   checkAllDays: false
 }
 
+let resetStateValue = {
+  firstname:"",
+  lastname:"",
+  email:"",
+  gender:"",
+  member:"",
+  yearJoin: "",
+  serve:"",
+  department:"",
+  comment: "",
+  phone:"",
+  whatsapp:"",
+  age:"",
+  accomodation:"",
+  sameasContact: false,
+  practitioner:"",
+  liftobject:"",
+  weekoffwork:"",
+  days:{
+    Monday: "",
+    Tuesday: "",
+    Wednesday: "",
+    Thursday: "",
+    Friday: "",
+    Saturday: "",
+    Sunday: ""
+  },
+  team:"",
+  media:"",
+  checkAllDays: false
+}
+
 let title, message = "";
 let modalOpen = false;
 let setModalOpen = null;
@@ -89,7 +121,7 @@ function updateSkill(){
     }
   });
   stateValue["team"] = document.getElementById("team")?.value;  
-  stateValue["media"] = document.getElementById("media")?.value;
+  stateValue["media"] = stateValue["team"] == "Media" ? document.getElementById("media")?.value : "";
 }
 
 function validateDay(){
@@ -222,11 +254,11 @@ function updateBio(){
   stateValue["lastname"] = document.getElementById("lastname")?.value;
   stateValue["email"] = document.getElementById("email")?.value;
   stateValue["yearJoin"] = document.getElementById("yearjoin")?.value;
-  stateValue["department"] = document.getElementById("department")?.value;
   let gender = document.getElementsByName("gender");
   stateValue["gender"] = gender[0].checked ? gender[0].value  : gender[1].checked ? gender[1].value : "";
   let serve = document.getElementsByName("serve");
   stateValue["serve"] = serve[0].checked ? serve[0].value  : serve[1].checked ? serve[1].value : "";
+  stateValue["department"] = stateValue["serve"] == "yes"? document.getElementById("department")?.value : "";
   let member = document.getElementsByName("member");
   stateValue["member"] = member[0].checked ? member[0].value  : member[1].checked ? member[1].value : "";
 }
@@ -486,7 +518,7 @@ const BiodataForm = ({increasePage, stateUsed, toggleShowDepartment}) => {
 
           <label className="flex mb-[5px] mt-[30px]">Contact Number<span className="text-[red]">*</span></label>
           <input
-            type="text"
+            type="number"
             className={styles.input}
             id="phone"
             name="phone"
@@ -495,7 +527,7 @@ const BiodataForm = ({increasePage, stateUsed, toggleShowDepartment}) => {
   
           <label className="flex mb-[5px] mt-[30px]">WhatsApp Number<span className="text-[red]">*</span></label>
           <input
-            type="text"
+            type="number"
             className={styles.input}
             id="whatsapp"
             name="whatsapp"
@@ -736,6 +768,7 @@ function postFormData(increasePage){
     .then((result) => {
       if(result.includes("success")){
         increasePage();
+        stateValue = resetStateValue;
       }else{
         alert("Unable to submit form. Please try again later.");
       }
