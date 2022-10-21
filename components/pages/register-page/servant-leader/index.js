@@ -264,6 +264,7 @@ function updateBio(){
 }
 
 function validateBioData(primary = false, increasePage){
+
   let status = true;  
   if(primary == true){
     updateBio();
@@ -288,9 +289,6 @@ function validateBioData(primary = false, increasePage){
     modalOpen = !modalOpen;
     alert("Please enter your email");
     status = false;
-  }else if (splittedEmail.length != 2 || splittedEmail[1] == "yahoo.com"
-  || splittedEmail[1] == "yahoomail.com") {
-  alert("We don't accept yahoo accounts at the moment. Please enter another email account.")
   } else if(stateValue["gender"] == null || stateValue["gender"] == ""){
     message = "Please select your gender";
     title = "Input Error!";
@@ -503,6 +501,8 @@ const BiodataForm = ({increasePage, stateUsed, toggleShowDepartment}) => {
       <option>Prayer</option>
       <option>Outreach</option>
       <option>Protocol</option>
+      <option>Programmes</option>
+      <option>Follow up</option>
     </select>
     </div>
     </>
