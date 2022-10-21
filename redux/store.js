@@ -21,7 +21,8 @@ const persistConfig = {
 };
 
 const reducers = combineReducers({
-  user: userReducer,
+    user: userReducer,
+    
 });
 
 const persistedReducer = persistReducer(persistConfig, reducers);
