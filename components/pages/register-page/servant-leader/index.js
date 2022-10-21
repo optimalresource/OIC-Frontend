@@ -376,11 +376,9 @@ const ServantLeader = () => {
 };
 
 const RoutePage = ({page, decreasePage, increasePage, stateUsed, toggleShowDepartment, showMedia, toggleShowMedia}) => {
-
   if(page == 0)
   {
     return <BiodataForm increasePage={increasePage} stateUsed={stateUsed} toggleShowDepartment={toggleShowDepartment} />
-      
   } else if(page == 1){
     return <ContactForm decreasePage={decreasePage} increasePage={increasePage}/>          
   } else if(page == 2){
@@ -447,15 +445,15 @@ const BiodataForm = ({increasePage, stateUsed, toggleShowDepartment}) => {
             id="yearjoin"
             name="yearjoin"
           >
-          <option></option>
-          <option>2014</option>
-          <option>2015</option>
-          <option>2016</option>
-          <option>2017</option>
-          <option>2018</option>
-          <option>2019</option>
-          <option>2020</option>
-          <option>2021</option>
+            <option></option>
+            <option>2014</option>
+            <option>2015</option>
+            <option>2016</option>
+            <option>2017</option>
+            <option>2018</option>
+            <option>2019</option>
+            <option>2020</option>
+            <option>2021</option>
           <option>2022</option>
           </select>
 
@@ -492,19 +490,19 @@ const BiodataForm = ({increasePage, stateUsed, toggleShowDepartment}) => {
       id="department"
       name="department"
     >
-    <option></option>
-    <option>Hospitality</option>
-    <option>Welfare</option>
-    <option>Ushering</option>
-    <option>Choir (Sound of many waters)</option>
-    <option>Media (SALT)</option>
-    <option>Greeters</option>
-    <option>Security</option>
-    <option>Sanitation</option>
-    <option>Counseling</option>
-    <option>Prayer</option>
-    <option>Outreach</option>
-    <option>Protocol</option>
+      <option></option>
+      <option>Hospitality</option>
+      <option>Welfare</option>
+      <option>Ushering</option>
+      <option>Choir (Sound of many waters)</option>
+      <option>Media (SALT)</option>
+      <option>Greeters</option>
+      <option>Security</option>
+      <option>Sanitation</option>
+      <option>Counseling</option>
+      <option>Prayer</option>
+      <option>Outreach</option>
+      <option>Protocol</option>
     </select>
     </div>
     </>
