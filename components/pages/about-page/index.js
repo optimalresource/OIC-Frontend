@@ -13,7 +13,7 @@ const AboutComponent = () => {
             <Icon icon="akar-icons:facebook-fill" />
             <Icon icon="akar-icons:twitter-fill" />
           </div>
-          <div className="flex flex-col flex-1">
+          <div className="flex flex-col flex-1 max-w-[633px]">
             <h3 className="text-2xl font-semibold text-[#1f4477] mb-7 max1140:text-[24px] max400:text-[18px] max400:leading-7 max400:mb-3 max1140:mb-5">
               WELCOME TO
             </h3>
