@@ -23,19 +23,12 @@ const AboutSection = () => {
         <h2 className="text-3xl font-semibold text-[#1f4477]">About Us</h2>
 
         <p className="lineheight-[2xl]">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum
-          dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit
-          amet, consectetur adipiscing elit.consectetur adipiscing elit.Lorem
-          ipsum dolor sit amet, consectetur adipiscing elit.amet, consectetur
-          dolor sit amet, consectetur adipiscing elit.consectetur adipiscing
-          elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.amet,
-          consectetur Lorem ipsum dolor sit amet, consectetur adipiscing
-          elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem
-          ipsum dolor sit amet, consectetur adipiscing elit.consectetur
-          adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing
-          elit.amet, consectetur dolor sit amet, consectetur adipiscing
-          elit.consectetur adipiscing elit.Lorem ipsum dolor sit amet,
-          consectetur adipiscing elit.amet, consectetur
+          The Oasis International Conference, hosted by RCCG The Oasis; a youth
+          expression of RCCG The Kings Court, began in 2014 out of a burning
+          desire to see the body of Christ grow in grace and in the knowledge of
+          God. We live in a time where the truth seems to be fading off among
+          believers and people are now giving their strength to motivations
+          sponsored by selfish ambitions and personal interests.
         </p>
 
         <div className="mt-[50px]">
