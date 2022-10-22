@@ -1,0 +1,110 @@
+.container {
+    margin-top: 4%;
+    height: 30%;
+    width: 21%;
+    border: 1px solid #E8E8E8;
+    border-radius: 17.62px;
+    background: white;
+    padding: 1.5%;
+    
+    display: flex;
+    flex-direction: column;
+
+}
+.container:hover{
+    background: white;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+
+.imagecontainer {
+    height: 100%;
+    flex: 9;
+
+}
+
+.productname {
+    flex: .5;
+    text-align: center;
+    padding: 10%;
+    color: #404040;
+}
+
+
+.paybutton {
+    flex: .5;
+    text-align: center;
+    font-weight: 600;
+    
+    
+}
+
+.paybutton button {
+    height: 80%;
+   width: 50%;
+   margin-bottom: 5%;
+   background-color: var(--primary-regular);
+   color: white; 
+}
+
+
+@media (max-width: 1300px) {
+    .container {
+        height: 28%;
+    
+    padding: 1%;
+    
+    }
+    
+  }
+
+
+  @media (max-width: 800px) {
+    .container {
+        height: 20%;
+    
+    padding: 1%;
+    
+    }
+    
+  }
+
+
+  @media (max-width: 800px) {
+    .container {
+        height: 25%;
+    
+    padding: 1%;
+    
+    }
+    
+  }
+
+
+  @media (max-width: 700px) {
+    .container {
+        height: 26%;
+    
+    padding: 1%;
+    
+    }
+    
+  }
+
+
+  @media (max-width: 699px) {
+    .container {
+        height: 6%;
+        width: 95%;
+        padding: 2%;
+    
+    
+    }
+
+    .productname {
+        
+        padding: 5%;
+        
+    }
+    
+  }
