@@ -14,13 +14,6 @@ export const faqs = [
     hasLink: false,
   },
   {
-    question: "Do I have to register to attend?",
-    answer:
-      "Yes, Because there's usually a large turnout of people, registration is important and compulsory.",
-    hasList: false,
-    hasLink: false,
-  },
-  {
     question: "Will buses be made available for pick-ups and drop-offs?",
     answer: "To be determined.",
     hasList: false,
@@ -81,13 +74,6 @@ export const faqs = [
     question: "Who can attend the Oasis International Conference?",
     answer: "Anyone",
     hasList: false,
-    hasLink: false,
-  },
-  {
-    question: "When does Oasis services begin and end?",
-    answer: "Answer",
-    hasList: true,
-    lists: ["Dates", "Time for each day"],
     hasLink: false,
   },
   {

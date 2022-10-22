@@ -23,17 +23,30 @@ export function Header() {
   return (
     <>
       <div
-        className={`${styles.container} top-[50px] py-[20px] min641:pt-[10px] max640:top-[0] w-[90%] max-w-[1555px] max1555:px-[5%] max1555:w-[100%] min1728:px-[0] z-[1000]`}
+        className={`${styles.container} top-[50px] py-[20px] min641:pt-[10px] max640:top-[0] w-[90%] max-w-[1555px] max1555:px-[5%] max1555:w-[100%] min1728:px-[0] z-[1000] max640:bg-[#000] max640:text-white min641:bg-[#fff]`}
       >
-        <Link href="/">
-          <Image
-            src="/assets/images/svgs/logo3.svg"
-            width={161}
-            height={45}
-            alt="logo"
-            layout="intrinsic"
-          />
-        </Link>
+        <div className="max640:hidden">
+          <Link href="/">
+            <Image
+              src="/assets/images/svgs/logo3.svg"
+              width={161}
+              height={45}
+              alt="logo"
+              layout="intrinsic"
+            />
+          </Link>
+        </div>
+        <div className="min641:hidden">
+          <Link href="/">
+            <Image
+              src="/assets/images/svgs/white_logo.svg"
+              width={161}
+              height={45}
+              alt="logo"
+              layout="intrinsic"
+            />
+          </Link>
+        </div>
         <div className={styles.menus}>
           <ul className="text-sm flex gap-[50px] max1040:gap-[30px] items-center font-bold">
             <li
@@ -41,7 +54,7 @@ export function Header() {
               onMouseLeave={() => setConfDropDown(false)}
               className="flex flex-col"
             >
-              <span className="flex items-center gap-2 text-[#0b508f]">
+              <span className="flex items-center gap-2">
                 Conference <Icon icon="akar-icons:chevron-down" />
               </span>
               {confDropDown && (
@@ -83,7 +96,7 @@ export function Header() {
               onMouseLeave={() => setOasisDropDown(false)}
               className="flex flex-col"
             >
-              <span className="flex items-center gap-2 text-[#0b508f]">
+              <span className="flex items-center gap-2">
                 Oasis Online <Icon icon="akar-icons:chevron-down" />
               </span>
               {oasisDropdown && (
@@ -121,10 +134,14 @@ export function Header() {
               )}
             </li>
             <li>
-              <Link href="/store">Store</Link>
+              <Link href="/store">
+                <span className="text-black">Store</span>
+              </Link>
             </li>
             <li>
-              <Link href="/volunteer">Volunteer</Link>
+              <Link href="/volunteer">
+                <span className="text-black">Volunteer</span>
+              </Link>
             </li>
           </ul>
         </div>
@@ -132,7 +149,7 @@ export function Header() {
           <button className={`buttonPrimary text-sm`}>Login</button>
         </div>
         <motion.div
-          className={`${styles.menuIcon} flex justify-end items-center text-[24px] w-[100px] text-right min1201:hidden`}
+          className={`${styles.menuIcon} flex justify-end items-center text-[24px] w-[100px] text-right min1201:hidden min641:text-[#0B508F]`}
           onClick={() => setMenuToggled((previous) => !previous)}
           animate={menuToggled ? "closed" : "open"}
           variants={variants}

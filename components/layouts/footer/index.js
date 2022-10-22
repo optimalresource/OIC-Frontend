@@ -12,11 +12,11 @@ const Footer = () => {
           <p>A house of refreshing for those hungry for God.</p>
           <div className="flex justify-start items-center gap-2 bmd:justify-center">
             <Icon icon="akar-icons:phone" />
-            <span>+234 803 000 0000</span>
+            <span>+234 915 782 2911</span>
           </div>
           <div className="flex justify-start items-center gap-2 bmd:justify-center">
             <Icon icon="ant-design:mail-outlined" />
-            <span>hello@theoasis.com</span>
+            <span>info@theoasislagos.com</span>
           </div>
         </div>
         <div className="flex text-right w-[540px] max1040:w-[320px] bmd:w-[unset] justify-end items-center bmd:text-center bmd:justify-center">
