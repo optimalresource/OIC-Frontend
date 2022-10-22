@@ -41,7 +41,7 @@ export function Header() {
               onMouseLeave={() => setConfDropDown(false)}
               className="flex flex-col"
             >
-              <span className="flex items-center gap-2 text-[#0b508f]">
+              <span className="flex items-center gap-2">
                 Conference <Icon icon="akar-icons:chevron-down" />
               </span>
               {confDropDown && (
@@ -83,7 +83,7 @@ export function Header() {
               onMouseLeave={() => setOasisDropDown(false)}
               className="flex flex-col"
             >
-              <span className="flex items-center gap-2 text-[#0b508f]">
+              <span className="flex items-center gap-2">
                 Oasis Online <Icon icon="akar-icons:chevron-down" />
               </span>
               {oasisDropdown && (
@@ -121,10 +121,14 @@ export function Header() {
               )}
             </li>
             <li>
-              <Link href="/store">Store</Link>
+              <Link href="/store">
+                <span className="text-black">Store</span>
+              </Link>
             </li>
             <li>
-              <Link href="/volunteer">Volunteer</Link>
+              <Link href="/volunteer">
+                <span className="text-black">Volunteer</span>
+              </Link>
             </li>
           </ul>
         </div>

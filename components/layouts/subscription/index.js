@@ -12,7 +12,7 @@ const Subscription = () => {
             className="h-[40px] bg-[transparent] border-0 outline-none w-[100%] rounded-0"
           />
         </div>
-        <button className="buttonPrimary no-radius ml-[-1px] max400:ml-[unset]">
+        <button className="buttonPrimary no-radius primary-shadow no-hover">
           Subscribe
         </button>
       </div>
