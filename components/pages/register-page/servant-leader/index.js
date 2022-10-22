@@ -212,6 +212,16 @@ function updateContact(){
   stateValue["accomodation"] = accomodation[0].checked ? accomodation[0].value : accomodation[1].checked ? accomodation[1].value : "";
 }
 
+function validateMobile(mobilenumber) {   
+  var regmm='^[\+]?[0-9]{4,14}$';
+  var regmob = new RegExp(regmm);//mobilenumber.match(regmm)
+  if(regmob.test(mobilenumber) == true){
+      return true;
+  } else {
+      return false;
+  }    
+}
+
 function validateContact(primary=false, increasePage){
   let status = true;
   if(validateBioData(increasePage)==false){
@@ -219,13 +229,13 @@ function validateContact(primary=false, increasePage){
   }
   if(primary == true)
     updateContact();  
-  if(stateValue["phone"] == null || stateValue["phone"] == ""){
+  if(stateValue["phone"] == null || stateValue["phone"] == "" || validateMobile(stateValue["phone"]) == false){
     message = "Please enter your contact number";
     title = "Input Error!";
     modalOpen = !modalOpen;
     alert("Please enter your contact number");
     status = false;
-  }else if(stateValue["whatsapp"] == null || stateValue["whatsapp"] == ""){
+  }else if(stateValue["whatsapp"] == null || stateValue["whatsapp"] == "" || !validateMobile(stateValue["whatsapp"]) == false){
     message = "Please enter your whatsapp number";
     title = "Input Error!";
     modalOpen = !modalOpen;
@@ -264,7 +274,6 @@ function updateBio(){
 }
 
 function validateBioData(primary = false, increasePage){
-
   let status = true;  
   if(primary == true){
     updateBio();
@@ -516,7 +525,7 @@ const BiodataForm = ({increasePage, stateUsed, toggleShowDepartment}) => {
 
           <label className="flex mb-[5px] mt-[30px]">Contact Number<span className="text-[red]">*</span></label>
           <input
-            type="number"
+            type="text"
             className={styles.input}
             id="phone"
             name="phone"
@@ -525,7 +534,7 @@ const BiodataForm = ({increasePage, stateUsed, toggleShowDepartment}) => {
   
           <label className="flex mb-[5px] mt-[30px]">WhatsApp Number<span className="text-[red]">*</span></label>
           <input
-            type="number"
+            type="text"
             className={styles.input}
             id="whatsapp"
             name="whatsapp"
