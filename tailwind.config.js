@@ -19,10 +19,11 @@ module.exports = {
       max1040: { max: "1040px" },
       max1040min769: { max: "1040px", min: "769px" },
       pmd: "800px",
-      amd: { min: "769px" },
+
       min1041: { min: "1041px" },
       bmd: { max: "768px" },
       min641: { min: "641px" },
+      amd: { min: "769px" },
       max640: { max: "640px" },
       mimamd: { min: "768px", max: "800px" },
       max400: { max: "400px" },

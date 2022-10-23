@@ -1,18 +1,17 @@
-.container{
-
+.container {
+  width: 100%;
+  height: 100%;
+  background: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
-.producttopic{
-
+.producttopic {
+  text-align: center;
+  color: white;
+  font-size: 2rem;
+  width: 100%;
 }
-
-
-.listbody{
-
-}
-
-
-.paybutton{
-    
-}
-

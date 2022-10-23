@@ -1,27 +1,29 @@
-import React, {Fragment} from 'react';
-import KidsProductItem from "../kids-product-item";
-import styles from './KidsProductListing.module.css'
-import {products} from '../../../data/products'
+import React, { Fragment } from "react";
+import Image from "next/image";
+import styles from "./KidsProductListing.module.css";
+import { products, kidsPaylink } from "../../../data/products";
 const KidsProductListing = () => {
-    return (
-            <div className={styles.container}>
-                <div className={styles.producttopic}>Oasis Kids</div>
-                <div className={styles.listbody}>
-                {
-                    products.kids.map(({id, ...otherProps}) => <KidsProductItem key={id} {...otherProps}/>)
-                }
-                </div>
+  let { kids } = products;
+  return (
+    <div className={`${styles.container} py-[100px] px-[5%]`}>
+      <div className={styles.producttopic}>Oasis Kids</div>
+      <div className="w-[100%] my-[30px]">
+        <Image
+          src="/assets/images/kids.png"
+          width={1129}
+          height={507}
+          layout="intrinsic"
+          alt="kids"
+        />
+      </div>
 
-               <div className={styles.paybutton}>
-               <a href=""><button>&#8358;{products.kids[0].price} </button></a>
-               </div>
-
-            </div>
-            )
-}
-
-
-
+      <a href={kidsPaylink} target="_blank" rel="noreferrer">
+        <button className="buttonPrimary no-radius sm-pt min-w-[200px] amd:w-[361px]">
+          {products.kids[0].price}
+        </button>
+      </a>
+    </div>
+  );
+};
 
 export default KidsProductListing;
-
