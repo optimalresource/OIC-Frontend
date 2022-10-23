@@ -1,5 +1,5 @@
 import { Icon, InlineIcon } from "@iconify/react";
-import React from "react";
+import React, { useState } from "react";
 
 const SelectAdornment = ({
   isError = false,
@@ -18,7 +18,7 @@ const SelectAdornment = ({
   selected = "",
   ...otherProps
 }) => {
-  console.log(isError);
+  const [toggleDropdown, setToggleDropdown] = useState(initialState);
   return (
     <div
       className={`flex flex-col  ${className}`}
@@ -40,6 +40,7 @@ const SelectAdornment = ({
           borderColor: isError ? "red" : borderColor,
         }}
         className="flex items-center justify-between bg-[#fff]"
+        onClick={toggleDropdown}
       >
         <input
           type="text"
