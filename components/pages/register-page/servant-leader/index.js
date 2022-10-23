@@ -73,7 +73,7 @@ let title, message = "";
 let modalOpen = false;
 let setModalOpen = null;
 
-function handleInput(event, stateUsed, toggleShow){
+function handleInput(event, toggleShow){
   if(event.target.name == "serve"){    
     let serve = document.getElementsByName("serve");
     const showDepartment = serve[0].checked;
@@ -83,6 +83,10 @@ function handleInput(event, stateUsed, toggleShow){
     let whatsapp = document.getElementById("whatsapp");
     whatsapp.disabled = stateValue.sameasContact;
     whatsapp.value = stateValue.sameasContact ? document.getElementById("phone").value : "";
+  } else if(event.target.name == "member"){    
+    let members = document.getElementsByName("member");
+    stateValue["member"] = members[0].checked ? members[0].value  : members[1].checked ? members[1].value : "";
+    toggleShow(stateValue["member"] == "yes");
   } else if(event.target.name == "team"){    
     stateValue.team = document.getElementById("team");
     if(event.target.value == "Media"){
@@ -120,8 +124,8 @@ function updateSkill(){
       stateValue["days"]["Sunday"] = day.checked ? day.value : "";
     }
   });
-  stateValue["team"] = document.getElementById("team")?.value;  
-  stateValue["media"] = stateValue["team"] == "Media" ? document.getElementById("media")?.value : "";
+  stateValue["team"] = document.getElementById("team")?.value ?? "";  
+  stateValue["media"] = document.getElementById("media")?.value ?? "";
 }
 
 function validateDay(){
@@ -212,6 +216,16 @@ function updateContact(){
   stateValue["accomodation"] = accomodation[0].checked ? accomodation[0].value : accomodation[1].checked ? accomodation[1].value : "";
 }
 
+function validateMobile(mobilenumber) {   
+  var regmm='^[\+]?[0-9]{4,14}$';
+  var regmob = new RegExp(regmm);//mobilenumber.match(regmm)
+  if(regmob.test(mobilenumber) == true){
+      return true;
+  } else {
+      return false;
+  }    
+}
+
 function validateContact(primary=false, increasePage){
   let status = true;
   if(validateBioData(increasePage)==false){
@@ -219,13 +233,13 @@ function validateContact(primary=false, increasePage){
   }
   if(primary == true)
     updateContact();  
-  if(stateValue["phone"] == null || stateValue["phone"] == ""){
+  if(stateValue["phone"] == null || stateValue["phone"] == "" || validateMobile(stateValue["phone"]) == false){
     message = "Please enter your contact number";
     title = "Input Error!";
     modalOpen = !modalOpen;
     alert("Please enter your contact number");
     status = false;
-  }else if(stateValue["whatsapp"] == null || stateValue["whatsapp"] == ""){
+  }else if(stateValue["whatsapp"] == null || stateValue["whatsapp"] == "" || validateMobile(stateValue["whatsapp"]) == false){
     message = "Please enter your whatsapp number";
     title = "Input Error!";
     modalOpen = !modalOpen;
@@ -250,26 +264,33 @@ function validateContact(primary=false, increasePage){
 }
 
 function updateBio(){
-  stateValue["firstname"] = document.getElementById("firstname")?.value;
-  stateValue["lastname"] = document.getElementById("lastname")?.value;
-  stateValue["email"] = document.getElementById("email")?.value;
-  stateValue["yearJoin"] = document.getElementById("yearjoin")?.value;
+  stateValue["firstname"] = document.getElementById("firstname")?.value ?? "";
+  stateValue["lastname"] = document.getElementById("lastname")?.value ?? "";
+  stateValue["email"] = document.getElementById("email")?.value ?? "";
+  stateValue["yearJoin"] = document.getElementById("yearjoin")?.value ?? "";
   let gender = document.getElementsByName("gender");
   stateValue["gender"] = gender[0].checked ? gender[0].value  : gender[1].checked ? gender[1].value : "";
   let serve = document.getElementsByName("serve");
-  stateValue["serve"] = serve[0].checked ? serve[0].value  : serve[1].checked ? serve[1].value : "";
+  stateValue["serve"] = serve[0]?.checked ? serve[0].value : serve[1]?.checked ? serve[1]?.value : "";
   stateValue["department"] = stateValue["serve"] == "yes"? document.getElementById("department")?.value : "";
   let member = document.getElementsByName("member");
-  stateValue["member"] = member[0].checked ? member[0].value  : member[1].checked ? member[1].value : "";
+  stateValue["member"] = member[0].checked ? member[0].value : member[1].checked ? member[1].value : "";
+}
+
+function ValidateEmail(mail) 
+{
+ if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail))
+  {
+    return (true)
+  }
+    return (false)
 }
 
 function validateBioData(primary = false, increasePage){
-
   let status = true;  
   if(primary == true){
     updateBio();
-  }  
-  var splittedEmail = stateValue["email"]?.split("@");
+  }
   if(stateValue["firstname"] == null || stateValue["firstname"] == ""){
     message = "Please enter your first name";
     title = "Input Error!";
@@ -283,7 +304,7 @@ function validateBioData(primary = false, increasePage){
     alert("Please enter your last name");
     status = false;
   }else if(stateValue["email"] == null || stateValue["email"] == ""
-  || !stateValue["email"].includes("@")|| !stateValue["email"].includes(".")){
+  || ValidateEmail(stateValue["email"]) == false){
     message = "Please enter your valid email";
     title = "Input Error!";
     modalOpen = !modalOpen;
@@ -301,13 +322,13 @@ function validateBioData(primary = false, increasePage){
     modalOpen = !modalOpen;
     alert("Please select if you are a member of the oasis");
     status = false;
-  }else if(stateValue["yearJoin"] == null || stateValue["yearJoin"] == ""){
+  }else if(stateValue["member"] == "yes" && (stateValue["yearJoin"] == null || stateValue["yearJoin"] == "")){
     message = "Please select year you join oasis";
     title = "Input Error!";
     modalOpen = !modalOpen;
     alert("Please select year you join oasis");
     status = false;
-  }else if(stateValue["serve"] == null || stateValue["serve"] == ""){
+  }else if(stateValue["member"] == "yes" && (stateValue["serve"] == null || stateValue["serve"] == "")){
     message = "Please select if you currently serve at the oasis";
     title = "Input Error!";
     modalOpen = !modalOpen;
@@ -330,6 +351,7 @@ const ServantLeader = () => {
   const increasePage = () => setPage(page < 3 ? page + 1 : page);
   const decreasePage = () => setPage(page > 0 ? page - 1 : page);
 
+  const [memberState, setMemberState] = useState(false);
   const [stateUsed, setStateUsed] = useState(false);
   const toggleShowDepartment = (value) => {stateUsed=value;setStateUsed(stateUsed);}
   const [showMedia, setShowMedia] = useState(false);
@@ -364,8 +386,8 @@ const ServantLeader = () => {
         
         <RoutePage
           page={page}
-          decreasePage={decreasePage}
-          increasePage={increasePage}         
+          decreasePage={decreasePage} memberState={memberState}
+          increasePage={increasePage} setMemberState={setMemberState}        
           stateUsed={stateUsed} toggleShowDepartment={toggleShowDepartment}
           showMedia={showMedia} toggleShowMedia={toggleShowMedia}/>
       </div>
@@ -373,10 +395,12 @@ const ServantLeader = () => {
   );
 };
 
-const RoutePage = ({page, decreasePage, increasePage, stateUsed, toggleShowDepartment, showMedia, toggleShowMedia}) => {
+const RoutePage = ({page, decreasePage, increasePage, stateUsed, 
+  toggleShowDepartment, memberState, setMemberState, showMedia, toggleShowMedia}) => {
   if(page == 0)
   {
-    return <BiodataForm increasePage={increasePage} stateUsed={stateUsed} toggleShowDepartment={toggleShowDepartment} />
+    return <BiodataForm increasePage={increasePage} stateUsed={stateUsed} memberState={memberState}
+    setMemberState={setMemberState} toggleShowDepartment={toggleShowDepartment} />
   } else if(page == 1){
     return <ContactForm decreasePage={decreasePage} increasePage={increasePage}/>          
   } else if(page == 2){
@@ -387,7 +411,7 @@ const RoutePage = ({page, decreasePage, increasePage, stateUsed, toggleShowDepar
   }  
 };
 
-const BiodataForm = ({increasePage, stateUsed, toggleShowDepartment}) => {
+const BiodataForm = ({increasePage, stateUsed, memberState, setMemberState, toggleShowDepartment}) => {
   let {firstname, lastname, email, gender, member, yearJoin, serve, department} = stateValue;
   return (
     <div className="flex flex-col flex-1 max1040:w-[80%] h-[900px] items-left">
@@ -428,14 +452,28 @@ const BiodataForm = ({increasePage, stateUsed, toggleShowDepartment}) => {
             <label className="flex mb-[5px] mt-[30px]">Are you a member of Oasis? <span className="text-[red]">*</span></label>  
             <div className="flex gap-20">   
               <label>
-                <input type="radio" name="member" value="yes" id="member" defaultChecked={member == "yes"} onChange={handleInput}/>    Yes    
+                <input type="radio" name="member" value="yes" id="member" defaultChecked={member == "yes"} onChange={(evt)=>handleInput(evt, setMemberState)}/>    Yes    
               </label>
               <label >
-                <input  type="radio" name="member" value="no" id="member" defaultChecked={member == "no"} onChange={handleInput}/> No
+                <input  type="radio" name="member" value="no" id="member" defaultChecked={member == "no"} onChange={(evt)=>handleInput(evt, setMemberState)}/> No
               </label>
-            </div>     
-            
-          <label className="flex mb-[5px] mt-[30px]">What year did you join Oasis?<span className="text-[red]">*</span></label>          
+            </div>                      
+            {memberState && (
+              <Member yearJoin={yearJoin} serve={serve} stateUsed={stateUsed} department={department} toggleShowDepartment={toggleShowDepartment}/>
+            )} 
+          <div className="flex gap-5 flex-row mt-[50px]">
+            <button onClick={() => validateBioData(true, increasePage)} className={`buttonPrimary text-sm`}>
+              Next
+            </button>
+          </div>
+      </div>
+    );
+  }
+
+  const Member = ({yearJoin, serve, department, stateUsed, toggleShowDepartment}) => {
+    return(
+    <>
+      <label className="flex mb-[5px] mt-[30px]">What year did you join Oasis?<span className="text-[red]">*</span></label>          
           <select
             type="select"
             className={styles.select}
@@ -458,21 +496,17 @@ const BiodataForm = ({increasePage, stateUsed, toggleShowDepartment}) => {
             <label className="flex mb-[5px] mt-[30px]">Do you currently serve in the Oasis? <span className="text-[red]">*</span></label>  
             <div className="flex gap-20">   
               <label>
-                <input type="radio" name="serve" value="yes" id="serve" defaultChecked={serve == "yes"} onClick={(evt)=>handleInput(evt, stateUsed,toggleShowDepartment)}/> Yes  
+                <input type="radio" name="serve" value="yes" id="serve" defaultChecked={serve == "yes"} onClick={(evt)=>handleInput(evt, toggleShowDepartment)}/> Yes  
               </label>
               <label >
-                <input  type="radio" name="serve" value="no" id="serve" defaultChecked={serve == "no"} onClick={(evt)=>handleInput(evt, stateUsed, toggleShowDepartment)}/> No
+                <input  type="radio" name="serve" value="no" id="serve" defaultChecked={serve == "no"} onClick={(evt)=>handleInput(evt, toggleShowDepartment)}/> No
               </label>
-            </div>                       
+            </div> 
+                                  
             {stateUsed && (
               <Department department={department}/>
-            )}   
-          <div className="flex gap-5 flex-row mt-[50px]">
-            <button onClick={() => validateBioData(true, increasePage)} className={`buttonPrimary text-sm`}>
-              Next
-            </button>
-          </div>
-      </div>
+            )}  
+    </>
     );
   }
 
@@ -516,7 +550,7 @@ const BiodataForm = ({increasePage, stateUsed, toggleShowDepartment}) => {
 
           <label className="flex mb-[5px] mt-[30px]">Contact Number<span className="text-[red]">*</span></label>
           <input
-            type="number"
+            type="text"
             className={styles.input}
             id="phone"
             name="phone"
@@ -525,7 +559,7 @@ const BiodataForm = ({increasePage, stateUsed, toggleShowDepartment}) => {
   
           <label className="flex mb-[5px] mt-[30px]">WhatsApp Number<span className="text-[red]">*</span></label>
           <input
-            type="number"
+            type="text"
             className={styles.input}
             id="whatsapp"
             name="whatsapp"
@@ -654,7 +688,7 @@ const BiodataForm = ({increasePage, stateUsed, toggleShowDepartment}) => {
             id="team"
             name="team"
             defaultValue={team}
-            onClick={(evt)=>handleInput(evt, showMedia, toggleShowMedia)}
+            onClick={(evt)=>handleInput(evt, toggleShowMedia)}
           >
           <option></option>
             <option>Ushering</option>
@@ -684,7 +718,7 @@ const BiodataForm = ({increasePage, stateUsed, toggleShowDepartment}) => {
   );
 };
 
-const Media = (media) => {
+const Media = ({media}) => {
   return(
         <>
           <label className="flex mb-[5px] mt-[30px]">
@@ -729,7 +763,8 @@ function postFormData(increasePage){
   myHeaders.append("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization,Access-Control-Allow-Origin,access-control-allow-headers");
   myHeaders.append("access-control-allow-headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization,Access-Control-Allow-Origin,access-control-allow-headers,access-control-allow-methods");
 
-  const extractKeys = Object.keys(Object.fromEntries(Object.entries(stateValue.days).filter(([key,value]) => value?.trim().length > 0))).join(',');
+  const extractKeys = Object.keys(Object.fromEntries(Object.entries(stateValue.days)
+  .filter(([key,value]) => value?.trim().length > 0))).join(',');
  
   var raw = JSON.stringify(
     {
