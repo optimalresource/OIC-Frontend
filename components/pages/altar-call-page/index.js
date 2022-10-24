@@ -6,7 +6,7 @@ import Welcome from "./welcome";
 function AltarCallComponent({}) {
   return (
     <>
-      <div className="w-[100%] px-[5%] mt-[150px] bmd:mt-[120px] max640:mt-[80px] relative bmd:bg-[#000]">
+      <div className="w-[100%] px-[5%] mt-[130px] bmd:mt-[100px] max640:mt-[60px] relative bmd:bg-[#000]">
         <div className="w-[100%] min1140:h-[640px] relative rounded-[50px]">
           <img
             src="/assets/images/hero/squared/8.png"

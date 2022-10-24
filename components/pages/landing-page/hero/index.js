@@ -7,7 +7,7 @@ const Hero = ({
   subtitle = "",
 }) => {
   return (
-    <div className="flex justify-center items-center w-[90%] bmd:w-[100%] mt-[150px] bmd:mt-[120px] max640:mt-[80px] relative">
+    <div className="flex justify-center items-center w-[90%] bmd:w-[100%] mt-[130px] bmd:mt-[100px] max640:mt-[60px] relative">
       <div
         style={{ background: "url('" + header + "')" }}
         className="w-[100%] relative my-5 mt-0 bg-cover md:rounded-[50px]"

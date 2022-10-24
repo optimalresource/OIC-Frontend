@@ -19,7 +19,7 @@ const KidsProductListing = () => {
 
       <a href={kidsPaylink} target="_blank" rel="noreferrer">
         <button className="buttonPrimary no-radius sm-pt min-w-[200px] amd:w-[361px]">
-          {products.kids[0].price}
+          &#8358; {products.kids[0].price}
         </button>
       </a>
     </div>

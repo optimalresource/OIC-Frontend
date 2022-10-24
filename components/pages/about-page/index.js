@@ -4,7 +4,7 @@ import React from "react";
 
 const AboutComponent = () => {
   return (
-    <div className="flex flex-col justify-center items-center w-[100%] mt-[150px] max640:mt-[100px] relative">
+    <div className="flex flex-col justify-center items-center w-[100%] mt-[150px] max640:mt-[120px] relative">
       <div className="top-section flex justify-between gap-10 items-start w-[90%] bmd:flex-col">
         <div className="flex gap-10 flex-1 min-w-[60%]">
           <div className="social flex flex-col text-[#1f4477] text-[24px] gap-10 pt-[125px]">

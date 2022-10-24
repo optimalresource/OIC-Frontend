@@ -1,10 +1,7 @@
-import InputAdornment from "components/utils/form-elements/input-adornment";
 import Image from "next/image";
-import { Router } from "next/router";
-import React, { useState } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import styles from "../../../utils/input-component/InputComponent.module.css";
 import BioData from "./biodata.js";
-//import CustomModal from "../../../layouts/custom-modal"
 
 let stateValue = {
   firstname: "",
@@ -333,85 +330,6 @@ function updateBio() {
     : "";
 }
 
-function ValidateEmail(mail) {
-  if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail)) {
-    return true;
-  }
-  return false;
-}
-
-function validateBioData(primary = false, increasePage) {
-  let status = true;
-  if (primary == true) {
-    updateBio();
-  }
-  if (stateValue["firstname"] == null || stateValue["firstname"] == "") {
-    message = "Please enter your first name";
-    title = "Input Error!";
-    modalOpen = !modalOpen;
-    alert("Please enter your first name");
-    status = false;
-  } else if (stateValue["lastname"] == null || stateValue["lastname"] == "") {
-    message = "Please enter your last name";
-    title = "Input Error!";
-    modalOpen = !modalOpen;
-    alert("Please enter your last name");
-    status = false;
-  } else if (
-    stateValue["email"] == null ||
-    stateValue["email"] == "" ||
-    ValidateEmail(stateValue["email"]) == false
-  ) {
-    message = "Please enter your valid email";
-    title = "Input Error!";
-    modalOpen = !modalOpen;
-    alert("Please enter your email");
-    status = false;
-  } else if (stateValue["gender"] == null || stateValue["gender"] == "") {
-    message = "Please select your gender";
-    title = "Input Error!";
-    modalOpen = !modalOpen;
-    alert("Please enter your gender");
-    status = false;
-  } else if (stateValue["member"] == null || stateValue["member"] == "") {
-    message = "Please select if you are a member of the oasis";
-    title = "Input Error!";
-    modalOpen = !modalOpen;
-    alert("Please select if you are a member of the oasis");
-    status = false;
-  } else if (
-    stateValue["member"] == "yes" &&
-    (stateValue["yearJoin"] == null || stateValue["yearJoin"] == "")
-  ) {
-    message = "Please select year you join oasis";
-    title = "Input Error!";
-    modalOpen = !modalOpen;
-    alert("Please select year you join oasis");
-    status = false;
-  } else if (
-    stateValue["member"] == "yes" &&
-    (stateValue["serve"] == null || stateValue["serve"] == "")
-  ) {
-    message = "Please select if you currently serve at the oasis";
-    title = "Input Error!";
-    modalOpen = !modalOpen;
-    alert("Please select if you currently serve at the oasis");
-    status = false;
-  } else if (
-    stateValue["serve"] == "yes" &&
-    (stateValue["department"] == null || stateValue["department"] == "")
-  ) {
-    message = "Please select you department";
-    title = "Input Error!";
-    modalOpen = !modalOpen;
-    alert("Please select your department");
-    status = false;
-  } else if (primary == true) {
-    increasePage();
-  }
-  return status;
-}
-
 const ServantLeader = () => {
   const [page, setPage] = useState(0);
   const increasePage = () => setPage(page < 3 ? page + 1 : page);
@@ -430,7 +348,7 @@ const ServantLeader = () => {
   };
 
   return (
-    <div className="  w-[100%] px-[0%] py-[0px] mt-[150px] bmd:mt-[120px] max640:mt-[80px] min1141:grid min1141:grid-cols-2">
+    <div className="  w-[100%] px-[0%] py-[0px] mt-[130px] bmd:mt-[100px] max640:mt-[60px] min1141:grid min1141:grid-cols-2">
       <div className="flex flex-col flex-1 bg-[#000000]  bg-[url('/assets/images/register_frame.png')] bg-cover min-h-[500px] gap-5 items-center justify-center bg-no-repeat max1040:w-[100%] ">
         <div className="w-[700px] min1041:w-[600px] bg-[#000] text-[#ffffff] p-[100px] text-center bg-opacity-70 flex flex-col gap-3 bmd:w-[90%] bmd:px-[50px]">
           <h2 className="text-4xl bmd:text-3xl pb-5 font-semibold">
@@ -478,26 +396,11 @@ const RoutePage = ({
   page,
   decreasePage,
   increasePage,
-  stateUsed,
-  toggleShowDepartment,
-  memberState,
-  setMemberState,
   showMedia,
   toggleShowMedia,
 }) => {
   if (page == 0) {
-    return (
-      <>
-        <BioData />
-        {/* <BiodataForm
-          increasePage={increasePage}
-          stateUsed={stateUsed}
-          memberState={memberState}
-          setMemberState={setMemberState}
-          toggleShowDepartment={toggleShowDepartment}
-        /> */}
-      </>
-    );
+    return <BioData increasePage={increasePage} />;
   } else if (page == 1) {
     return (
       <ContactForm decreasePage={decreasePage} increasePage={increasePage} />
@@ -514,233 +417,6 @@ const RoutePage = ({
   } else {
     return <FormComplete />;
   }
-};
-
-const BiodataForm = ({
-  increasePage,
-  stateUsed,
-  memberState,
-  setMemberState,
-  toggleShowDepartment,
-}) => {
-  let {
-    firstname,
-    lastname,
-    email,
-    gender,
-    member,
-    yearJoin,
-    serve,
-    department,
-  } = stateValue;
-  return (
-    <div className="flex flex-col flex-1 max1040:w-[80%] h-[900px] items-left">
-      <label className="flex mb-[5px] mt-[30px]">
-        First Name<span className="text-[red]">*</span>
-      </label>
-      <input
-        type="text"
-        className={`${styles.input}`}
-        onChange={handleInput}
-        name="firstname"
-        id="firstname"
-        defaultValue={firstname}
-      />
-      <label className="flex mb-[5px] mt-[30px]">
-        Last Name<span className="text-[red]">*</span>
-      </label>
-      <input
-        type="text"
-        className={styles.input}
-        onChange={handleInput}
-        name="lastname"
-        id="lastname"
-        defaultValue={lastname}
-      />
-      <label className="flex mb-[5px] mt-[30px]">
-        Email<span className="text-[red]">*</span>
-      </label>
-      <input
-        type="text"
-        className={styles.input}
-        onChange={handleInput}
-        name="email"
-        id="email"
-        defaultValue={email}
-      />
-
-      <label className="flex mb-[5px] mt-[30px]">
-        Select Gender<span className="text-[red]">*</span>
-      </label>
-      <label className="items-right mt-1">
-        <input
-          type="radio"
-          name="gender"
-          id="gender"
-          value="male"
-          defaultChecked={gender == "male"}
-          onChange={handleInput}
-        />{" "}
-        Male
-      </label>
-      <label className="items-right mt-1">
-        <input
-          type="radio"
-          name="gender"
-          id="gender"
-          value="female"
-          defaultChecked={gender == "female"}
-          onChange={handleInput}
-        />{" "}
-        Female
-      </label>
-
-      <label className="flex mb-[5px] mt-[30px]">
-        Are you a member of Oasis? <span className="text-[red]">*</span>
-      </label>
-      <div className="flex gap-20">
-        <label>
-          <input
-            type="radio"
-            name="member"
-            value="yes"
-            id="member"
-            defaultChecked={member == "yes"}
-            onChange={(evt) => handleInput(evt, setMemberState)}
-          />{" "}
-          Yes
-        </label>
-        <label>
-          <input
-            type="radio"
-            name="member"
-            value="no"
-            id="member"
-            defaultChecked={member == "no"}
-            onChange={(evt) => handleInput(evt, setMemberState)}
-          />{" "}
-          No
-        </label>
-      </div>
-      {memberState && (
-        <Member
-          yearJoin={yearJoin}
-          serve={serve}
-          stateUsed={stateUsed}
-          department={department}
-          toggleShowDepartment={toggleShowDepartment}
-        />
-      )}
-      <div className="flex gap-5 flex-row mt-[50px]">
-        <button
-          onClick={() => validateBioData(true, increasePage)}
-          className={`buttonPrimary text-sm`}
-        >
-          Next
-        </button>
-      </div>
-    </div>
-  );
-};
-
-const Member = ({
-  yearJoin,
-  serve,
-  department,
-  stateUsed,
-  toggleShowDepartment,
-}) => {
-  return (
-    <>
-      <label className="flex mb-[5px] mt-[30px]">
-        What year did you join Oasis?<span className="text-[red]">*</span>
-      </label>
-      <select
-        type="select"
-        className={styles.select}
-        defaultValue={yearJoin}
-        id="yearjoin"
-        name="yearjoin"
-      >
-        <option></option>
-        <option>2014</option>
-        <option>2015</option>
-        <option>2016</option>
-        <option>2017</option>
-        <option>2018</option>
-        <option>2019</option>
-        <option>2020</option>
-        <option>2021</option>
-        <option>2022</option>
-      </select>
-
-      <label className="flex mb-[5px] mt-[30px]">
-        Do you currently serve in the Oasis?{" "}
-        <span className="text-[red]">*</span>
-      </label>
-      <div className="flex gap-20">
-        <label>
-          <input
-            type="radio"
-            name="serve"
-            value="yes"
-            id="serve"
-            defaultChecked={serve == "yes"}
-            onClick={(evt) => handleInput(evt, toggleShowDepartment)}
-          />{" "}
-          Yes
-        </label>
-        <label>
-          <input
-            type="radio"
-            name="serve"
-            value="no"
-            id="serve"
-            defaultChecked={serve == "no"}
-            onClick={(evt) => handleInput(evt, toggleShowDepartment)}
-          />{" "}
-          No
-        </label>
-      </div>
-
-      {stateUsed && <Department department={department} />}
-    </>
-  );
-};
-
-const Department = ({ department }) => {
-  return (
-    <>
-      <div>
-        <label className="flex mb-[5px] mt-[30px]">
-          Select your department<span className="text-[red]">*</span>
-        </label>
-        <select
-          type="select"
-          className={styles.select}
-          defaultValue={department}
-          id="department"
-          name="department"
-        >
-          <option></option>
-          <option>Hospitality</option>
-          <option>Welfare</option>
-          <option>Ushering</option>
-          <option>Choir (Sound of many waters)</option>
-          <option>Media (SALT)</option>
-          <option>Greeters</option>
-          <option>Security</option>
-          <option>Sanitation</option>
-          <option>Counseling</option>
-          <option>Prayer</option>
-          <option>Outreach</option>
-          <option>Protocol</option>
-          <option>Programmes</option>
-          <option>Follow up</option>
-        </select>
-      </div>
-    </>
-  );
 };
 
 const ContactForm = ({ decreasePage, increasePage }) => {
