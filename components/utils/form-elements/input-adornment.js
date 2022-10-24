@@ -1,5 +1,5 @@
 import { Icon } from "@iconify/react";
-import React from "react";
+import React, { useState } from "react";
 
 const InputAdornment = ({
   type = "text",
@@ -16,9 +16,15 @@ const InputAdornment = ({
   label = "Sample Label",
   important = true,
   className,
+  defaultValue = "",
+  setValue = () => {},
   ...otherProps
 }) => {
-  console.log(isError);
+  const [inputSelected, setInputSelected] = useState(defaultValue);
+  const triggerSetValue = (value) => {
+    setInputSelected(value);
+    setValue(value);
+  };
   return (
     <div
       className={`flex flex-col  ${className}`}
@@ -44,6 +50,8 @@ const InputAdornment = ({
           type={type}
           {...otherProps}
           className={`w-[100%] border-0 outline-0 h-[${height}] rounded-[${rounded}] px-3`}
+          onChange={(e) => triggerSetValue(e.target.value)}
+          value={inputSelected}
         />
       </div>
 

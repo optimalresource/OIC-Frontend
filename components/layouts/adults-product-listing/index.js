@@ -49,7 +49,9 @@ export const ProductCard = ({
           alt="product"
         />
         {name}
-        <button className="buttonPrimary no-radius sm-pt">{price}</button>
+        <button className="buttonPrimary no-radius sm-pt">
+          &#8358; {price}
+        </button>
       </div>
     </a>
   );

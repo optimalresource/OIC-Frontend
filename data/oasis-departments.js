@@ -1,0 +1,16 @@
+export const oasisDepartments = [
+  "Hospitality",
+  "Welfare",
+  "Ushering",
+  "Choir (Sound of many waters)",
+  "Media (SALT)",
+  "Greeters",
+  "Security",
+  "Sanitation",
+  "Counseling",
+  "Prayer",
+  "Outreach",
+  "Protocol",
+  "Programmes",
+  "Follow up",
+];

@@ -48,7 +48,7 @@ const FAQComponent = () => {
     return memText;
   };
   return (
-    <div className="w-[100%] px-[5%] mt-[150px] max640:mt-[120px] relative flex flex-col items-center justify-center mb-[150px]">
+    <div className="w-[100%] px-[5%] mt-[130px] relative flex flex-col items-center justify-center mb-[150px]">
       <h1 className="text-4xl bmd:3xl mb-10 font-semibold text-center amd:mt-[50px] amd:mb-[70px] text-[#0b508f] leading-[44px]">
         Frequently Asked Questions
       </h1>

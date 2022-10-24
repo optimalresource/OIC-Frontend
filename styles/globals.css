@@ -231,6 +231,10 @@ input.white-border {
   border: 1px solid #e8e8e8;
 }
 
+.buttonDisabled {
+  background: rgb(179, 179, 179);
+}
+
 @media screen and (max-width: 768px) {
   .dashboard-body {
     padding-left: 5%;
