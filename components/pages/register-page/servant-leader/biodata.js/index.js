@@ -1,17 +1,23 @@
 import React, { useState, useEffect, useCallback } from "react";
 import BioDataForm from "./form";
 import { validateEmail } from "components/utils/ValidateEmail";
+import { useSelector, useDispatch } from "react-redux";
+import { setVolunteer } from "redux/volunteer";
 
 const BioData = ({ increasePage }) => {
   const [biodataformErrors, setBiodataformErrors] = useState([]);
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [gender, setGender] = useState("");
-  const [isMember, setIsMember] = useState(null);
-  const [isServing, setIsServing] = useState(null);
-  const [yearJoined, setYearJoined] = useState("");
-  const [department, setDepartment] = useState("");
+  const volunteer = useSelector((state) => state?.volunteer);
+  const {
+    firstName,
+    lastName,
+    email,
+    gender,
+    isMember,
+    isServing,
+    yearJoined,
+    department,
+  } = volunteer;
+  const dispatch = useDispatch();
 
   const validateBioData = () => {
     if (checkBioDataForm()) {
@@ -71,11 +77,11 @@ const BioData = ({ increasePage }) => {
     if (!validateEmail(email)) errors.push("email");
     if (gender.length < 1) errors.push("gender");
     if (isMember === null) errors.push("isMember");
-    if (isMember) {
+    if (isMember === "Yes") {
       if (yearJoined.length < 1) errors.push("yearJoined");
       if (isServing === null) errors.push("isServing");
     }
-    if (isServing) {
+    if (isServing === "Yes") {
       if (department.length < 1) errors.push("department");
     }
     if (errors.length > 0) {
@@ -98,15 +104,31 @@ const BioData = ({ increasePage }) => {
 
   return (
     <BioDataForm
-      setFirstName={setFirstName}
-      setLastName={setLastName}
-      setEmail={setEmail}
-      setGender={setGender}
-      setMember={setIsMember}
-      setServe={setIsServing}
-      setDepartment={setDepartment}
+      setFirstName={(value) =>
+        dispatch(setVolunteer({ ...volunteer, firstName: value }))
+      }
+      setLastName={(value) =>
+        dispatch(setVolunteer({ ...volunteer, lastName: value }))
+      }
+      setEmail={(value) =>
+        dispatch(setVolunteer({ ...volunteer, email: value }))
+      }
+      setGender={(value) =>
+        dispatch(setVolunteer({ ...volunteer, gender: value }))
+      }
+      setMember={(value) =>
+        dispatch(setVolunteer({ ...volunteer, isMember: value }))
+      }
+      setServe={(value) =>
+        dispatch(setVolunteer({ ...volunteer, isServing: value }))
+      }
+      setDepartment={(value) =>
+        dispatch(setVolunteer({ ...volunteer, department: value }))
+      }
       validateBioData={validateBioData}
-      setYearJoined={setYearJoined}
+      setYearJoined={(value) =>
+        dispatch(setVolunteer({ ...volunteer, yearJoined: value }))
+      }
       biodataformErrors={biodataformErrors}
     />
   );

@@ -1,7 +1,7 @@
 import { Icon } from "@iconify/react";
 import React, { useState } from "react";
 
-const RadioGroup = ({
+const CheckboxGroup = ({
   flexDirection = "flex-row",
   isFullWidth = true,
   width,
@@ -12,7 +12,7 @@ const RadioGroup = ({
   items = [],
   isError = false,
   error = "Please check error",
-  defaultValue = "",
+  defaultValue = [],
   setValue = () => {},
 }) => {
   return (
@@ -47,9 +47,9 @@ const RadioGroup = ({
             >
               <Icon
                 icon={
-                  defaultValue === item
-                    ? "fluent:radio-button-20-filled"
-                    : "fluent:radio-button-20-regular"
+                  defaultValue.includes(item)
+                    ? "fluent:checkbox-checked-24-regular"
+                    : "fluent:checkbox-unchecked-24-regular"
                 }
               />
               <label className="mr-2">{item}</label>
@@ -71,4 +71,4 @@ const RadioGroup = ({
   );
 };
 
-export default RadioGroup;
+export default CheckboxGroup;

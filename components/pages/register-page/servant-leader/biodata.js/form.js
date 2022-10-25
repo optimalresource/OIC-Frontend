@@ -4,6 +4,7 @@ import SelectAdornment from "components/utils/form-elements/select-adornment";
 import React, { useState, useEffect } from "react";
 import { oasisYears } from "data/oasis-years";
 import { oasisDepartments } from "data/oasis-departments";
+import { useSelector } from "react-redux";
 
 const BioDataForm = ({
   setFirstName,
@@ -17,17 +18,8 @@ const BioDataForm = ({
   setDepartment,
   biodataformErrors = [],
 }) => {
-  const [isMember, setIsMember] = useState("");
-  const [isServing, setIsServing] = useState("");
   const [errors, setErrors] = useState(biodataformErrors);
-  const memberCheck = (value) => {
-    setIsMember(value);
-    setMember(value);
-  };
-  const servingCheck = (value) => {
-    setIsServing(value);
-    setServe(value);
-  };
+  const volunteer = useSelector((state) => state?.volunteer);
   useEffect(() => {
     setErrors(biodataformErrors);
   }, [biodataformErrors]);
@@ -42,6 +34,7 @@ const BioDataForm = ({
             label="First Name"
             important={true}
             setValue={setFirstName}
+            defaultValue={volunteer?.firstName}
           />
         </div>
         <div className="w-[100%] flex items-center justify-center">
@@ -52,6 +45,7 @@ const BioDataForm = ({
             isError={errors.includes("lastName") ? true : false}
             error="Please enter your last name"
             setValue={setLastName}
+            defaultValue={volunteer?.lastName}
           />
         </div>
       </div>
@@ -63,6 +57,7 @@ const BioDataForm = ({
           isError={errors.includes("email") ? true : false}
           error="Please enter your email"
           setValue={setEmail}
+          defaultValue={volunteer?.email}
         />
       </div>
 
@@ -73,16 +68,18 @@ const BioDataForm = ({
           label="Select Gender"
           isError={errors.includes("gender") ? true : false}
           error="Please select your gender"
+          defaultValue={volunteer?.gender}
         />
         <RadioGroup
           items={["Yes", "No"]}
-          setValue={memberCheck}
+          setValue={setMember}
           label="Are you a member of The Oasis?"
           isError={errors.includes("isMember") ? true : false}
           error="You didn't indicate if you are an Oasis member"
+          defaultValue={volunteer?.isMember}
         />
 
-        {isMember === "Yes" && (
+        {volunteer?.isMember === "Yes" && (
           <>
             <div className="w-[100%] flex items-center justify-center">
               <SelectAdornment
@@ -92,20 +89,22 @@ const BioDataForm = ({
                 setValue={setYearJoined}
                 isError={errors.includes("yearJoined") ? true : false}
                 error="You didn't indicate what year you joined Oasis"
+                defaultValue={volunteer?.yearJoined}
               />
             </div>
 
             <RadioGroup
               items={["Yes", "No"]}
-              setValue={servingCheck}
+              setValue={setServe}
               label="Do you currently serve in the Oasis?"
               isError={errors.includes("isServing") ? true : false}
               error="You didn't indicate if you serve in the Oasis"
+              defaultValue={volunteer?.isServing}
             />
           </>
         )}
       </div>
-      {isServing === "Yes" && (
+      {volunteer?.isServing === "Yes" && (
         <>
           <div className="w-[90%] min1141:w-[80%] flex items-center justify-center">
             <SelectAdornment
@@ -115,16 +114,19 @@ const BioDataForm = ({
               setValue={setDepartment}
               isError={errors.includes("department") ? true : false}
               error="You didn't indicate your department in the Oasis"
+              defaultValue={volunteer?.department}
             />
           </div>
         </>
       )}
-      <button
-        onClick={validateBioData}
-        className={`buttonPrimary text-sm mt-[50px] min641:w-[50%] min1141:w-[80%]`}
-      >
-        Next
-      </button>
+      <div className="w-[90%] min1141:w-[80%] flex items-center justify-center gap-5 max530:flex-col mt-[50px]">
+        <button
+          onClick={validateBioData}
+          className={`buttonPrimary text-sm w-[40%] max530:w-[100%]`}
+        >
+          Next
+        </button>
+      </div>
     </>
   );
 };

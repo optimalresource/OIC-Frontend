@@ -17,6 +17,8 @@ const InputAdornment = ({
   important = true,
   className,
   defaultValue = "",
+  disabled = false,
+  children,
   setValue = () => {},
   ...otherProps
 }) => {
@@ -51,7 +53,8 @@ const InputAdornment = ({
           {...otherProps}
           className={`w-[100%] border-0 outline-0 h-[${height}] rounded-[${rounded}] px-3`}
           onChange={(e) => triggerSetValue(e.target.value)}
-          value={inputSelected}
+          value={inputSelected.length > 1 ? inputSelected : defaultValue}
+          disabled={disabled}
         />
       </div>
 
@@ -62,7 +65,9 @@ const InputAdornment = ({
             <span className="pl-2">{error}</span>
           </>
         ) : (
-          <span className="pl-2">&nbsp;</span>
+          <span className="pl-2 flex gap-2 items-center text-[#333]">
+            {children}&nbsp;
+          </span>
         )}
       </div>
     </div>
