@@ -365,7 +365,13 @@ const ServantLeader = () => {
   );
 };
 
-const RoutePage = ({ page, decreasePage, increasePage }) => {
+const RoutePage = ({
+  page,
+  decreasePage,
+  increasePage,
+  showMedia,
+  toggleShowMedia,
+}) => {
   if (page == 0) {
     return <BioData increasePage={increasePage} />;
   } else if (page == 1) {
@@ -382,6 +388,252 @@ const RoutePage = ({ page, decreasePage, increasePage }) => {
   } else {
     return <FormComplete />;
   }
+};
+
+const SkillForm = ({
+  decreasePage,
+  increasePage,
+  showMedia,
+  toggleShowMedia,
+}) => {
+  let { practitioner, liftobject, weekoffwork, days, team, media } = stateValue;
+  return (
+    <div className="flex flex-col w-[50%] h-[900px] items-left">
+      <label className="flex mb-[5px] mt-[30px]">
+        Are you a medical practitioner? <span className="text-[red]">*</span>
+      </label>
+      <div className="flex gap-20">
+        <label>
+          <input
+            type="radio"
+            name="practitioner"
+            id="practitioner"
+            value="yes"
+            defaultChecked={practitioner == "yes"}
+          />{" "}
+          Yes
+        </label>
+        <label>
+          <input
+            type="radio"
+            name="practitioner"
+            id="practitioner"
+            value="no"
+            defaultChecked={practitioner == "no"}
+          />{" "}
+          No
+        </label>
+      </div>
+
+      <label className="flex mb-[5px] mt-[30px]">
+        Are you willing to exert energy in lifting heavy objects?{" "}
+        <span className="text-[red]">*</span>
+      </label>
+      <div className="flex gap-20">
+        <label>
+          <input
+            type="radio"
+            name="liftobject"
+            id="liftobject"
+            value="yes"
+            defaultChecked={liftobject == "yes"}
+          />{" "}
+          Yes
+        </label>
+        <label>
+          <input
+            type="radio"
+            name="liftobject"
+            id="liftobject"
+            value="yes"
+            defaultChecked={liftobject == "no"}
+          />{" "}
+          No
+        </label>
+      </div>
+
+      <label className="flex mb-[5px] mt-[30px]">
+        Are you willing to take the week off work?{" "}
+        <span className="text-[red]">*</span>
+      </label>
+      <div className="flex gap-20">
+        <label>
+          <input
+            type="radio"
+            name="weekoffwork"
+            id="weekoffwork"
+            value="yes"
+            defaultChecked={weekoffwork == "yes"}
+          />{" "}
+          Yes
+        </label>
+        <label>
+          <input
+            type="radio"
+            name="weekoffwork"
+            id="weekoffwork"
+            value="no"
+            defaultChecked={weekoffwork == "no"}
+          />{" "}
+          No
+        </label>
+      </div>
+
+      <label className="flex mb-[5px] mt-[30px]">
+        What day of the week will you be available?
+        <span className="text-[red]">*</span>
+      </label>
+      <div>
+        <label className={"flex gap-2"}>
+          <input
+            type="checkbox"
+            name="days"
+            id="days"
+            value="All"
+            onClick={checkAllDays}
+            defaultChecked={days["all"]}
+          />{" "}
+          All
+        </label>
+        <label className={"flex gap-2"}>
+          <input
+            type="checkbox"
+            name="days"
+            id="days"
+            value="Monday"
+            defaultChecked={days["Monday"]}
+          />{" "}
+          Monday, November 21st
+        </label>
+        <label className={"flex gap-2"}>
+          <input
+            type="checkbox"
+            name="days"
+            id="days"
+            value="Tuesday"
+            defaultChecked={days["Tuesday"]}
+          />{" "}
+          Tuesday, November 22nd
+        </label>
+        <label className={"flex gap-2"}>
+          <input
+            type="checkbox"
+            name="days"
+            id="days"
+            value="Wednesday"
+            defaultChecked={days["Wednesday"]}
+          />{" "}
+          Wednesday, November 23rd
+        </label>
+      </div>
+      <div>
+        <label className={"flex gap-2"}>
+          <input
+            type="checkbox"
+            name="days"
+            id="days"
+            value="Thursday"
+            defaultChecked={days["Thursday"]}
+          />{" "}
+          Thursday, November 24th
+        </label>
+        <label className={"flex gap-2"}>
+          <input
+            type="checkbox"
+            name="days"
+            id="days"
+            value="Friday"
+            defaultChecked={days["Friday"]}
+          />{" "}
+          Friday, November 25th
+        </label>
+        <label className={"flex gap-2"}>
+          <input
+            type="checkbox"
+            name="days"
+            id="days"
+            value="Saturday"
+            defaultChecked={days["Saturday"]}
+          />{" "}
+          Saturday, November 26th
+        </label>
+        <label className={"flex gap-2"}>
+          <input
+            type="checkbox"
+            name="days"
+            id="days"
+            value="Sunday"
+            defaultChecked={days["Sunday"]}
+          />{" "}
+          Sunday, November 27th
+        </label>
+      </div>
+
+      <label className="flex mb-[5px] mt-[30px]">
+        Preferred team for OIC<span className="text-[red]">*</span>
+      </label>
+      <select
+        type="select"
+        className={styles.select}
+        id="team"
+        name="team"
+        defaultValue={team}
+        onClick={(evt) => handleInput(evt, toggleShowMedia)}
+      >
+        <option></option>
+        <option>Ushering</option>
+        <option>Sanitation</option>
+        <option>Counseling</option>
+        <option>Security and Traffic Control</option>
+        <option>Prayer</option>
+        <option>Greeters</option>
+        <option>Medical</option>
+        <option>Logistics</option>
+        <option>Prayer</option>
+        <option>Media</option>
+      </select>
+
+      {showMedia && <Media media={media} />}
+      <div className="flex gap-5 flex-row mt-[50px]">
+        <button
+          onClick={() => previousPage("skillPage", decreasePage)}
+          className={`buttonPrimary text-sm`}
+        >
+          Back
+        </button>
+        <button
+          id="submitButton"
+          onClick={() => validateSkill(true, increasePage)}
+          className={`buttonPrimary text-sm`}
+        >
+          Submit
+        </button>
+      </div>
+    </div>
+  );
+};
+
+const Media = ({ media }) => {
+  return (
+    <>
+      <label className="flex mb-[5px] mt-[30px]">
+        For media professionals only. Please select applicable media skill?
+      </label>
+      <select
+        type="select"
+        className={styles.select}
+        id="media"
+        name="media"
+        defaultValue={media}
+      >
+        <option></option>
+        <option>Graphics design</option>
+        <option>Photography</option>
+        <option>Videography</option>
+        <option>Photo editing</option>
+      </select>
+    </>
+  );
 };
 
 const FormComplete = () => {
