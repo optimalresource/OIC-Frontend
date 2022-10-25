@@ -18,12 +18,13 @@ const SelectAdornment = ({
   important = true,
   className,
   selected = "",
+  defaultValue = "",
   setValue = () => {},
   items = [],
   ...otherProps
 }) => {
   const [toggleDropdown, setToggleDropdown] = useState(false);
-  const [inputSelected, setInputSelected] = useState(selected);
+  const [inputSelected, setInputSelected] = useState(defaultValue);
   const triggerSetValue = (value) => {
     setInputSelected(value);
     setValue(value);
@@ -57,7 +58,7 @@ const SelectAdornment = ({
             type="text"
             {...otherProps}
             className={`w-[90%] border-0 outline-0 h-[${height}px] rounded-[${rounded}] px-3 bg-[#fff]`}
-            value={inputSelected}
+            value={inputSelected ?? defaultValue}
             disabled
           />
           <InlineIcon icon="akar-icons:chevron-down" className="flex-1" />

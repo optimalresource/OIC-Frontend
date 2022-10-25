@@ -27,6 +27,7 @@ module.exports = {
       amd: { min: "769px" },
       max640: { max: "640px" },
       mimamd: { min: "768px", max: "800px" },
+      max530: { max: "530px" },
       max400: { max: "400px" },
       max375: { max: "375px" },
       max345: { max: "345px" },
