@@ -1,17 +1,26 @@
+/* eslint-disable @next/next/no-img-element */
+import Image from "next/image";
 import React from "react";
-import Hero from "../landing-page/hero";
-import ServantLeader from "../landing-page/servant-leader";
+import Form from "./form";
 import Welcome from "./welcome";
-// import header from "../../../public/assets/images/hero/register_header.png";
-function RegisterPage({}) {
-  const header = "";
+function AltarCallComponent({}) {
   return (
     <>
-      <Hero header={header} />
+      <div className="w-[100%] px-[5%] mt-[130px] bmd:mt-[100px] max640:mt-[60px] relative bmd:bg-[#000]">
+        <div className="w-[100%] min1140:h-[640px] relative rounded-[50px]">
+          <img
+            src="/assets/images/hero/squared/8.png"
+            alt="banner"
+            layout="fill"
+            className="rounded-[50px] w-[100%]"
+            width="100%"
+          />
+        </div>
+      </div>
       <Welcome />
-      <ServantLeader />
+      <Form />
     </>
   );
 }
 
-export default RegisterPage;
+export default AltarCallComponent;

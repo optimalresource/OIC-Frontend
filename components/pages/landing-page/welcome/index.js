@@ -11,7 +11,7 @@ const Welcome = () => {
         Welcome to the Oasis International Conference 2022. It is another year
         yet again and we can&lsquo;t wait to take you to a higher level of
         deepened faith and love in Christ Jesus. The theme for this year is
-        &lsquo;Kairos: Now is the appointed time.
+        &lsquo;Now is the acceptable time&lsquo;.
       </p>
       <p className="py-1">
         This is set to open your minds to understanding God&lsquo;s time. There

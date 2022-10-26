@@ -3,13 +3,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  min-height: 80px;
-  background: #fff;
 }
-
-/* .menuIcon {
-  display: none;
-} */
 
 .auth {
   display: inline-block;
@@ -22,23 +16,9 @@
   cursor: pointer;
 }
 
-/* .menus ul {
-  display: flex;
-  gap: 50px;
-  align-items: center;
-  font-weight: 600;
-} */
-
 @media (max-width: 1040px) {
   .menus {
     gap: 30px;
-  }
-  .menuIcon {
-    /* display: flex;
-    align-items: center;
-    justify-content: end;
-    font-size: 24px; */
-    color: var(--primary-regular);
   }
 }
 

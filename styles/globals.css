@@ -74,6 +74,18 @@ a {
   gap: 10px;
 }
 
+.subscribe {
+  display: flex;
+  padding: 8px 30px;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  word-break: keep-all;
+  word-wrap: normal;
+  white-space: nowrap;
+  gap: 10px;
+}
+
 .whiteButton {
   background: rgba(255, 255, 255, 1);
   box-shadow: 0px 0px 1px 1px rgba(235, 242, 239, 0.99);
@@ -145,6 +157,9 @@ button:hover {
 .p-7-10 {
   padding: 7px 10px;
 }
+.sm-pt {
+  padding: 4px 30px;
+}
 
 .stretched {
   padding-left: 30px;
@@ -186,12 +201,53 @@ button:hover {
   padding-top: 20px;
   padding-bottom: 20px;
 }
+.subscribe {
+  background-color: #0b508f;
+  color: #fff;
+}
+
+.subscribe:hover {
+  background-color: var(--primary-regular-900);
+}
+
 .no-radius {
   border-radius: unset;
 }
 
 input.white-border {
   box-shadow: inset 0px 0px 1px 1px rgba(255, 255, 255, 1);
+  /* -webkit-appearance: none; */
+}
+
+.primary-shadow {
+  box-shadow: 0px 0px 1px 1px #0b508f;
+}
+
+.no-hover:hover {
+  box-shadow: 0px 0px 1px 1px #0b508f;
+}
+
+.border-1 {
+  border: 1px solid #e8e8e8;
+}
+
+.buttonDisabled {
+  background: rgb(179, 179, 179);
+}
+
+.mainWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+.mainContainer {
+  width: 100%;
+  max-width: 1728px;
+  display: flex;
+  flex-direction: column;
 }
 
 @media screen and (max-width: 768px) {

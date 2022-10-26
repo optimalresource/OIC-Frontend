@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { Fragment } from "react";
-import LandingPage from "components/pages/landing-page";
+import AltarCallComponent from "components/pages/altar-call-page";
 
 export default function AltarCall() {
   return (
@@ -13,9 +13,7 @@ export default function AltarCall() {
         />
         <link rel="icon" href="/fav.png" />
       </Head>
-      <div className="textlg font-bold h-[500px] mt-[200px] relative">
-        This is the altar call page
-      </div>
+      <AltarCallComponent />
     </Fragment>
   );
 }

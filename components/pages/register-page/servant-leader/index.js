@@ -1,16 +1,80 @@
 import Image from "next/image";
-import { Router } from "next/router";
-import React, { useState } from "react";
-import styles from "../../../utils/input-component/InputComponent.module.css";
+import React from "react";
+import BioData from "./biodata.js";
+import ContactFormPage from "./contact-form/index.js";
+import SkillFormPage from "./skill-form.js";
+import VolunteerSuccessPage from "./success-page";
+import { useRouter } from "next/router";
+
+let stateValue = {
+  firstname: "",
+  lastname: "",
+  email: "",
+  gender: "",
+  member: "",
+  yearJoin: "",
+  serve: "",
+  department: "",
+  comment: "",
+  phone: "",
+  whatsapp: "",
+  age: "",
+  accomodation: "",
+  sameasContact: false,
+  practitioner: "",
+  liftobject: "",
+  weekoffwork: "",
+  days: {
+    Monday: "",
+    Tuesday: "",
+    Wednesday: "",
+    Thursday: "",
+    Friday: "",
+    Saturday: "",
+    Sunday: "",
+  },
+  team: "",
+  media: "",
+  checkAllDays: false,
+};
+
+let resetStateValue = {
+  firstname: "",
+  lastname: "",
+  email: "",
+  gender: "",
+  member: "",
+  yearJoin: "",
+  serve: "",
+  department: "",
+  comment: "",
+  phone: "",
+  whatsapp: "",
+  age: "",
+  accomodation: "",
+  sameasContact: false,
+  practitioner: "",
+  liftobject: "",
+  weekoffwork: "",
+  days: {
+    Monday: "",
+    Tuesday: "",
+    Wednesday: "",
+    Thursday: "",
+    Friday: "",
+    Saturday: "",
+    Sunday: "",
+  },
+  team: "",
+  media: "",
+  checkAllDays: false,
+};
 
 const ServantLeader = () => {
-  const [page, setPage] = useState(0);
-  const increasePage = () => setPage(page < 3 ? page + 1 : page);
-  const decreasePage = () => setPage(page > 0 ? page - 1 : page);
-
+  const router = useRouter();
   return (
-    <div className="flex items-start bmd:items-center justify-between max1040:flex-col min1140:flex-row  w-[100%] px-[0%] py-[0px] mt-[150px] mb-[150px] max1040:mb-[unset]">
-      <div className="flex flex-col flex-1 bg-[#000000]  bg-[url('/assets/images/register_frame.png')] bg-cover min-h-[500px] gap-5 items-center justify-center bg-no-repeat max1040:w-[100%] min1141:h-[972px]">
+    <div className="w-[100%] px-[0%] py-[0px] mt-[130px] bmd:mt-[100px] max640:mt-[60px] min1141:grid min1141:grid-cols-2 max-w-[1728px] relative">
+      <div className="flex flex-col flex-1 bg-[#000000]  bg-[url('/assets/images/register_frame.png')] bg-cover min-h-[500px] gap-5 items-center justify-center bg-no-repeat max1040:w-[100%] ">
         <div className="w-[700px] min1041:w-[600px] bg-[#000] text-[#ffffff] p-[100px] text-center bg-opacity-70 flex flex-col gap-3 bmd:w-[90%] bmd:px-[50px]">
           <h2 className="text-4xl bmd:text-3xl pb-5 font-semibold">
             Volunteer to be a Servant Leader
@@ -25,288 +89,120 @@ const ServantLeader = () => {
       </div>
 
       <div className="flex flex-col flex-1 items-center py-12 max1040:w-[100%] bg-[#F6FCFF] max1040:pb-[150px]">
-        <div className="flex flex-col items-center mt-[20px]">
-          <Image
-            src="/assets/images/register_icon.png"
-            width={52.6}
-            height={50.56}
-            alt="logo"
-          />
-          <h2 className="text-[#1f4477] mt-2">Register</h2>
-        </div>
-        <RoutePage
-          page={page}
-          decreasePage={decreasePage}
-          increasePage={increasePage}
-        />
+        {router.query?.id == 1 ||
+          router.query?.id == 2 ||
+          (!router.query?.id && (
+            <div className="flex flex-col items-center mt-[20px]">
+              <Image
+                src="/assets/images/register_icon.png"
+                width={52.6}
+                height={50.56}
+                alt="logo"
+              />
+              <h2 className="text-[#1f4477] mt-2 font-semibold text-xl">
+                Register
+              </h2>
+            </div>
+          ))}
+
+        <RoutePage />
       </div>
     </div>
   );
 };
 
-const RoutePage = ({ page, decreasePage, increasePage }) => {
-  if (page == 0) {
-    return <BiodataForm increasePage={increasePage} />;
-  } else if (page == 1) {
-    return (
-      <ContactForm decreasePage={decreasePage} increasePage={increasePage} />
-    );
-  } else if (page == 2) {
-    return (
-      <SkillForm decreasePage={decreasePage} increasePage={increasePage} />
-    );
+const RoutePage = ({}) => {
+  const router = useRouter();
+  if (!router.query?.id) {
+    return <BioData />;
   } else {
-    return <FormComplete />;
+    if (router.query?.id == 1) {
+      return <ContactFormPage />;
+    } else if (router.query?.id == 2) {
+      return <SkillFormPage />;
+    } else if (typeof router.query?.id == "string") {
+      if (router.query?.id == "success-page") return <VolunteerSuccessPage />;
+      else router.push("/volunteer");
+    } else {
+      router.push("/volunteer");
+    }
   }
 };
 
-const BiodataForm = ({ increasePage }) => {
-  return (
-    <div className="flex flex-col flex-1 max1040:w-[80%] h-[900px] items-left">
-      <label className="flex mb-[5px] mt-[30px]">
-        First Name<span className="text-[red]">*</span>
-      </label>
-      <input type="text" className={`${styles.input}`} />
-      <label className="flex mb-[5px] mt-[30px]">
-        Last Name<span className="text-[red]">*</span>
-      </label>
-      <input type="text" className={styles.input} />
-      <label className="flex mb-[5px] mt-[30px]">
-        Email<span className="text-[red]">*</span>
-      </label>
-      <input type="text" className={styles.input} />
+function postFormData(increasePage) {
+  var submitButton = document.getElementById("submitButton");
+  submitButton.disabled = true;
+  submitButton.className = "whiteButton text-sm";
 
-      <label className="flex mb-[5px] mt-[30px]">
-        Select Gender<span className="text-[red]">*</span>
-      </label>
-      <label className="items-right mt-1">
-        <input type="radio" name="gender" id="gender" /> Male
-      </label>
-      <label className="items-right mt-1">
-        <input type="radio" name="gender" id="gender" /> Female
-      </label>
-
-      <label className="flex mb-[5px] mt-[30px]">
-        Are you a member of Oasis? <span className="text-[red]">*</span>
-      </label>
-      <div className="flex gap-20">
-        <label>
-          <input type="radio" name="member" id="member" /> Yes
-        </label>
-        <label>
-          <input type="radio" name="member" id="member" /> No
-        </label>
-      </div>
-
-      <label className="flex mb-[5px] mt-[30px]">
-        What year did you join Oasis?<span className="text-[red]">*</span>
-      </label>
-      <select type="select" className={styles.select}>
-        <option></option>
-        <option>2014</option>
-        <option>2015</option>
-        <option>2016</option>
-        <option>2017</option>
-        <option>2018</option>
-        <option>2019</option>
-        <option>2020</option>
-        <option>2021</option>
-        <option>2022</option>
-      </select>
-
-      <label className="flex mb-[5px] mt-[30px]">
-        Do you currently serve in the Oasis?{" "}
-        <span className="text-[red]">*</span>
-      </label>
-      <div className="flex gap-20">
-        <label>
-          <input type="radio" name="serve" id="serve" /> Yes
-        </label>
-        <label>
-          <input type="radio" name="serve" id="serve" /> No
-        </label>
-      </div>
-
-      <div className="flex gap-5 flex-row mt-[50px]">
-        <button onClick={increasePage} className={`buttonPrimary text-sm`}>
-          Next
-        </button>
-      </div>
-    </div>
+  var myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/json");
+  myHeaders.append("Access-Control-Allow-Origin", "*");
+  myHeaders.append("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+  myHeaders.append("access-control-allow-methods", "GET,HEAD,OPTIONS,POST,PUT");
+  myHeaders.append(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept, Authorization,Access-Control-Allow-Origin,access-control-allow-headers"
   );
-};
-
-const ContactForm = ({ decreasePage, increasePage }) => {
-  return (
-    <div className="flex flex-col w-[50%] h-[900px] items-left">
-      <label className="flex mb-[5px] mt-[30px]">
-        Contact Number<span className="text-[red]">*</span>
-      </label>
-      <input type="text" className={styles.input} />
-
-      <label className="flex mb-[5px] mt-[30px]">
-        WhatsApp Number<span className="text-[red]">*</span>
-      </label>
-      <input type="text" className={styles.input} />
-      <label>
-        <input type="checkbox" /> Same as contact number
-      </label>
-
-      <label className="flex mb-[5px] mt-[30px]">
-        Age range<span className="text-[red]">*</span>
-      </label>
-      <select type="select" className={styles.select}>
-        <option></option>
-        <option>18 - 24</option>
-        <option>25 - 34</option>
-        <option>35 +</option>
-      </select>
-
-      <label className="flex mb-[5px] mt-[30px]">
-        Do you have any medical condition that requires special accomodation?{" "}
-        <span className="text-[red]">*</span>
-      </label>
-      <div className="flex gap-20">
-        <label>
-          <input type="radio" name="accomodation" id="accomodation" /> Yes
-        </label>
-        <label>
-          <input type="radio" name="accomodation" id="accomodation" /> No
-        </label>
-      </div>
-
-      <div className="flex gap-5 flex-row mt-[50px]">
-        <button onClick={decreasePage} className={`buttonPrimary text-sm`}>
-          Back
-        </button>
-        <button onClick={increasePage} className={`buttonPrimary text-sm`}>
-          Next
-        </button>
-      </div>
-    </div>
+  myHeaders.append(
+    "access-control-allow-headers",
+    "Origin, X-Requested-With, Content-Type, Accept, Authorization,Access-Control-Allow-Origin,access-control-allow-headers,access-control-allow-methods"
   );
-};
 
-const SkillForm = ({ decreasePage, increasePage }) => {
-  return (
-    <div className="flex flex-col w-[50%] h-[900px] items-left">
-      <label className="flex mb-[5px] mt-[30px]">
-        Are you a medical practitioner? <span className="text-[red]">*</span>
-      </label>
-      <div className="flex gap-20">
-        <label>
-          <input type="radio" name="practitioner" id="practitioner" /> Yes
-        </label>
-        <label>
-          <input type="radio" name="practitioner" id="practitioner" /> No
-        </label>
-      </div>
+  const extractKeys = Object.keys(
+    Object.fromEntries(
+      Object.entries(stateValue.days).filter(
+        ([key, value]) => value?.trim().length > 0
+      )
+    )
+  ).join(",");
 
-      <label className="flex mb-[5px] mt-[30px]">
-        Are you willing to exert energy in lifting heavy objects?{" "}
-        <span className="text-[red]">*</span>
-      </label>
-      <div className="flex gap-20">
-        <label>
-          <input type="radio" name="liftobject" id="liftobject" /> Yes
-        </label>
-        <label>
-          <input type="radio" name="liftobject" id="liftobject" /> No
-        </label>
-      </div>
+  var raw = JSON.stringify({
+    firstName: stateValue.firstname,
+    lastName: stateValue.lastname,
+    email: stateValue.email,
+    gender: stateValue.gender,
+    isMember: stateValue.member,
+    yearJoinOasis: stateValue.yearJoin,
+    isWorker: stateValue.serve,
+    department: stateValue.department,
+    phoneNumber: stateValue.phone,
+    whatsappNumber: stateValue.whatsapp,
+    ageRange: stateValue.age,
+    hasMedicalCondition: stateValue.accomodation,
+    isMedicalPractitioner: stateValue.practitioner,
+    canLiftHeavyObject: stateValue.liftobject,
+    isWorkOffWork: stateValue.weekoffwork,
+    daysToBeAvailable: extractKeys,
+    preferredTeam: stateValue.team,
+    mediaSkill: stateValue.media,
+  });
 
-      <label className="flex mb-[5px] mt-[30px]">
-        Are you willing to take the week off work?{" "}
-        <span className="text-[red]">*</span>
-      </label>
-      <div className="flex gap-20">
-        <label>
-          <input type="radio" name="weekoffwork" id="weekoffwork" /> Yes
-        </label>
-        <label>
-          <input type="radio" name="weekoffwork" id="weekoffwork" /> No
-        </label>
-      </div>
+  var requestOptions = {
+    method: "POST",
+    headers: myHeaders,
+    body: raw,
+    redirect: "follow",
+  };
 
-      <label className="flex mb-[5px] mt-[30px]">
-        What day of the week will you be available?
-        <span className="text-[red]">*</span>
-      </label>
-      <div>
-        <label className={"flex gap-2"}>
-          <input type="checkbox" /> All
-        </label>
-        <label className={"flex gap-2"}>
-          <input type="checkbox" /> Monday, November 21st
-        </label>
-        <label className={"flex gap-2"}>
-          <input type="checkbox" /> Tuesday, November 22nd
-        </label>
-        <label className={"flex gap-2"}>
-          <input type="checkbox" /> Wednesday, November 23rd
-        </label>
-      </div>
-      <div>
-        <label className={"flex gap-2"}>
-          <input type="checkbox" /> Thursday, November 24th
-        </label>
-        <label className={"flex gap-2"}>
-          <input type="checkbox" /> Friday, November 25th
-        </label>
-        <label className={"flex gap-2"}>
-          <input type="checkbox" /> Saturday, November 26th
-        </label>
-        <label className={"flex gap-2"}>
-          <input type="checkbox" /> Sunday, November 27th
-        </label>
-      </div>
+  fetch("https://rccgoic.herokuapp.com/api/user", requestOptions)
+    .then((response) => response.text())
+    .then((result) => {
+      if (result.includes("success")) {
+        increasePage();
+        stateValue = resetStateValue;
+      } else {
+        alert("Unable to submit form. Please try again later.");
+      }
+      console.log(result);
+      submitButton.disabled = false;
+      submitButton.className = "buttonPrimary text-sm";
+    })
+    .catch((error) => {
+      alert("Unable to submit form. Please try again later.");
+      console.log("error", error);
+      submitButton.disabled = false;
+      submitButton.className = "buttonPrimary text-sm";
+    });
+}
 
-      <label className="flex mb-[5px] mt-[30px]">
-        Preferred team for OIC<span className="text-[red]">*</span>
-      </label>
-      <select type="select" className={styles.select}>
-        <option></option>
-        <option>Ushering</option>
-        <option>Sanitation</option>
-        <option>Counseling</option>
-        <option>Security and Traffic Control</option>
-        <option>Prayer</option>
-        <option>Greeters</option>
-        <option>Medical</option>
-        <option>Logistics</option>
-        <option>Prayer</option>
-      </select>
-
-      <label className="flex mb-[5px] mt-[30px]">
-        Are you currently in any department in The Oasis aside the ones listed?{" "}
-        <span className="text-[red]">*</span>
-      </label>
-      <div className="flex gap-20">
-        <label>
-          <input type="radio" name="department" id="department" /> Yes
-        </label>
-        <label>
-          <input type="radio" name="department" id="department" /> No
-        </label>
-      </div>
-
-      <div className="flex gap-5 flex-row mt-[50px]">
-        <button onClick={decreasePage} className={`buttonPrimary text-sm`}>
-          Back
-        </button>
-        <button onClick={increasePage} className={`buttonPrimary text-sm`}>
-          Submit
-        </button>
-      </div>
-    </div>
-  );
-};
-
-const FormComplete = () => {
-  return (
-    <div className="flex text-[50px] mt-[50px] text-[green] flex-col w-[50%] h-[900px] items-center">
-      Thank you!
-    </div>
-  );
-};
 export default ServantLeader;
