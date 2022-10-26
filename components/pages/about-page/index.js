@@ -1,6 +1,7 @@
 import { Icon } from "@iconify/react";
 import Image from "next/image";
 import React from "react";
+import Link from "next/link";
 
 const AboutComponent = () => {
   return (
@@ -8,10 +9,18 @@ const AboutComponent = () => {
       <div className="top-section flex justify-between gap-10 items-start w-[90%] bmd:flex-col">
         <div className="flex gap-10 flex-1 min-w-[60%]">
           <div className="social flex flex-col text-[#1f4477] text-[24px] gap-10 pt-[125px]">
-            <Icon icon="akar-icons:instagram-fill" />
-            <Icon icon="akar-icons:youtube-fill" />
-            <Icon icon="akar-icons:facebook-fill" />
-            <Icon icon="akar-icons:twitter-fill" />
+            <Link href="https://www.instagram.com/theoasislagos/">
+              <a className="text-[#1f4477]"><Icon icon="akar-icons:instagram-fill" /></a>
+            </Link>
+            <Link href="https://www.youtube.com/c/TheOasisLagos">
+              <a className="text-[#1f4477]"><Icon icon="akar-icons:youtube-fill" /></a>
+            </Link>
+            <Link href="https://www.facebook.com/theoasislagos">
+              <a className="text-[#1f4477]"><Icon icon="akar-icons:facebook-fill" /></a>
+            </Link>
+            <Link href="https://twitter.com/theoasislagos">
+              <a className="text-[#1f4477]"><Icon icon="akar-icons:twitter-fill" /></a>
+            </Link>
           </div>
           <div className="flex flex-col flex-1">
             <h3 className="text-2xl font-semibold text-[#1f4477] mb-7 max1140:text-[24px] max400:text-[18px] max400:leading-7 max400:mb-3 max1140:mb-5">
@@ -122,7 +131,7 @@ export const pillars = [
   "Purity and Character",
   "True, Spirited and Exuberant Worship",
   "Order and Excellence within the context of the liberty of the Holy Spirit",
-  "A buring passion for the lost",
+  "A burning passion for the lost",
   "The great commission",
   "LOVE, FRIENDSHIP, FAMILY AND COMMUNITY",
 ];

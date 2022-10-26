@@ -115,10 +115,18 @@ const MobileMenu = ({ menuToggled, setMenuToggled }) => {
           <div className="flex items-center min641:hidden">
             <div className="flex gap-2 items-center">
               Follow :
-              <Icon icon="akar-icons:instagram-fill" />
-              <Icon icon="akar-icons:youtube-fill" />
-              <Icon icon="akar-icons:facebook-fill" />
-              <Icon icon="akar-icons:twitter-fill" />
+              <Link href="https://www.instagram.com/theoasislagos/">
+                <a className="text-[#1f4477]"><Icon icon="akar-icons:instagram-fill" /></a>
+              </Link>
+              <Link href="https://www.youtube.com/c/TheOasisLagos">
+                <a className="text-[#1f4477]"><Icon icon="akar-icons:youtube-fill" /></a>
+              </Link>
+              <Link href="https://www.facebook.com/theoasislagos">
+                <a className="text-[#1f4477]"><Icon icon="akar-icons:facebook-fill" /></a>
+              </Link>
+              <Link href="https://twitter.com/theoasislagos">
+                <a className="text-[#1f4477]"><Icon icon="akar-icons:twitter-fill" /></a>
+              </Link>
             </div>
           </div>
         </div>
