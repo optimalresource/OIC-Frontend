@@ -9,6 +9,8 @@ import hardSet from "redux-persist/lib/stateReconciler/hardSet";
 import { AnimatePresence } from "framer-motion";
 import { useEffect } from "react";
 import MainLayout from "components/layouts/MainLayout";
+import NextProgress from "next-progress";
+import { Toaster } from "react-hot-toast";
 
 const persistConfig = {
   key: "counter",
@@ -29,13 +31,19 @@ function MyApp({ Component, pageProps }) {
     <Provider store={store}>
       <PersistGate persistor={persistor}>
         <AnimatePresence>
-          {Component.getLayout ? (
-            Component.getLayout(<Component {...pageProps} />)
-          ) : (
-            <MainLayout>
-              <Component {...pageProps} />
-            </MainLayout>
-          )}
+          <div className="mainWrapper">
+            <div className="mainContainer">
+              <NextProgress color="#009fe3" height={5} />
+              <Toaster position="top-right" />
+              {Component.getLayout ? (
+                Component.getLayout(<Component {...pageProps} />)
+              ) : (
+                <MainLayout>
+                  <Component {...pageProps} />
+                </MainLayout>
+              )}
+            </div>
+          </div>
         </AnimatePresence>
       </PersistGate>
     </Provider>

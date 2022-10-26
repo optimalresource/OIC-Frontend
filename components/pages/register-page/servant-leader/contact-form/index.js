@@ -3,17 +3,19 @@ import { useSelector, useDispatch } from "react-redux";
 import { setVolunteer } from "redux/volunteer";
 import ContactForm from "./form";
 import { ValidateMobile } from "components/utils/ValidateMobile";
+import { useRouter } from "next/router";
 
-const ContactFormPage = ({ increasePage, decreasePage }) => {
+const ContactFormPage = () => {
   const [contactFormErrors, setContactFormErrors] = useState([]);
   const volunteer = useSelector((state) => state?.volunteer);
   const { contactNumber, whatsAppNumber, ageRange, medicalCondition } =
     volunteer;
   const dispatch = useDispatch();
+  const router = useRouter();
 
   const validateContact = () => {
     if (checkContactForm()) {
-      increasePage();
+      router.push({ pathname: "/volunteer/2" }, undefined, { shallow: true });
       return true;
     } else return false;
   };
@@ -21,11 +23,15 @@ const ContactFormPage = ({ increasePage, decreasePage }) => {
   useEffect(() => {
     let errors = [...contactFormErrors];
     if (errors.indexOf("contactNumber") > -1) {
-      if (contactNumber.length > 1)
+      if (ValidateMobile(contactNumber)) {
         errors.splice(errors.indexOf("contactNumber"), 1);
+        errors.indexOf("whatsAppNumber") > -1
+          ? errors.splice(errors.indexOf("whatsAppNumber"), 1)
+          : "";
+      }
     }
     if (errors.indexOf("whatsAppNumber") > -1) {
-      if (whatsAppNumber.length > 1)
+      if (ValidateMobile(whatsAppNumber))
         errors.splice(errors.indexOf("whatsAppNumber"), 1);
     }
     if (errors.indexOf("ageRange") > -1) {
@@ -50,6 +56,7 @@ const ContactFormPage = ({ increasePage, decreasePage }) => {
     let errors = [];
     if (!ValidateMobile(contactNumber)) errors.push("contactNumber");
     if (!ValidateMobile(whatsAppNumber)) errors.push("whatsAppNumber");
+    console.log(whatsAppNumber);
     if (ageRange.length < 1) errors.push("ageRange");
     if (medicalCondition.length < 1) errors.push("medicalCondition");
     if (errors.length > 0) {
@@ -66,9 +73,10 @@ const ContactFormPage = ({ increasePage, decreasePage }) => {
       setContactNumber={(value) =>
         dispatch(setVolunteer({ ...volunteer, contactNumber: value }))
       }
-      setWhatsAppNumber={(value) =>
-        dispatch(setVolunteer({ ...volunteer, whatsAppNumber: value }))
-      }
+      setWhatsAppNumber={(value) => {
+        console.log("value");
+        dispatch(setVolunteer({ ...volunteer, whatsAppNumber: value }));
+      }}
       setAgeRange={(value) =>
         dispatch(setVolunteer({ ...volunteer, ageRange: value }))
       }
@@ -76,7 +84,7 @@ const ContactFormPage = ({ increasePage, decreasePage }) => {
         dispatch(setVolunteer({ ...volunteer, medicalCondition: value }))
       }
       validateContact={validateContact}
-      decreasePage={decreasePage}
+      decreasePage={() => router.push("/volunteer")}
       contactFormErrors={contactFormErrors}
     />
   );

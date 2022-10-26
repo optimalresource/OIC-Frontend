@@ -110,7 +110,7 @@ export const pillars = [
   "Purity and Character",
   "True, Spirited and Exuberant Worship",
   "Order and Excellence within the context of the liberty of the Holy Spirit",
-  "A buring passion for the lost",
+  "A burning passion for the lost",
   "The great commission",
   "Love, friendship, family and community",
 ];

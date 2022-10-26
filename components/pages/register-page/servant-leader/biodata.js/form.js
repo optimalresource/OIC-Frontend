@@ -119,7 +119,7 @@ const BioDataForm = ({
           </div>
         </>
       )}
-      <div className="w-[90%] min1141:w-[80%] flex items-center justify-center gap-5 max530:flex-col mt-[50px]">
+      <div className="w-[90%] min1141:w-[80%] flex items-center justify-center gap-5 max530:flex-col mt-[50px] mb-[50px]">
         <button
           onClick={validateBioData}
           className={`buttonPrimary text-sm w-[40%] max530:w-[100%]`}
