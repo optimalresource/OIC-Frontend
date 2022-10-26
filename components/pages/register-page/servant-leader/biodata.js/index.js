@@ -3,6 +3,7 @@ import BioDataForm from "./form";
 import { validateEmail } from "components/utils/ValidateEmail";
 import { useSelector, useDispatch } from "react-redux";
 import { setVolunteer } from "redux/volunteer";
+import { useRouter } from "next/router";
 
 const BioData = ({ increasePage }) => {
   const [biodataformErrors, setBiodataformErrors] = useState([]);
@@ -18,10 +19,12 @@ const BioData = ({ increasePage }) => {
     department,
   } = volunteer;
   const dispatch = useDispatch();
+  const router = useRouter();
 
   const validateBioData = () => {
     if (checkBioDataForm()) {
-      increasePage();
+      console.log(router.query?.id);
+      router.push({ pathname: "/volunteer/1" }, undefined, { shallow: true });
       return true;
     } else return false;
   };

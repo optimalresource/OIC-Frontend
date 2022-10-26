@@ -21,13 +21,20 @@ const ContactForm = ({
   useEffect(() => {
     setErrors(contactFormErrors);
   }, [contactFormErrors]);
+
+  const performSameContact = () => {
+    if (!sameAsWhatsAppContact) {
+      setWhatsAppNumber(volunteer?.contactNumber);
+    }
+    setSameAsWhatsAppContact((previous) => !previous);
+  };
   return (
     <>
       <div className="grid grid-cols-1 max640:grid-cols-1 max1140:grid-cols-2 w-[90%] min1141:w-[80%] gap-5">
         <div className="w-[100%] flex items-center justify-center">
           <InputAdornment
             isError={errors.includes("contactNumber") ? true : false}
-            error="Please enter your contact number"
+            error="Please enter a valid contact number"
             className="mt-[50px]"
             label="Contact Number"
             important={true}
@@ -41,7 +48,7 @@ const ContactForm = ({
             label="WhatsApp Number"
             important={true}
             isError={errors.includes("whatsAppNumber") ? true : false}
-            error="Please enter your WhatsApp number"
+            error="Please enter a valid WhatsApp number"
             setValue={setWhatsAppNumber}
             defaultValue={
               sameAsWhatsAppContact
@@ -52,12 +59,7 @@ const ContactForm = ({
           >
             <div
               className="flex gap-2 items-center cursor-pointer"
-              onClick={() => {
-                if (sameAsWhatsAppContact) {
-                  setWhatsAppNumber(volunteer?.contactNumber);
-                }
-                setSameAsWhatsAppContact((previous) => !previous);
-              }}
+              onClick={performSameContact}
             >
               <Icon
                 icon={`${

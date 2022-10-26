@@ -1,11 +1,13 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { validateEmail } from "components/utils/ValidateEmail";
 import { useSelector, useDispatch } from "react-redux";
 import { setVolunteer } from "redux/volunteer";
 import SkillForm from "./form";
+import { availableDays } from "data/available-days";
+import { useRouter } from "next/router";
 
-const SkillFormPage = ({ increasePage, decreasePage }) => {
+const SkillFormPage = () => {
   const [skillFormErrors, setSkillFormErrors] = useState([]);
+  const router = useRouter();
   const volunteer = useSelector((state) => state?.volunteer);
   const {
     isMedicalPractitioner,
@@ -19,8 +21,7 @@ const SkillFormPage = ({ increasePage, decreasePage }) => {
 
   const validateSkill = () => {
     if (checkSkillForm()) {
-      console.log("got here");
-      increasePage();
+      router.push("/volunteer/success-page");
       return true;
     } else return false;
   };
@@ -91,10 +92,18 @@ const SkillFormPage = ({ increasePage, decreasePage }) => {
   ]);
 
   const addOrRemoveDaysAvailable = (value) => {
-    let days = [...volunteer?.daysAvailable];
-    if (days.includes(value)) days.splice(days.indexOf(value), 1);
-    else days.push(value);
-    dispatch(setVolunteer({ ...volunteer, daysAvailable: days }));
+    let days, result, oldDays;
+    if (value === "All") {
+      oldDays = [...volunteer?.daysAvailable];
+      oldDays.includes("All") ? (days = []) : (days = [...availableDays]);
+      result = [...days];
+    } else {
+      days = [...volunteer?.daysAvailable];
+      if (days.includes(value)) days.splice(days.indexOf(value), 1);
+      else days.push(value);
+      result = [...days];
+    }
+    dispatch(setVolunteer({ ...volunteer, daysAvailable: result }));
   };
 
   const addOrRemoveMediaAbility = (value) => {
@@ -125,7 +134,7 @@ const SkillFormPage = ({ increasePage, decreasePage }) => {
         dispatch(setVolunteer({ ...volunteer, yearJoined: value }))
       }
       skillFormErrors={skillFormErrors}
-      decreasePage={decreasePage}
+      decreasePage={() => router.push("/volunteer/1")}
     />
   );
 };

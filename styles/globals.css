@@ -235,6 +235,21 @@ input.white-border {
   background: rgb(179, 179, 179);
 }
 
+.mainWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+.mainContainer {
+  width: 100%;
+  max-width: 1728px;
+  display: flex;
+  flex-direction: column;
+}
+
 @media screen and (max-width: 768px) {
   .dashboard-body {
     padding-left: 5%;
