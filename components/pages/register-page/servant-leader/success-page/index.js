@@ -3,7 +3,7 @@ import React from "react";
 
 const VolunteerSuccessPage = () => {
   return (
-    <div className="w-[90%] min1141:w-[80%] flex items-start justify-center flex-col">
+    <div className="w-[90%] min1141:w-[80%] flex items-start justify-center flex-col mb-[50px]">
       <div className="flex text-[50px] mt-[50px] text-[green] items-center">
         Thank you!
       </div>
