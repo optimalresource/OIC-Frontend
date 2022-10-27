@@ -11,6 +11,7 @@ import { useEffect } from "react";
 import MainLayout from "components/layouts/MainLayout";
 import NextProgress from "next-progress";
 import { Toaster } from "react-hot-toast";
+// import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 const persistConfig = {
   key: "counter",
