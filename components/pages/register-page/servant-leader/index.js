@@ -62,17 +62,14 @@ const RoutePage = ({}) => {
   const submitForm = async () => {
     const validated = ValidateVolunteerObject(volunteer);
     if (validated.status) {
+      // var response = await addVolunteer(validated.data).unwrap();
       await addVolunteer(validated.data);
-      if (success) {
+      if (isError) {
+        toast.error(error);
+      } else {
         dispatch(setVolunteer(volunteerType));
         toast.success("Your form has been submitted successfully");
         router.push("/volunteer/success-page");
-      }
-      if (isError) {
-        toast.success("Your form has been submitted successfully");
-        router.push("/volunteer/success-page");
-        console.log(error);
-        // toast.error(error);
       }
     } else {
       validated.error.map((err) => {

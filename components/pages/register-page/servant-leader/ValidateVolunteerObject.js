@@ -140,9 +140,10 @@ const ValidateVolunteerObject = (volunteer) => {
       isMedicalPractitioner: isMedicalPractitioner,
       canLiftHeavyObject: canLiftHeavyObjects,
       isWorkOffWork: canTakeWeekfOff,
-      daysToBeAvailable: daysAvailable,
+      daysToBeAvailable:
+        daysAvailable.length > 0 ? daysAvailable.join("%") : "",
       preferredTeam: preferredTeam,
-      mediaSkill: mediaAbilities,
+      mediaSkill: mediaAbilities.length > 0 ? mediaAbilities.join("%") : "",
     });
 
   return {
