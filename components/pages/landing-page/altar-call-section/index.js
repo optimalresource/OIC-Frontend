@@ -1,6 +1,5 @@
 import Image from "next/image";
 import React from "react";
-import Link from "next/link";
 
 const AltarCall = () => {
   return (
@@ -21,11 +20,11 @@ const AltarCall = () => {
         </p>
 
         <div className="mt-[50px]">
-          <Link href="/altar-call">
-            <button className={`buttonPrimary text-sm w-[250px] max320:w-[200px]`}>
-              I accept Jesus
-            </button>
-          </Link>
+          <button
+            className={`buttonPrimary text-sm w-[250px] max320:w-[200px]`}
+          >
+            I accept Jesus
+          </button>
         </div>
       </div>
       <div className="flex-1 text-right">

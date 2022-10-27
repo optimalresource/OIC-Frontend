@@ -1,7 +1,6 @@
 import { Icon } from "@iconify/react";
 import Image from "next/image";
 import React from "react";
-import Link from "next/link";
 
 const AboutComponent = () => {
   return (
@@ -9,18 +8,10 @@ const AboutComponent = () => {
       <div className="top-section flex justify-between gap-10 items-start w-[90%] bmd:flex-col">
         <div className="flex gap-10 flex-1 min-w-[60%]">
           <div className="social flex flex-col text-[#1f4477] text-[24px] gap-10 pt-[125px]">
-            <Link href="https://www.instagram.com/theoasislagos/">
-              <a className="text-[#1f4477]"><Icon icon="akar-icons:instagram-fill" /></a>
-            </Link>
-            <Link href="https://www.youtube.com/c/TheOasisLagos">
-              <a className="text-[#1f4477]"><Icon icon="akar-icons:youtube-fill" /></a>
-            </Link>
-            <Link href="https://www.facebook.com/theoasislagos">
-              <a className="text-[#1f4477]"><Icon icon="akar-icons:facebook-fill" /></a>
-            </Link>
-            <Link href="https://twitter.com/theoasislagos">
-              <a className="text-[#1f4477]"><Icon icon="akar-icons:twitter-fill" /></a>
-            </Link>
+            <Icon icon="akar-icons:instagram-fill" />
+            <Icon icon="akar-icons:youtube-fill" />
+            <Icon icon="akar-icons:facebook-fill" />
+            <Icon icon="akar-icons:twitter-fill" />
           </div>
           <div className="flex flex-col flex-1 max-w-[633px]">
             <h3 className="text-2xl font-semibold text-[#1f4477] mb-7 max1140:text-[24px] max400:text-[18px] max400:leading-7 max400:mb-3 max1140:mb-5">
