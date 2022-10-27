@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React from "react";
+import Link from "next/link";
 
 const AboutSection = () => {
   return (
@@ -32,9 +33,11 @@ const AboutSection = () => {
         </p>
 
         <div className="mt-[50px]">
-          <button className={`buttonPrimary text-sm w-[200px]`}>
-            See more
-          </button>
+          <Link href="/about">
+            <button className={`buttonPrimary text-sm w-[200px]`}>
+              See more
+            </button>
+          </Link>
         </div>
       </div>
     </div>
