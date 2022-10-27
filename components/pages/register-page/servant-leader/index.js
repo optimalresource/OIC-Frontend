@@ -57,14 +57,20 @@ const RoutePage = ({}) => {
   const router = useRouter();
   const volunteer = useSelector((state) => state?.volunteer);
   const dispatch = useDispatch();
-  const [addVolunteer] = useAddVolunteerMutation();
-  const submitForm = () => {
+  const [addVolunteer, isError, error, isLoading, success] =
+    useAddVolunteerMutation();
+  const submitForm = async () => {
     const validated = ValidateVolunteerObject(volunteer);
     if (validated.status) {
-      if (addVolunteer(validated.data)) {
+      await addVolunteer(validated.data);
+      if (success) {
         dispatch(setVolunteer(volunteerType));
         toast.success("Your form has been submitted successfully");
         router.push("/volunteer/success-page");
+      }
+      if (isError) {
+        console.log(error);
+        toast.error(error);
       }
     } else {
       validated.error.map((err) => {
