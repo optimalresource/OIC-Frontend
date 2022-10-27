@@ -11,7 +11,7 @@ export const apiSlice = createApi({
       const token = getState().user.token;
       token && headers.set("authorization", `Bearer ${token}`);
       headers.set("Content-Type", "application/json");
-      headers.set("Accept", "application/json");
+      // headers.set("Accept", "application/json");
       headers.set("Access-Control-Allow-Origin", "*");
       headers.set("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
       return headers;
