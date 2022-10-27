@@ -4,9 +4,12 @@ import { setVolunteer } from "redux/volunteer";
 import SkillForm from "./form";
 import { availableDays } from "data/available-days";
 import { useRouter } from "next/router";
+import toast from "react-hot-toast";
+import { determineScroll } from "../ScrollLogic";
 
-const SkillFormPage = () => {
+const SkillFormPage = ({ submitForm }) => {
   const [skillFormErrors, setSkillFormErrors] = useState([]);
+  const [scrollPosition, setScrollPosition] = useState("");
   const router = useRouter();
   const volunteer = useSelector((state) => state?.volunteer);
   const {
@@ -21,7 +24,7 @@ const SkillFormPage = () => {
 
   const validateSkill = () => {
     if (checkSkillForm()) {
-      router.push("/volunteer/success-page");
+      submitForm();
       return true;
     } else return false;
   };
@@ -77,6 +80,8 @@ const SkillFormPage = () => {
     }
     if (errors.length > 0) {
       setSkillFormErrors(errors);
+      setScrollPosition(determineScroll(errors));
+      toast.error("Please fill the missing form fields");
       return false;
     } else {
       setSkillFormErrors([]);
@@ -135,6 +140,7 @@ const SkillFormPage = () => {
       }
       skillFormErrors={skillFormErrors}
       decreasePage={() => router.push("/volunteer/1")}
+      scrollPosition={scrollPosition}
     />
   );
 };

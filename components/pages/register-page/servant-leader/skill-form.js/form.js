@@ -18,13 +18,17 @@ const SkillForm = ({
   validateSkill,
   skillFormErrors = [],
   decreasePage,
+  scrollPosition = "",
 }) => {
   const [errors, setErrors] = useState(skillFormErrors);
-  const [availableDaysArray, setAvailableDaysArray] = useState([]);
   const volunteer = useSelector((state) => state?.volunteer);
   useEffect(() => {
     setErrors(skillFormErrors);
   }, [skillFormErrors]);
+
+  useEffect(() => {
+    console.log("Scrolled");
+  }, [scrollPosition]);
   return (
     <>
       <div className="w-[90%] min1141:w-[80%] flex items-center justify-center">
@@ -36,6 +40,7 @@ const SkillForm = ({
           error="Please indicate if you are a medical practitioner"
           defaultValue={volunteer?.isMedicalPractitioner}
           className="mt-[50px]"
+          focus={scrollPosition === "isMedicalPractitioner" ? true : false}
         />
       </div>
       <div className="w-[90%] min1141:w-[80%] flex items-center justify-center">
@@ -47,6 +52,7 @@ const SkillForm = ({
           error="Please indicate if you can lift heavy objects"
           defaultValue={volunteer?.canLiftHeavyObjects}
           className="max1140min641:mt-[50px]"
+          focus={scrollPosition === "canLiftHeavyObjects" ? true : false}
         />
       </div>
 
@@ -58,6 +64,7 @@ const SkillForm = ({
           isError={errors.includes("canTakeWeekfOff") ? true : false}
           error="Please indicate if you can take the week off"
           defaultValue={volunteer?.canTakeWeekfOff}
+          focus={scrollPosition === "canTakeWeekfOff" ? true : false}
         />
       </div>
 
@@ -70,6 +77,7 @@ const SkillForm = ({
           error="Please indicate at least one day you will be available"
           defaultValue={volunteer?.daysAvailable}
           flexDirection="flex-col"
+          focus={scrollPosition === "daysAvailable" ? true : false}
         />
       </div>
 
@@ -82,6 +90,7 @@ const SkillForm = ({
           isError={errors.includes("preferredTeam") ? true : false}
           error="You didn't indicate your preferred team"
           defaultValue={volunteer?.preferredTeam}
+          focus={scrollPosition === "preferredTeam" ? true : false}
         />
       </div>
 
@@ -95,6 +104,7 @@ const SkillForm = ({
             error="Please select media skills"
             defaultValue={volunteer?.mediaAbilities}
             flexDirection="flex-col"
+            focus={scrollPosition === "mediaAbilities" ? true : false}
           />
         </div>
       )}

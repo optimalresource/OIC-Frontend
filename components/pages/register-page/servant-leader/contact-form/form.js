@@ -14,6 +14,7 @@ const ContactForm = ({
   contactFormErrors = [],
   validateContact,
   decreasePage,
+  scrollPosition = "",
 }) => {
   const [errors, setErrors] = useState(contactFormErrors);
   const [sameAsWhatsAppContact, setSameAsWhatsAppContact] = useState(false);
@@ -28,6 +29,10 @@ const ContactForm = ({
     }
     setSameAsWhatsAppContact((previous) => !previous);
   };
+
+  useEffect(() => {
+    console.log("Scrolled");
+  }, [scrollPosition]);
   return (
     <>
       <div className="grid grid-cols-1 max640:grid-cols-1 max1140:grid-cols-2 w-[90%] min1141:w-[80%] gap-5">
@@ -40,6 +45,7 @@ const ContactForm = ({
             important={true}
             setValue={setContactNumber}
             defaultValue={volunteer?.contactNumber}
+            focus={scrollPosition === "contactNumber" ? true : false}
           />
         </div>
         <div className="w-[100%] flex items-center justify-center">
@@ -56,6 +62,7 @@ const ContactForm = ({
                 : volunteer?.whatsAppNumber
             }
             disabled={sameAsWhatsAppContact ? true : false}
+            focus={scrollPosition === "whatsAppNumber" ? true : false}
           >
             <div
               className="flex gap-2 items-center cursor-pointer"
@@ -81,6 +88,7 @@ const ContactForm = ({
             isError={errors.includes("ageRange") ? true : false}
             error="Please select your age range"
             defaultValue={volunteer?.ageRange}
+            focus={scrollPosition === "ageRange" ? true : false}
           />
         </div>
         <div className="w-[100%] flex items-center justify-center">
@@ -91,6 +99,7 @@ const ContactForm = ({
             isError={errors.includes("medicalCondition") ? true : false}
             error="Please indicate whether you have such medical condition"
             defaultValue={volunteer?.medicalCondition}
+            focus={scrollPosition === "medicalCondition" ? true : false}
           />
         </div>
       </div>

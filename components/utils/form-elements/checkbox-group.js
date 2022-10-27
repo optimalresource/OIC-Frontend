@@ -1,5 +1,6 @@
 import { Icon } from "@iconify/react";
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
+import { GenerateRandomString } from "../GenerateRandomString";
 
 const CheckboxGroup = ({
   flexDirection = "flex-row",
@@ -13,14 +14,28 @@ const CheckboxGroup = ({
   isError = false,
   error = "Please check error",
   defaultValue = [],
+  focus = false,
   setValue = () => {},
 }) => {
+  const [id, setId] = useState(GenerateRandomString(10));
+  useEffect(() => {
+    if (focus) {
+      const handleClickScroll = () => {
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      };
+      handleClickScroll();
+    }
+  }, [focus, id]);
   return (
     <div
       className={`flex flex-col  ${className}`}
       style={{
         width: isFullWidth ? "100%" : width,
       }}
+      id={id}
     >
       {showLabel && (
         <div className="flex pb-3">

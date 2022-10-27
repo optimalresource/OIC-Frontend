@@ -1,7 +1,7 @@
 import { Icon, InlineIcon } from "@iconify/react";
-import { COOKIE_NAME_PRERENDER_BYPASS } from "next/dist/server/api-utils";
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import ClickAwayListener from "../ClickAwayListener";
+import { GenerateRandomString } from "../GenerateRandomString";
 
 const SelectAdornment = ({
   isError = false,
@@ -21,6 +21,7 @@ const SelectAdornment = ({
   defaultValue = "",
   setValue = () => {},
   items = [],
+  focus = false,
   ...otherProps
 }) => {
   const [toggleDropdown, setToggleDropdown] = useState(false);
@@ -30,12 +31,26 @@ const SelectAdornment = ({
     setValue(value);
     setToggleDropdown(false);
   };
+  const [id, setId] = useState(GenerateRandomString(10));
+  useEffect(() => {
+    if (focus) {
+      const handleClickScroll = () => {
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      };
+      handleClickScroll();
+    }
+  }, [focus, id]);
+
   return (
     <div
       className={`flex flex-col  ${className} relative`}
       style={{
         width: isFullWidth ? "100%" : width,
       }}
+      id={id}
     >
       <ClickAwayListener onClickAway={() => setToggleDropdown(false)}>
         {showLabel && (

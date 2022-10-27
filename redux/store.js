@@ -4,6 +4,8 @@ import storage from "redux-persist/lib/storage";
 import hardSet from "redux-persist/lib/stateReconciler/hardSet";
 import userReducer from "./user";
 import volunteerReducer from "./volunteer";
+import { setupListeners } from "@reduxjs/toolkit/query";
+import { apiSlice } from "services";
 
 import {
   persistReducer,
@@ -24,6 +26,7 @@ const persistConfig = {
 const reducers = combineReducers({
   user: userReducer,
   volunteer: volunteerReducer,
+  [apiSlice.reducerPath]: apiSlice.reducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, reducers);
@@ -35,7 +38,9 @@ export const store = configureStore({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    }),
+    }).concat(apiSlice.middleware),
 });
+
+setupListeners(store.dispatch);
 
 export default store;
