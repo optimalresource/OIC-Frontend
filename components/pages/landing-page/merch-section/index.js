@@ -1,6 +1,5 @@
 import Image from "next/image";
 import React from "react";
-import Link from "next/link";
 
 const MerchSection = () => {
   return (
@@ -24,9 +23,7 @@ const MerchSection = () => {
           the message of Christ!
         </p>
         <div className="mt-[50px] amd:mt-[20px] min1041:mt-[50px]">
-          <Link href="/store">
-            <button className={`buttonPrimary text-sm w-[200px]`}>Get Now</button>
-          </Link>
+          <button className={`buttonPrimary text-sm w-[200px]`}>Get Now</button>
         </div>
       </div>
     </div>
