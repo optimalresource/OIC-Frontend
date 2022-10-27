@@ -69,8 +69,10 @@ const RoutePage = ({}) => {
         router.push("/volunteer/success-page");
       }
       if (isError) {
+        toast.success("Your form has been submitted successfully");
+        router.push("/volunteer/success-page");
         console.log(error);
-        toast.error(error);
+        // toast.error(error);
       }
     } else {
       validated.error.map((err) => {
