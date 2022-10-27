@@ -56,7 +56,6 @@ const ContactFormPage = () => {
     let errors = [];
     if (!ValidateMobile(contactNumber)) errors.push("contactNumber");
     if (!ValidateMobile(whatsAppNumber)) errors.push("whatsAppNumber");
-    console.log(whatsAppNumber);
     if (ageRange.length < 1) errors.push("ageRange");
     if (medicalCondition.length < 1) errors.push("medicalCondition");
     if (errors.length > 0) {

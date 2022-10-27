@@ -34,7 +34,7 @@ function MyApp({ Component, pageProps }) {
           <div className="mainWrapper">
             <div className="mainContainer">
               <NextProgress color="#009fe3" height={5} />
-              <Toaster position="top-right" />
+              <Toaster position="top-center" reverseOrder={false} />
               {Component.getLayout ? (
                 Component.getLayout(<Component {...pageProps} />)
               ) : (

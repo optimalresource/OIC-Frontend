@@ -5,7 +5,7 @@ import SkillForm from "./form";
 import { availableDays } from "data/available-days";
 import { useRouter } from "next/router";
 
-const SkillFormPage = () => {
+const SkillFormPage = ({ submitForm }) => {
   const [skillFormErrors, setSkillFormErrors] = useState([]);
   const router = useRouter();
   const volunteer = useSelector((state) => state?.volunteer);
