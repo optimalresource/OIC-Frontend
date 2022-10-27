@@ -17,12 +17,17 @@ const BioDataForm = ({
   setYearJoined,
   setDepartment,
   biodataformErrors = [],
+  scrollPosition = "",
 }) => {
   const [errors, setErrors] = useState(biodataformErrors);
   const volunteer = useSelector((state) => state?.volunteer);
   useEffect(() => {
     setErrors(biodataformErrors);
   }, [biodataformErrors]);
+
+  useEffect(() => {
+    console.log("Scrolled");
+  }, [scrollPosition]);
   return (
     <>
       <div className="grid grid-cols-1 max640:grid-cols-1 max1140:grid-cols-2 w-[90%] min1141:w-[80%] gap-5">
@@ -35,6 +40,7 @@ const BioDataForm = ({
             important={true}
             setValue={setFirstName}
             defaultValue={volunteer?.firstName}
+            focus={scrollPosition === "firstName" ? true : false}
           />
         </div>
         <div className="w-[100%] flex items-center justify-center">
@@ -46,6 +52,7 @@ const BioDataForm = ({
             error="Please enter your last name"
             setValue={setLastName}
             defaultValue={volunteer?.lastName}
+            focus={scrollPosition === "lastName" ? true : false}
           />
         </div>
       </div>
@@ -58,6 +65,7 @@ const BioDataForm = ({
           error="Please enter your email"
           setValue={setEmail}
           defaultValue={volunteer?.email}
+          focus={scrollPosition === "email" ? true : false}
         />
       </div>
 
@@ -69,6 +77,7 @@ const BioDataForm = ({
           isError={errors.includes("gender") ? true : false}
           error="Please select your gender"
           defaultValue={volunteer?.gender}
+          focus={scrollPosition === "gender" ? true : false}
         />
         <RadioGroup
           items={["Yes", "No"]}
@@ -77,6 +86,7 @@ const BioDataForm = ({
           isError={errors.includes("isMember") ? true : false}
           error="You didn't indicate if you are an Oasis member"
           defaultValue={volunteer?.isMember}
+          focus={scrollPosition === "isMember" ? true : false}
         />
 
         {volunteer?.isMember === "Yes" && (
@@ -90,6 +100,7 @@ const BioDataForm = ({
                 isError={errors.includes("yearJoined") ? true : false}
                 error="You didn't indicate what year you joined Oasis"
                 defaultValue={volunteer?.yearJoined}
+                focus={scrollPosition === "yearJoined" ? true : false}
               />
             </div>
 
@@ -100,6 +111,7 @@ const BioDataForm = ({
               isError={errors.includes("isServing") ? true : false}
               error="You didn't indicate if you serve in the Oasis"
               defaultValue={volunteer?.isServing}
+              focus={scrollPosition === "isServing" ? true : false}
             />
           </>
         )}
@@ -115,6 +127,7 @@ const BioDataForm = ({
               isError={errors.includes("department") ? true : false}
               error="You didn't indicate your department in the Oasis"
               defaultValue={volunteer?.department}
+              focus={scrollPosition === "department" ? true : false}
             />
           </div>
         </>

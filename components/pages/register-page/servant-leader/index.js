@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React from "react";
+import React, { useEffect } from "react";
 import BioData from "./biodata.js";
 import ContactFormPage from "./contact-form/index.js";
 import SkillFormPage from "./skill-form.js";
@@ -10,6 +10,7 @@ import ValidateVolunteerObject from "./ValidateVolunteerObject.js";
 import { useSelector, useDispatch } from "react-redux";
 import { setVolunteer } from "redux/volunteer";
 import { volunteerType } from "types/volunteer.js";
+import toast from "react-hot-toast";
 
 const ServantLeader = () => {
   const router = useRouter();
@@ -62,13 +63,21 @@ const RoutePage = ({}) => {
     if (validated.status) {
       if (addVolunteer(validated.data)) {
         dispatch(setVolunteer(volunteerType));
+        toast.success("Your form has been submitted successfully");
         router.push("/volunteer/success-page");
       }
     } else {
+      validated.error.map((err) => {
+        toast.error(err);
+      });
     }
   };
   if (!router.query?.id) {
-    return <BioData />;
+    return (
+      <>
+        <BioData />
+      </>
+    );
   } else {
     if (router.query?.id == 1) {
       return <ContactFormPage />;
@@ -82,4 +91,5 @@ const RoutePage = ({}) => {
     }
   }
 };
+
 export default ServantLeader;

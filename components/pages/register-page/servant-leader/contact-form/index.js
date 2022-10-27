@@ -4,12 +4,15 @@ import { setVolunteer } from "redux/volunteer";
 import ContactForm from "./form";
 import { ValidateMobile } from "components/utils/ValidateMobile";
 import { useRouter } from "next/router";
+import toast from "react-hot-toast";
+import { determineScroll } from "../ScrollLogic";
 
 const ContactFormPage = () => {
   const [contactFormErrors, setContactFormErrors] = useState([]);
   const volunteer = useSelector((state) => state?.volunteer);
   const { contactNumber, whatsAppNumber, ageRange, medicalCondition } =
     volunteer;
+  const [scrollPosition, setScrollPosition] = useState("");
   const dispatch = useDispatch();
   const router = useRouter();
 
@@ -60,6 +63,8 @@ const ContactFormPage = () => {
     if (medicalCondition.length < 1) errors.push("medicalCondition");
     if (errors.length > 0) {
       setContactFormErrors(errors);
+      setScrollPosition(determineScroll(errors));
+      toast.error("Please fill the missing form fields");
       return false;
     } else {
       setContactFormErrors([]);
@@ -85,6 +90,7 @@ const ContactFormPage = () => {
       validateContact={validateContact}
       decreasePage={() => router.push("/volunteer")}
       contactFormErrors={contactFormErrors}
+      scrollPosition={scrollPosition}
     />
   );
 };

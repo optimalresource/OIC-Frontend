@@ -4,9 +4,12 @@ import { validateEmail } from "components/utils/ValidateEmail";
 import { useSelector, useDispatch } from "react-redux";
 import { setVolunteer } from "redux/volunteer";
 import { useRouter } from "next/router";
+import toast from "react-hot-toast";
+import { determineScroll } from "../ScrollLogic";
 
 const BioData = () => {
   const [biodataformErrors, setBiodataformErrors] = useState([]);
+  const [scrollPosition, setScrollPosition] = useState("");
   const volunteer = useSelector((state) => state?.volunteer);
   const {
     firstName,
@@ -89,6 +92,8 @@ const BioData = () => {
     }
     if (errors.length > 0) {
       setBiodataformErrors(errors);
+      setScrollPosition(determineScroll(errors));
+      toast.error("Please fill the missing form fields");
       return false;
     } else {
       setBiodataformErrors([]);
@@ -133,6 +138,7 @@ const BioData = () => {
         dispatch(setVolunteer({ ...volunteer, yearJoined: value }))
       }
       biodataformErrors={biodataformErrors}
+      scrollPosition={scrollPosition}
     />
   );
 };
