@@ -1,5 +1,6 @@
 import { Icon } from "@iconify/react";
 import React from "react";
+import Link from "next/link";
 
 const TopNav = () => {
   return (
@@ -18,10 +19,18 @@ const TopNav = () => {
       <div className="flex items-center">
         <div className="flex gap-2 items-center">
           Follow :
-          <Icon icon="akar-icons:instagram-fill" />
-          <Icon icon="akar-icons:youtube-fill" />
-          <Icon icon="akar-icons:facebook-fill" />
-          <Icon icon="akar-icons:twitter-fill" />
+          <Link href="https://www.instagram.com/theoasislagos/">
+            <a className="text-[#fff]"><Icon icon="akar-icons:instagram-fill" /></a>
+          </Link>
+          <Link href="https://www.youtube.com/c/TheOasisLagos">
+            <a className="text-[#fff]"><Icon icon="akar-icons:youtube-fill" /></a>
+          </Link>
+          <Link href="https://www.facebook.com/theoasislagos">
+            <a className="text-[#fff]"><Icon icon="akar-icons:facebook-fill" /></a>
+          </Link>
+          <Link href="https://twitter.com/theoasislagos">
+            <a className="text-[#fff]"><Icon icon="akar-icons:twitter-fill" /></a>
+          </Link>
         </div>
       </div>
     </div>
