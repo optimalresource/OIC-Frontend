@@ -102,14 +102,15 @@ const MobileMenu = ({ menuToggled, setMenuToggled }) => {
           </div>
           <hr className="min641:hidden" />
           <div className="flex flex-col gap-3 min641:hidden">
-            <div className="flex gap-2 items-center">
+            {/* <div className="flex gap-2 items-center">
               <Icon icon="akar-icons:phone" />
               <span>+234 915 782 2911</span>
             </div>
             <div className="flex gap-2 items-center">
               <Icon icon="uiw:mail-o" />
               <span>info@theoasislagos.com</span>
-            </div>
+            </div> */}
+            RCCG The Oasis
           </div>
 
           <div className="flex items-center min641:hidden">
