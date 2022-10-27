@@ -23,7 +23,7 @@ export function Header() {
   return (
     <>
       <div
-        className={`${styles.container} top-[50px] py-[20px] pb-[10px] min641:pt-[10px] max640:top-[0] w-[100%] px-[5%] max-w-[1728px] w-[100%] z-[1000] max640:bg-[#000] max640:text-white min641:bg-[#fff] min1728:px-[95px]`}
+        className={`${styles.container} top-[50px] py-[20px] pb-[10px] min641:pt-[10px] max640:top-[0] w-[100%] px-[5%] max-w-[1728px] w-[100%] z-[1000] max640:bg-[#0b508f] max640:text-white min641:bg-[#fff] min1728:px-[95px]`}
       >
         <div className="max640:hidden">
           <Link href="/">
