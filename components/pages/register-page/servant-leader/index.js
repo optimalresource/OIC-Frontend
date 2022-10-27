@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React, { useEffect } from "react";
+import React, { useState } from "react";
 import BioData from "./biodata.js";
 import ContactFormPage from "./contact-form/index.js";
 import SkillFormPage from "./skill-form.js";
@@ -11,11 +11,14 @@ import { useSelector, useDispatch } from "react-redux";
 import { setVolunteer } from "redux/volunteer";
 import { volunteerType } from "types/volunteer.js";
 import toast from "react-hot-toast";
+import Loader from "components/utils/loader.js";
 
 const ServantLeader = () => {
+  const [loading, setLoading] = useState(false);
   const router = useRouter();
   return (
     <div className="w-[100%] px-[0%] py-[0px] mt-[130px] bmd:mt-[100px] max640:mt-[60px] min1141:grid min1141:grid-cols-2 max-w-[1728px] relative">
+      {loading && <Loader />}
       <div className="flex flex-col flex-1 bg-[#000000]  bg-[url('/assets/images/register_frame.png')] bg-cover min-h-[500px] gap-5 items-center justify-center bg-no-repeat max1040:w-[100%] ">
         <div className="w-[700px] min1041:w-[600px] bg-[#000] text-[#ffffff] p-[100px] text-center bg-opacity-70 flex flex-col gap-3 bmd:w-[90%] bmd:px-[50px]">
           <h2 className="text-4xl bmd:text-3xl pb-5 font-semibold">
@@ -47,32 +50,35 @@ const ServantLeader = () => {
             </div>
           ))}
 
-        <RoutePage />
+        <RoutePage setLoading={setLoading} />
       </div>
     </div>
   );
 };
 
-const RoutePage = ({}) => {
+const RoutePage = ({ setLoading }) => {
   const router = useRouter();
   const volunteer = useSelector((state) => state?.volunteer);
   const dispatch = useDispatch();
-  const [addVolunteer, isError, error, isLoading, success] =
-    useAddVolunteerMutation();
+  const [addVolunteer, isSuccess] = useAddVolunteerMutation();
   const submitForm = async () => {
+    setLoading(true);
     const validated = ValidateVolunteerObject(volunteer);
     if (validated.status) {
       // var response = await addVolunteer(validated.data).unwrap();
       await addVolunteer(validated.data);
-      if (isError) {
-        toast.error(error);
-      } else {
+      if (isSuccess) {
         dispatch(setVolunteer(volunteerType));
+        setLoading(false);
         toast.success("Your form has been submitted successfully");
         router.push("/volunteer/success-page");
+      } else {
+        setLoading(false);
+        toast.error("An error occurred");
       }
     } else {
       validated.error.map((err) => {
+        setLoading(false);
         toast.error(err);
       });
     }
@@ -85,9 +91,17 @@ const RoutePage = ({}) => {
     );
   } else {
     if (router.query?.id == 1) {
-      return <ContactFormPage />;
+      return (
+        <>
+          <ContactFormPage />;
+        </>
+      );
     } else if (router.query?.id == 2) {
-      return <SkillFormPage submitForm={submitForm} />;
+      return (
+        <>
+          <SkillFormPage submitForm={submitForm} />;
+        </>
+      );
     } else if (typeof router.query?.id == "string") {
       if (router.query?.id == "success-page") return <VolunteerSuccessPage />;
       else router.push("/volunteer");
