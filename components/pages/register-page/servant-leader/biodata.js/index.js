@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { setVolunteer } from "redux/volunteer";
 import { useRouter } from "next/router";
 
-const BioData = ({ increasePage }) => {
+const BioData = () => {
   const [biodataformErrors, setBiodataformErrors] = useState([]);
   const volunteer = useSelector((state) => state?.volunteer);
   const {
