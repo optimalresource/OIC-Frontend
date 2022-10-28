@@ -7,7 +7,7 @@ import MinisteringSection from "./ministering-section";
 import ServantLeader from "./servant-leader";
 import Welcome from "./welcome";
 function LandingPage({}) {
-  const header = "/assets/images/hero/squared/1.png";
+  const header = "/assets/images/hero/squared/2.png";
   return (
     <>
       <Hero header={header} />
@@ -16,7 +16,7 @@ function LandingPage({}) {
       <AboutSection />
       <MerchSection />
       <AltarCall />
-      <MinisteringSection />
+      {/* <MinisteringSection /> */}
     </>
   );
 }
