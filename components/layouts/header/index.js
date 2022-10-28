@@ -27,24 +27,42 @@ export function Header() {
       >
         <div className="max640:hidden">
           <Link href="/">
-            <Image
-              src="/assets/images/svgs/logo3.svg"
-              width={161}
-              height={45}
-              alt="logo"
-              layout="intrinsic"
-            />
+            <div className="flex gap-2 items-center">
+              <Image
+                src="/assets/images/rccg_logo.png"
+                width={45}
+                height={45}
+                alt="logo"
+                layout="intrinsic"
+              />
+              <Image
+                src="/assets/images/svgs/logo3.svg"
+                width={161}
+                height={45}
+                alt="logo"
+                layout="intrinsic"
+              />
+            </div>
           </Link>
         </div>
         <div className="min641:hidden">
           <Link href="/">
-            <Image
-              src="/assets/images/svgs/white_logo.svg"
-              width={161}
-              height={45}
-              alt="logo"
-              layout="intrinsic"
-            />
+            <div className="flex gap-2 items-center">
+              <Image
+                src="/assets/images/rccg_logo.png"
+                width={45}
+                height={45}
+                alt="logo"
+                layout="intrinsic"
+              />
+              <Image
+                src="/assets/images/svgs/white_logo.svg"
+                width={161}
+                height={45}
+                alt="logo"
+                layout="intrinsic"
+              />
+            </div>
           </Link>
         </div>
         <div className={styles.menus}>

@@ -21,25 +21,7 @@ const MobileMenu = ({ menuToggled, setMenuToggled }) => {
           >
             <Icon icon="fontisto:close-a" />
           </div>
-          <div className="flex flex-col w-[100%] bmd:hidden">
-            <ul className={styles.links}>
-              {authMenu.map((value, index) => {
-                return (
-                  <li key={index}>
-                    <Link href={value?.url}>
-                      <div
-                        className={`${styles.menuList} gap-[20px]`}
-                        onClick={() => setMenuToggled(!menuToggled)}
-                      >
-                        <Icon icon={value?.icon} className={styles.icon} />
-                        <span>{value?.title}</span>
-                      </div>
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
+
           <div className="flex flex-col w-[100%] amd:hidden">
             <ul className={styles.links}>
               {menu.map((value, index) => {
@@ -99,17 +81,28 @@ const MobileMenu = ({ menuToggled, setMenuToggled }) => {
                 );
               })}
             </ul>
+            {/* <div className="flex flex-col w-[100%] bmd:hidden">
+              <ul className={styles.links}>
+                {authMenu.map((value, index) => {
+                  return (
+                    <li key={index}>
+                      <Link href={value?.url}>
+                        <div
+                          className={`${styles.menuList} gap-[20px]`}
+                          onClick={() => setMenuToggled(!menuToggled)}
+                        >
+                          <Icon icon={value?.icon} className={styles.icon} />
+                          <span>{value?.title}</span>
+                        </div>
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div> */}
           </div>
           <hr className="min641:hidden" />
           <div className="flex flex-col gap-3 min641:hidden">
-            {/* <div className="flex gap-2 items-center">
-              <Icon icon="akar-icons:phone" />
-              <span>+234 915 782 2911</span>
-            </div>
-            <div className="flex gap-2 items-center">
-              <Icon icon="uiw:mail-o" />
-              <span>info@theoasislagos.com</span>
-            </div> */}
             RCCG The Oasis
           </div>
 

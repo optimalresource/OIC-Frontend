@@ -17,7 +17,7 @@ const Hero = ({
             <h3 className="text-base md:text-lg lg:text-xl amd:font-semibold pt-2 max400:py-1 max400:text-xs max400:font-normal max320:py-0">
               OIC 2022
             </h3>
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-20 max400:text-2xl max400:leading-10">
+            <h1 className="text-4xl md:text-6xl lg:text-8xl font-bold max400:text-3xl max400:leading-10 leading-[80px] cinzel-font mt-4">
               Now is the acceptable time
             </h1>
           </div>

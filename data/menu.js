@@ -1,11 +1,5 @@
 export const menu = [
   {
-    hasDropdown: false,
-    url: "/login",
-    title: "Login",
-    icon: "bi:person",
-  },
-  {
     hasDropdown: true,
     title: "Conference",
     icon: "fluent:conference-room-20-regular",
@@ -32,16 +26,16 @@ export const menu = [
     title: "Oasis Online",
     icon: "ic:twotone-online-prediction",
     children: [
-      {
-        url: "/stream",
-        title: "Stream",
-        icon: "pajamas:live-stream",
-      },
-      {
-        url: "/give",
-        title: "Give",
-        icon: "bx:donate-heart",
-      },
+      // {
+      //   url: "/stream",
+      //   title: "Stream",
+      //   icon: "pajamas:live-stream",
+      // },
+      // {
+      //   url: "/give",
+      //   title: "Give",
+      //   icon: "bx:donate-heart",
+      // },
       {
         url: "/altar-call",
         title: "Altar Call",
@@ -62,4 +56,10 @@ export const menu = [
     title: "Volunteer",
     icon: "arcticons:volunteer-exchange",
   },
+  // {
+  //   hasDropdown: false,
+  //   url: "/login",
+  //   title: "Login",
+  //   icon: "bi:person",
+  // },
 ];
