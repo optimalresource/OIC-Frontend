@@ -29,7 +29,11 @@ const AboutSection = () => {
           desire to see the body of Christ grow in grace and in the knowledge of
           God. We live in a time where the truth seems to be fading off among
           believers and people are now giving their strength to motivations
-          sponsored by selfish ambitions and personal interests.
+          sponsored by selfish ambitions and personal interests. In order to see believers grounded
+          in truth and established in the faith, OIC was established. Ever since the first edition,
+          it has become a yearly meeting characterised by graceful teachings, deep worship, prophetic
+          utterances, miracles and testimonies.
+
         </p>
 
         <div className="mt-[50px]">

@@ -9,7 +9,7 @@ function AltarCallComponent({}) {
       <div className="w-[100%] px-[5%] mt-[130px] bmd:mt-[100px] max640:mt-[60px] relative bmd:bg-[#000]">
         <div className="w-[100%] min1140:h-[640px] relative rounded-[50px]">
           <img
-            src="/assets/images/hero/squared/8.png"
+            src="/assets/images/hero/jesus-saves.png"
             alt="banner"
             layout="fill"
             className="rounded-[50px] w-[100%]"
