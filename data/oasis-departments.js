@@ -7,7 +7,6 @@ export const oasisDepartments = [
   "Greeters",
   "Security",
   "Sanitation",
-  "Counseling",
   "Prayer",
   "Outreach",
   "Protocol",
