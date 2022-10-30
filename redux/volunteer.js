@@ -8,7 +8,7 @@ const initialState = {
   isMember: null,
   isServing: null,
   yearJoined: "",
-  department: "",
+  department: [],
   contactNumber: "",
   whatsAppNumber: "",
   ageRange: "",

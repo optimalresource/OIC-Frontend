@@ -132,7 +132,7 @@ const ValidateVolunteerObject = (volunteer) => {
       isMember: isMember,
       yearJoinOasis: yearJoined,
       isWorker: isServing,
-      department: department,
+      department: department.length > 0 ? department.join("%") : "",
       phoneNumber: contactNumber,
       whatsappNumber: whatsAppNumber,
       ageRange: ageRange,

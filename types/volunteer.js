@@ -6,7 +6,7 @@ export const volunteerType = {
   isMember: null,
   isServing: null,
   yearJoined: "",
-  department: "",
+  department: [],
   contactNumber: "",
   whatsAppNumber: "",
   ageRange: "",

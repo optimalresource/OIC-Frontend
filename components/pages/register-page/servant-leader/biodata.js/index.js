@@ -76,6 +76,14 @@ const BioData = () => {
     department,
   ]);
 
+  const addToDepartment = (value) => {
+    const dept = [...volunteer?.department];
+    if (dept.includes(value)) dept.splice(dept.indexOf(value), 1);
+    else dept.push(value);
+    console.log(dept);
+    dispatch(setVolunteer({ ...volunteer, department: dept }));
+  };
+
   const checkBioDataForm = useCallback(() => {
     let errors = [];
     if (firstName.length < 1) errors.push("firstName");
@@ -130,9 +138,7 @@ const BioData = () => {
       setServe={(value) =>
         dispatch(setVolunteer({ ...volunteer, isServing: value }))
       }
-      setDepartment={(value) =>
-        dispatch(setVolunteer({ ...volunteer, department: value }))
-      }
+      setDepartment={(value) => addToDepartment(value)}
       validateBioData={validateBioData}
       setYearJoined={(value) =>
         dispatch(setVolunteer({ ...volunteer, yearJoined: value }))
