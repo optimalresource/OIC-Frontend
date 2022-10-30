@@ -1,6 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
+import { useAddSubscriptionMutation } from "services/SubscribeService";
+import { validateEmail } from "components/utils/ValidateEmail";
+import toast from "react-hot-toast";
 
-const Subscription = () => {
+const Subscription = ({ setLoading }) => {
+  const [email, setEmail] = useState("");
+  const [addSubscription, isSuccess] = useAddSubscriptionMutation();
+  const submit = async () => {
+    setLoading(true);
+    if (!validateEmail(email)) {
+      toast.error("You entered an invalid email");
+      setLoading(false);
+      return false;
+    }
+    await addSubscription({ email: email });
+    if (isSuccess) {
+      toast.success("You have successfully subsribed to our newsletter");
+      setEmail("");
+      setLoading(false);
+      return true;
+    } else {
+      toast.error("An error occured");
+      setLoading(false);
+      return false;
+    }
+  };
   return (
     <div className="w-[100%] h-[309px] bg-[url('/assets/images/subscription.png')] text-[#ffffff] flex flex-col gap-5 items-center justify-center">
       <h1 className="text-4xl font-semibold">Subscribe</h1>
@@ -10,9 +34,14 @@ const Subscription = () => {
           <input
             type="text"
             className="h-[40px] bg-[transparent] border-0 outline-none w-[100%] rounded-0"
+            onChange={(e) => setEmail(e.target.value)}
+            value={email}
           />
         </div>
-        <button className="subscribe ml-[-4px] max400:ml-[unset] rounded-tr-[5px] rounded-br-[5px] max400:rounded-tl-[5px] max400:rounded-bl-[5px]">
+        <button
+          className="subscribe ml-[-4px] max400:ml-[unset] rounded-tr-[5px] rounded-br-[5px] max400:rounded-tl-[5px] max400:rounded-bl-[5px]"
+          onClick={submit}
+        >
           Subscribe
         </button>
       </div>
