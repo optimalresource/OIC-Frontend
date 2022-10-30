@@ -163,7 +163,7 @@ export function Header() {
             </li>
           </ul>
         </div>
-        <div className="buttonWrapper max1200:hidden">
+        <div className={`${styles.loginButton} buttonWrapper max1200:hidden`}>
           <button className={`buttonPrimary text-sm`}>Login</button>
         </div>
         <motion.div
