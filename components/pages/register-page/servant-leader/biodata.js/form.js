@@ -28,6 +28,8 @@ const BioDataForm = ({
   useEffect(() => {
     console.log("Scrolled");
   }, [scrollPosition]);
+
+  console.log(volunteer?.department);
   return (
     <>
       <div className="grid grid-cols-1 max640:grid-cols-1 max1140:grid-cols-2 w-[90%] min1141:w-[80%] gap-5">
@@ -120,7 +122,7 @@ const BioDataForm = ({
         <>
           <div className="w-[90%] min1141:w-[80%] flex items-center justify-center">
             <SelectAdornment
-              label="Select your department"
+              label="Select your department(s) in church"
               important={true}
               items={oasisDepartments}
               setValue={setDepartment}
@@ -128,6 +130,7 @@ const BioDataForm = ({
               error="You didn't indicate your department in the Oasis"
               defaultValue={volunteer?.department}
               focus={scrollPosition === "department" ? true : false}
+              isMultiple={true}
             />
           </div>
         </>

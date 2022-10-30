@@ -18,18 +18,20 @@ const SelectAdornment = ({
   important = true,
   className,
   selected = "",
-  defaultValue = "",
+  defaultValue = [],
   setValue = () => {},
   items = [],
   focus = false,
+  isMultiple = false,
   ...otherProps
 }) => {
   const [toggleDropdown, setToggleDropdown] = useState(false);
   const [inputSelected, setInputSelected] = useState(defaultValue);
+  console.log(inputSelected);
   const triggerSetValue = (value) => {
     setInputSelected(value);
     setValue(value);
-    setToggleDropdown(false);
+    if (!isMultiple) setToggleDropdown(false);
   };
   const [id, setId] = useState(GenerateRandomString(10));
   useEffect(() => {
@@ -73,7 +75,7 @@ const SelectAdornment = ({
             type="text"
             {...otherProps}
             className={`w-[90%] border-0 outline-0 h-[${height}px] rounded-[${rounded}] px-3 bg-[#fff]`}
-            value={inputSelected ?? defaultValue}
+            value={isMultiple ? defaultValue.join(",") : defaultValue}
             disabled
           />
           <InlineIcon icon="akar-icons:chevron-down" className="flex-1" />
@@ -94,13 +96,24 @@ const SelectAdornment = ({
                     onClick={() => triggerSetValue(item)}
                     key={index}
                   >
-                    <span className="w-[30px]">
-                      {inputSelected === item ? (
-                        <Icon icon="akar-icons:check" />
-                      ) : (
-                        " "
-                      )}
-                    </span>
+                    {isMultiple ? (
+                      <span className="w-[30px]">
+                        {defaultValue.includes(item) ? (
+                          <Icon icon="akar-icons:check" />
+                        ) : (
+                          " "
+                        )}
+                      </span>
+                    ) : (
+                      <span className="w-[30px]">
+                        {defaultValue === item ? (
+                          <Icon icon="akar-icons:check" />
+                        ) : (
+                          " "
+                        )}
+                      </span>
+                    )}
+
                     {item}
                   </li>
                 );
