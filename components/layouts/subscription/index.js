@@ -26,7 +26,7 @@ const Subscription = ({ setLoading }) => {
     }
   };
   return (
-    <div className="w-[100%] h-[309px] bg-[url('/assets/images/subscription.png')] text-[#ffffff] flex flex-col gap-5 items-center justify-center">
+    <div className="w-[100%] h-[309px] bg-[url('/assets/images/subscription.png')] bg-cover text-[#ffffff] flex flex-col gap-5 items-center justify-center">
       <h1 className="text-4xl font-semibold">Subscribe</h1>
       <p className="px-5 text-center">Keep up to date with RCCG The Oasis.</p>
       <div className="flex items-center justify-center relative max400:flex-col max400:gap-5">
