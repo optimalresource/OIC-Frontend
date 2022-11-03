@@ -1,7 +1,6 @@
 import Image from "next/image";
 import React from "react";
 import Carousel from "react-bootstrap/Carousel";
-import "bootstrap/dist/css/bootstrap.min.css";
 
 function Slider() {
   const banners = [
