@@ -28,6 +28,7 @@ export default function Home() {
         <meta property="og:image" content="/fav.png" />
 
         <link rel="icon" href="/fav.png" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
       </Head>
       <LandingPage />
     </Fragment>
