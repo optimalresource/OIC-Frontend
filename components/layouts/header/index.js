@@ -120,7 +120,7 @@ export function Header() {
               {oasisDropdown && (
                 <div className="fixed min-w-[140px] pt-[24px]">
                   <ul className="fixed flex flex-col gap-1 font-semibold shadow-sm shadow-[#0b508f] rounded-lg py-4 bg-[#ffffff] min-w-[140px]">
-                    {/* <Link href="/stream">
+                    <Link href="/stream">
                       <motion.li
                         initial={{ background: "#ffffff", color: "#000" }}
                         whileHover={{ background: "#0b508f", color: "#ffffff" }}
@@ -137,7 +137,7 @@ export function Header() {
                       >
                         Give
                       </motion.li>
-                    </Link> */}
+                    </Link>
                     <Link href="/altar-call">
                       <motion.li
                         initial={{ background: "#ffffff", color: "#000" }}
