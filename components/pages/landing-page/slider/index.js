@@ -5,12 +5,12 @@ import Carousel from "react-bootstrap/Carousel";
 function Slider() {
   const banners = [
     { eventDay: 'Monday, 21st', time: '6:00pm' },
-    // { eventDay: 'Tuesday, 22nd', time: '6:00pm' },
-    // { eventDay: 'Wednesday, 23rd', time: '6:00pm' },
-    // { eventDay: 'Thursday, 24th', time: '6:00pm' },
-    // { eventDay: 'Friday, 25th', time: '9:00pm' },
-    // { eventDay: 'Saturday, 26th', time: '3:00pm' },
-    // { eventDay: 'Sunday, 27th', time: '12:30pm' },
+    { eventDay: 'Tuesday, 22nd', time: '6:00pm' },
+    { eventDay: 'Wednesday, 23rd', time: '6:00pm' },
+    { eventDay: 'Thursday, 24th', time: '6:00pm' },
+    { eventDay: 'Friday, 25th', time: '9:00pm' },
+    { eventDay: 'Saturday, 26th', time: '3:00pm' },
+    { eventDay: 'Sunday, 27th', time: '12:30pm' },
     // '8', '9'
   ];
   return (
