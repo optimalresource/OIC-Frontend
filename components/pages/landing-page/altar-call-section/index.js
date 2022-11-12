@@ -12,12 +12,14 @@ const AltarCall = () => {
         </div>
 
         <h2 className="text-3xl font-semibold">
-          Who is <span className="text-[#1f4477]">Jesus</span>
+          I need <span className="text-[#1f4477]">Jesus</span>
         </h2>
 
         <p className="">
-          Jesus told him, &quot;I am the way, the truth, and the life. No one
-          can come to the Father except through me.&quot; John 14:6 (NLT).
+          The Oasis International Conference, hosted by RCCG The Oasis; a youth expression of RCCG The Kings Court,
+          began in 2014 out of a burning desire to see the body of Christ grow in grace and in the knowledge of God.
+          We live in a time where the truth seems to be fading off among believers and people are now giving their
+          strength to motivations sponsored by selfish ambitions and personal interests.
         </p>
 
         <div className="mt-[50px]">
