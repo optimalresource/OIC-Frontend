@@ -1,3 +1,5 @@
+
+import GivingPage from "components/pages/giving-page";
 import Head from "next/head";
 import { Fragment } from "react";
 
@@ -5,7 +7,7 @@ export default function Give() {
   return (
     <Fragment>
       <Head>
-        <title>Oasis International Conference - Donation</title>
+      <title>Oasis International Conference - Donation</title>
         <meta
           name="description"
           content="RCCG The Oasis International Conference usually holds once in a year. It's a gathering of Christians who are hungry for the word and presence of God. Over the years, countless lives have been transformed."
@@ -25,11 +27,10 @@ export default function Give() {
           content="RCCG The Oasis International Conference usually holds once in a year. It's a gathering of Christians who are hungry for the word and presence of God. Over the years, countless lives have been transformed."
         />
         <meta property="og:image" content="/fav.png" />
+
         <link rel="icon" href="/fav.png" />
       </Head>
-      <div className="textlg font-bold h-[500px] mt-[200px] relative">
-        This is the donation page
-      </div>
+      <GivingPage />
     </Fragment>
   );
 }
