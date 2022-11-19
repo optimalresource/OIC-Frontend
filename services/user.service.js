@@ -1,7 +1,7 @@
 import getConfig from "next/config";
 import { fetchWrapper } from "helpers/fetch-wrapper";
 const { publicRuntimeConfig } = getConfig();
-const baseUrl = `${publicRuntimeConfig.apiUrl}`;
+const baseUrl = `https://rccgoic.herokuapp.com/api`;
 export const userService = {
   login,
   signup,

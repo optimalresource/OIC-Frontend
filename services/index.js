@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { HYDRATE } from "next-redux-wrapper";
 import getConfig from "next/config";
 const { publicRuntimeConfig } = getConfig();
-const baseUrl = `${publicRuntimeConfig.apiUrl}`;
+const baseUrl = `https://rccgoic.herokuapp.com/api`;
 
 export const apiSlice = createApi({
   baseQuery: fetchBaseQuery({

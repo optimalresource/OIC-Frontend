@@ -76,7 +76,7 @@ function _delete(url) {
 function authHeader(url, token) {
   const userToken = token;
   const isLoggedIn = userToken && true;
-  const isApiUrl = url.startsWith(publicRuntimeConfig.apiUrl);
+  const isApiUrl = url.startsWith("https://rccgoic.herokuapp.com/api");
 
   if (isLoggedIn && isApiUrl) {
     return { Authorization: `Bearer ${userToken}`, credentials: "include" };
