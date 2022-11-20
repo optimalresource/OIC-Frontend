@@ -25,7 +25,7 @@ const Hero = ({
           </div>
             <div className="flex flex-col items-center p-5 mb-[80px] md:mt-10 bmd:mt-5 md:min-w-[500px] bmd:min-w-[300px] max320:min-w-[200px]">
               <p className="text-black text-center text-base md:text-xl lg:text-2xl inter-font">
-              Because <span class="inline-flex items-baseline"><img src="/assets/images/giving/Jesus.png" class="self-center w-25 h-20" /></span>  was first generous towards us. See what God can do <br/> through your generosity.
+              Because <span className="inline-flex items-baseline"><img src="/assets/images/giving/Jesus.png" className="self-center w-25 h-20" /></span>  was first generous towards us. See what God can do <br/> through your generosity.
               </p>
               <p className="text-black text-center text-base md:text-xl py-8 lg:text-2xl inter-font">
               Simple and secure. Give your offerings from anywhere in the world.

@@ -123,7 +123,6 @@ function AltarCallComponent({}) {
           <img
             src="/assets/images/hero/jesus-saves.png"
             alt="banner"
-            layout="fill"
             className="rounded-[50px] w-[100%]"
             width="100%"
           />

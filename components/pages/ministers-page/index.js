@@ -9,7 +9,6 @@ function MinistersPage({}) {
           <img
             src="/assets/images/hero/ministers-page.png"
             alt="banner"
-            layout="fill"
             className="rounded-[50px] w-[100%]"
             width="100%"
           />
